@@ -1,6 +1,8 @@
 package com.site.controllers;
 
 import org.pegdown.PegDownProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +26,8 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/admin")
 public class AdminHomeController {
+
+    private final Logger slf4jLogger = LoggerFactory.getLogger(AdminHomeController.class);
 
     @RequestMapping(method = RequestMethod.GET)
     public String loginPage(@RequestParam(value = "loginError", required = false) String error, ModelMap model) {

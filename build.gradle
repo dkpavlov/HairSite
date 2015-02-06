@@ -1,25 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'idea'
-/*idea.module.iml {
-    beforeMerged { module ->
-        module.dependencies.clear()
-    }
-    whenMerged { module ->
-        module.dependencies*.exported = true
-    }
-}
-
-idea.project.ipr {
-    beforeMerged { project ->
-        project.modulePaths.clear()
-    }
-    withXml { provider ->
-        provider.node.component
-                .find { it.@name == 'VcsDirectoryMappings' }
-                .mapping.@vcs = 'Git'
-    }
-}*/
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
@@ -61,5 +42,9 @@ jettyRun{
 
 [jettyRun, jettyRunWar,jettyStop]*.stopPort = 8081
 [jettyRun, jettyRunWar,jettyStop]*.stopKey = 'stopKey'
+
+task hello << {
+    println 'hello, world'
+}
 
 
