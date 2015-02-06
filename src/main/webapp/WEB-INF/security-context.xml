@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+        xmlns="http://www.springframework.org/schema/security"
+        xmlns:beans="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:c="http://www.springframework.org/schema/c"
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xmlns:security="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                            http://www.springframework.org/schema/security
+                            http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                            http://www.springframework.org/schema/jee
+                            http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+    <security:global-method-security pre-post-annotations="enabled" />
+
+    <jee:jndi-lookup id="dataSource"
+                     jndi-name="jdbc/site"
+                     expected-type="javax.sql.DataSource"/>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:password-encoder hash="sha-256">
+                <!--<security:salt-source user-property="username"/>-->
+            </security:password-encoder>
+            <security:jdbc-user-service data-source-ref="dataSource"
+                                        users-by-username-query="select username, password, true from user where username = ?"
+                                        authorities-by-username-query="select u.username, u.role as authorities from user u where u.username = ?" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <beans:bean id="frameOptionsWriter"
+                class="org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter"
+                c:frameOptionsMode="SAMEORIGIN"/>
+
+    <security:http pattern="/favicon.ico"
+                   security="none" />
+
+    <security:http pattern="/assets/**"
+                   security="none" />
+
+    <security:http pattern="/pages/**"
+                   security="none" />
+
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/admin*"
+                                access="permitAll" />
+
+        <security:intercept-url pattern="/admin/**"
+                                access="hasRole('ADMINISTRATOR')" />
+
+        <security:intercept-url pattern="/**"
+                                access="permitAll" />
+
+        <security:form-login login-page="/admin"
+                             default-target-url="/admin"
+                             username-parameter="username"
+                             password-parameter="password"
+                             authentication-failure-url="/admin?loginError=1" />
+
+        <security:logout logout-url="/admin/logout"
+                         logout-success-url="/" />
+    </security:http>
+</beans:beans>

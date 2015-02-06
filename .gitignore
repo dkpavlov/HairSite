@@ -1,0 +1,10 @@
+.idea/
+.gradle/
+gradle/
+target/
+build/
+out/
+CSSs/
+*.iml
+*.iws
+atlassian-ide-plugin.xml
