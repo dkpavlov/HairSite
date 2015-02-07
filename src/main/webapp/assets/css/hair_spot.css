@@ -178,6 +178,7 @@ header {
     background-size: 70%;
     position: relative;
     z-index: 5;
+    background-position: 50% 10%;
 }
 
 @media screen and (min-width: 563px) and (max-width: 948px) {
@@ -205,6 +206,9 @@ header {
 }
 nav.main-menu {
     margin-top: 11%;
+}
+nav.main-menu .columns.three {
+    text-align: center;
 }
 nav.main-menu a {
     color:#fffeec;
