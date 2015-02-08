@@ -175,35 +175,12 @@ header {
     margin-top: -20px;
     background: url("../img/logo.png") no-repeat;
     height: 150px;
-    background-size: 70%;
+    background-size: 50%;
     position: relative;
     z-index: 5;
     background-position: 50% 10%;
 }
 
-@media screen and (min-width: 563px) and (max-width: 948px) {
-    .upper-header {
-        height:70px;
-    }
-    .lower-header {
-        margin-top:70px;
-    }
-    .logo {
-        margin-top:-12px;
-    }
-}
-
-@media screen and (max-width: 560px) {
-    .upper-header {
-        height:92px;
-    }
-    .lower-header {
-        margin-top:92px;
-    }
-    .logo {
-        margin-top:-8px;
-    }
-}
 nav.main-menu {
     margin-top: 11%;
 }
@@ -223,4 +200,67 @@ nav.main-menu a:hover {
 }
 span.scissors {
     margin-left: -17%;
+}
+
+/*------------------------------- RESPONSIVE ---------------------------------------*/
+@media screen and (max-width: 980px) {
+    .rmm {
+        display:block;
+    }
+    .normal-nav a{
+        display:none;
+    }
+}
+
+@media screen and (min-width: 980px) {
+    .rmm {
+        display:none;
+    }
+    .normal-nav a {
+        display:block;
+    }
+}
+@media screen and (min-width: 563px) and (max-width: 948px) {
+    .upper-header {
+        height:70px;
+    }
+    .lower-header {
+        margin-top:70px;
+    }
+    .logo {
+        margin-top: -59px;
+        background-size: 50%;
+        height: 80px;
+    }
+}
+@media screen and (max-width: 970px){
+    .logo {
+        /*height: 80px;*/
+        /*margin-top: -63px;*/
+        /*background-size: 50%;*/
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .upper-header {
+        height:92px;
+    }
+    .lower-header {
+        margin-top:92px;
+    }
+    .logo {
+        margin-top:-8px;
+    }
+}
+@media screen and (min-width:1200px) and (max-width: 1350px) {
+    .logo {
+        margin-top: -18px;
+        height:120px;
+    }
+}
+@media screen and (min-width:1000px) and (max-width: 1199px) {
+    .logo {
+        margin-top: -17px;
+        height:110px;
+    }
 }
