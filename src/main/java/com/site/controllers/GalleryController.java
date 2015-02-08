@@ -14,12 +14,13 @@ import java.io.IOException;
  * Time: 19:46
  */
 
-@Controller(value = "/gallery")
+@Controller
+@RequestMapping("/gallery")
 public class GalleryController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(ModelMap model) throws IOException {
-        return "public/contacts";
+        return "public/gallery";
 
     }
 

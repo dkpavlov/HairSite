@@ -14,7 +14,8 @@ import java.io.IOException;
  * Time: 19:47
  */
 
-@Controller(value = "/team")
+@Controller
+@RequestMapping("/team")
 public class TeamController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
