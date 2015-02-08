@@ -144,6 +144,38 @@
             </div>
         </main>
         <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="columns twelve mt8 lower-menu">
+                        <div class="columns two offset-two">
+                            <a href="#">салони</a>
+                        </div>
+                        <div class="columns two">
+                            <a href="#">персонал</a>
+                        </div>
+                        <div class="columns two">
+                            <a href="#">блог</a>
+                        </div>
+                        <div class="columns two">
+                            <a href="#">карта на сайта</a>
+                        </div>
+                        <div class="columns two">
+                            <a href="#">контакти</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns twelve">
+                        <div class="columns two offset-two mt8">
+                            <a href="#" class="columns two social-links facebook"></a>
+                            <a href="#" class="columns two social-links google-plus"></a>
+                            <a href="#" class="columns two social-links linkedin"></a>
+                            <a href="#" class="columns six social-links you-tube"></a>
+                        </div>
+                        <div class="columns eight mt8">
+                    </div>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
