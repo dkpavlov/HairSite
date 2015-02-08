@@ -26,7 +26,7 @@
                             <a href="#" class="columns six social-links you-tube">
                             </a>
                         </div>
-                        <div class="columns two offset-five mt8">
+                        <div class="columns three offset-five mt8">
                             <form>
                                 <input type="text" placeholder="Търси" class="global-search"/>
                                 <a class="global-search" href="#">
@@ -38,7 +38,7 @@
             </div>
             <div class="container lower-header">
                 <div class="row">
-                    <div class="columns four">
+                    <div class="columns four w468">
                         <nav class="main-menu normal-nav">
                             <div class="columns three">
                                 <a href="#">Салони</a>
@@ -63,7 +63,7 @@
                         </nav>
                     </div>
                     <div class="columns four logo"></div>
-                    <div class="columns four">
+                    <div class="columns four w468">
                         <nav class="main-menu  normal-nav">
                             <div class="columns three">
                                 <a href="#">Услуги</a>
