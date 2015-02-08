@@ -62,12 +62,12 @@ input[type="text"], input[type="password"] {
     margin-top:8px;
 }
 
-img {
+img.carousel {
     width:100%;
 }
 
 /*--------------------------- HEADER -------------------------------*/
-header {
+body > header {
   position: absolute;
     z-index: 2;
     width:100%;
@@ -201,6 +201,36 @@ nav.main-menu a:hover {
 span.scissors {
     margin-left: -17%;
 }
+.summary {
+    background-color: #433b33;
+    height:200px;
+    margin:0;
+}
+
+.summary section {
+    height:200px;
+    text-align: center;
+    padding:50px;
+    box-sizing: border-box;
+    background:  url("../img/separator.png") no-repeat top left;
+}
+
+.summary section header {
+    color:#fffeec;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-bottom: 5%;
+}
+
+.summary section:first-child {
+    text-align: right;
+    background: none;
+}
+
+.summary section:last-child {
+    text-align: left;
+}
+
 
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {

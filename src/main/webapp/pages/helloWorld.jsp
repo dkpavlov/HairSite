@@ -95,7 +95,53 @@
             </div>
         </header>
         <main>
-            <img src="../assets/img/test-img-carousel-1.jpg" />
+            <!-- carousel -->
+            <div class="row">
+                <div class="columns twelve">
+                    <img class="carousel" src="../assets/img/test-img-carousel-1.jpg" />
+                </div>
+            </div>
+            <!-- summary -->
+            <div class="row">
+                <div class="columns twelve summary">
+                    <section class="columns four">
+                        <header>галерия</header>
+                        <div class="row">
+                            <div class="columns two offset-two">
+                                <a href="#">
+                                    <img src="../assets/img/gal_1.jpg" width="73%" alt="Прическа 1"/>
+                                </a>
+                            </div>
+                            <div class="columns two">
+                                <a href="#">
+                                    <img src="../assets/img/gal_2.jpg" width="68%" alt="Прическа 2"/>
+                                </a>
+                            </div>
+                            <div class="columns two">
+                                <a href="#">
+                                    <img src="../assets/img/gal_3.jpg" width="65%" alt="Прическа 3"/>
+                                </a>
+                            </div>
+                            <div class="columns two">
+                                <a href="#">
+                                    <img src="../assets/img/gal_4.jpg" width="73%" alt="Прическа 4"/>
+                                </a>
+                            </div>
+                            <div class="columns two">
+                                <a href="#">
+                                    <img src="../assets/img/gal_5.jpg" width="65%" alt="Прическа 5"/>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="columns four">
+                        <header>салони</header>
+                    </section>
+                    <section class="columns four">
+                        <header>новини</header>
+                    </section>
+                </div>
+            </div>
         </main>
         <footer>
         </footer>
