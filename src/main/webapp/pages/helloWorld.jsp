@@ -123,9 +123,34 @@
             </section>
             <section class="columns four">
                 <header>салони</header>
+                <div class="row">
+                    <div class="columns twelve">
+                        <div class="columns four saloon">
+                            <a href="#">The Mall</a>
+                                <span class="sub-saloon">салон 1</span>
+                        </div>
+                        <div class="columns four pointer">
+                            <img src="../assets/img/pointer_saloons.png" alt="Указател на местоположение"/>
+                        </div>
+                        <div class="columns four saloon">
+                            <a href="#">Стрелбище</a>
+                                <span class="sub-saloon">салон 2</span>
+
+                        </div>
+                    </div>
+                </div>
             </section>
             <section class="columns four">
                 <header>новини</header>
+                <div class="row">
+                    <div class="columns twelve">
+                        <article class="news">
+                            <header><a href="#">заглавие на първата новина</a></header>
+                            <p class="date">10.05.2014</p>
+                            <p class="news">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
+                        </article>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
