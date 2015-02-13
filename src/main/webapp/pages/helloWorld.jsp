@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="container lower-header">
-        <div class="row">
+        <div class="row normal-menu">
             <div class="columns four w468">
                 <nav class="main-menu normal-nav">
                     <div class="columns three">
@@ -85,7 +85,10 @@
     <!-- carousel -->
     <div class="row">
         <div class="columns twelve">
-            <img class="carousel" src="../assets/img/test-img-carousel-1.jpg" />
+            <ul class="bxslider">
+                <li><a href="#"><img src="http://www.abload.de/img/1257693602237byi7.png" /></a></li>
+                <li><a href="#"><img src="http://images6.alphacoders.com/316/316963.jpg"/></a></li>
+                <li><a href="#"><img src="http://ewallpaperhub.com/wp-content/uploads/2014/12/cool-3d-desktop-backgrounds.jpg" /></a></li>
         </div>
     </div>
     <!-- summary -->
@@ -159,26 +162,26 @@
     <div class="container">
         <div class="row">
             <div class="columns twelve mt8 lower-menu">
-                <div class="columns two offset-two">
+               <!-- <div class="columns two offset-two"> -->
                     <a href="#">салони</a>
-                </div>
-                <div class="columns two">
+              <!--  </div>
+                <div class="columns two"> -->
                     <a href="#">персонал</a>
-                </div>
-                <div class="columns two">
+              <!--  </div>
+                <div class="columns two"> -->
                     <a href="#">блог</a>
-                </div>
-                <div class="columns two">
+              <!--  </div>
+                <div class="columns two"> -->
                     <a href="#">карта на сайта</a>
-                </div>
-                <div class="columns two">
+              <!--  </div>
+                <div class="columns two"> -->
                     <a href="#">контакти</a>
-                </div>
+              <!--  </div> -->
             </div>
         </div>
         <div class="row">
             <div class="columns twelve">
-                <div class="columns two offset-two mt8">
+                <div class="columns twelve mt8 lower-social-links">
                     <a href="#" class="columns two social-links facebook"></a>
                     <a href="#" class="columns two social-links google-plus"></a>
                     <a href="#" class="columns two social-links linkedin"></a>
@@ -189,3 +192,12 @@
         </div>
     </div>
 </footer>
+
+<script>
+    $(function(){
+        $('.bxslider').bxSlider({
+            mode: 'fade',
+            captions: true
+        });
+    })
+</script>

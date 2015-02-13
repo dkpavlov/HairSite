@@ -185,7 +185,7 @@ nav.main-menu {
     margin-top: 11%;
 }
 nav.main-menu .columns.three, .lower-menu {
-    text-align: center;
+    /*text-align: center;*/
 }
 nav.main-menu a, .lower-menu a {
     color:#fffeec;
@@ -193,6 +193,15 @@ nav.main-menu a, .lower-menu a {
     text-transform: uppercase;
     font-size: 14px;
     padding:6px;
+}
+
+.lower-menu {
+    padding:2%;
+}
+
+.lower-menu a {
+    padding:2%;
+    display:inline-block;
 }
 nav.main-menu a:hover {
     background: url("../img/main-nav-bg-hover.png");
@@ -294,6 +303,13 @@ span.scissors {
 body > footer {
     background-color: #2f2823;
     height: 200px;
+    background-image: url("../img/logo_footer.png");
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+}
+
+.lower-social-links {
+    padding-left:3%;
 }
 
 /*------------------------------- RESPONSIVE ---------------------------------------*/
@@ -334,6 +350,10 @@ body > footer {
         width:23.40426%;
         margin: 8px 0 0 2.12766%;
     }
+    .normal-menu {
+        display:none;
+
+    }
 }
 
 
@@ -373,6 +393,16 @@ body > footer {
         border-bottom: 1px solid #322924;
         border-top: 1px solid #51463B;
         margin: 0;
+    }
+    .lower-menu {
+        padding:2%;
+        text-align: center;
+    }
+    .lower-social-links {
+        text-align: center;
+    }
+    body > footer {
+        background-position: 50%;
     }
 }
 @media screen and (min-width: 481px) and (max-width:563px){
