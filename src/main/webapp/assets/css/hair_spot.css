@@ -362,7 +362,15 @@ body > footer {
         height:92px;
     }
     .lower-header {
-        margin-top:92px;
+        /*margin-top:92px;*/
+        margin-top:0px;
+    }
+    body > header {
+        position: static;
+    }
+
+    .bx-wrapper:hover .bx-prev, .bx-wrapper:hover .bx-next {
+        display: none;
     }
     .logo {
         margin-top:-8px;
