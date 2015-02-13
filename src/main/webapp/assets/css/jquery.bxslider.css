@@ -30,11 +30,11 @@
 ===================================*/
 
 .bx-wrapper .bx-viewport {
-	-moz-box-shadow: 0 0 5px #ccc;
+	/*-moz-box-shadow: 0 0 5px #ccc;
 	-webkit-box-shadow: 0 0 5px #ccc;
-	box-shadow: 0 0 5px #ccc;
-	border:  5px solid #fff;
-	left: -5px;
+	box-shadow: 0 0 5px #ccc;*/
+	/*border:  5px solid #fff;
+	left: -5px;*/
 	background: #fff;
 	
 	/*fix other elements on the page moving (on Chrome)*/
@@ -73,9 +73,9 @@
 	font-family: Arial;
 	font-weight: bold;
 	color: #666;
-	padding: 20px;
-    position: relative;
-    bottom: 55px;
+	padding: 20px 0;
+    /*position: relative;*/
+    bottom: 0px;
     background-image: url("../img/capusel-pager.png");
 }
 
@@ -87,41 +87,45 @@
 }
 
 .bx-wrapper .bx-pager.bx-default-pager a {
-	background: #666;
+	background: url("../img/dot.png") no-repeat 50%;
 	text-indent: -9999px;
 	display: block;
-	width: 10px;
-	height: 10px;
-	margin: 0 5px;
+	/*width: 10px;
+	height: 10px;*/
+    width:26px;
+    height:28px;
+	/*margin: 0 5px;*/
 	outline: 0;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 }
 
-.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a:hover {
+    background:url("../img/dot_hover.png") no-repeat 50%;
+}
 .bx-wrapper .bx-pager.bx-default-pager a.active {
-	background: #000;
+	background:url(../img/selected_dot.png);
 }
 
 /* DIRECTION CONTROLS (NEXT / PREV) */
 
-.bx-wrapper .bx-prev {
+.bx-wrapper:hover .bx-prev {
 	left: 10px;
-	background: url(images/controls.png) no-repeat 0 -32px;
+	background: url(../img/arrow_prev.png) no-repeat;
 }
 
-.bx-wrapper .bx-next {
+.bx-wrapper:hover .bx-next {
 	right: 10px;
-	background: url(images/controls.png) no-repeat -43px -32px;
+	background: url(../img/arrow_next.png) no-repeat ;
 }
 
-.bx-wrapper .bx-prev:hover {
-	background-position: 0 0;
+.bx-wrapper:hover .bx-prev:hover {
+	background: url(../img/arrow_prev_hover.png);
 }
 
-.bx-wrapper .bx-next:hover {
-	background-position: -43px 0;
+.bx-wrapper:hover .bx-next:hover {
+	background: url(../img/arrow_next_hover.png);
 }
 
 .bx-wrapper .bx-controls-direction a {
@@ -129,8 +133,10 @@
 	top: 50%;
 	margin-top: -16px;
 	outline: 0;
-	width: 32px;
-	height: 32px;
+	/*width: 32px;
+	height: 32px;*/
+    width: 86px;
+	height: 133px;
 	text-indent: -9999px;
 	z-index: 9999;
 }

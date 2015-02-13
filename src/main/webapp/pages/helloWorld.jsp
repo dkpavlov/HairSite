@@ -85,10 +85,13 @@
     <!-- carousel -->
     <div class="row">
         <div class="columns twelve">
-            <ul class="bxslider">
-                <li><a href="#"><img src="http://www.abload.de/img/1257693602237byi7.png" /></a></li>
-                <li><a href="#"><img src="http://images6.alphacoders.com/316/316963.jpg"/></a></li>
-                <li><a href="#"><img src="http://ewallpaperhub.com/wp-content/uploads/2014/12/cool-3d-desktop-backgrounds.jpg" /></a></li>
+            <div class="row box sides-hz-1">
+               <ul class="bxslider">
+                    <li><a href="#"><img src="http://www.abload.de/img/1257693602237byi7.png" width="1600" height="1200"/></a></li>
+                    <li><a href="#"><img src="http://images6.alphacoders.com/316/316963.jpg" width="1600" height="1200"/></a></li>
+                    <li><a href="#"><img src="http://ewallpaperhub.com/wp-content/uploads/2014/12/cool-3d-desktop-backgrounds.jpg" width="1600" height="1200"/></a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <!-- summary -->
@@ -161,7 +164,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="columns twelve mt8 lower-menu">
+            <div class="columns eleven mt8 lower-menu">
                <!-- <div class="columns two offset-two"> -->
                     <a href="#">салони</a>
               <!--  </div>
@@ -181,7 +184,7 @@
         </div>
         <div class="row">
             <div class="columns twelve">
-                <div class="columns twelve mt8 lower-social-links">
+                <div class="columns eleven mt8 lower-social-links">
                     <a href="#" class="columns two social-links facebook"></a>
                     <a href="#" class="columns two social-links google-plus"></a>
                     <a href="#" class="columns two social-links linkedin"></a>
@@ -197,7 +200,8 @@
     $(function(){
         $('.bxslider').bxSlider({
             mode: 'fade',
-            captions: true
+            auto: true
         });
+        $('.box.sides-hz-1').shadow({type:'sides', sides:'hz-1'});
     })
 </script>
