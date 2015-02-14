@@ -184,8 +184,8 @@ body > header {
 nav.main-menu {
     margin-top: 11%;
 }
-nav.main-menu .columns.three, .lower-menu {
-    /*text-align: center;*/
+nav.main-menu .columns.three {
+    text-align: center;
 }
 nav.main-menu a, .lower-menu a {
     color:#fffeec;
