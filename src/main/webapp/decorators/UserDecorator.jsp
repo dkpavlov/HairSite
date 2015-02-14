@@ -99,9 +99,7 @@
             </div>
         </div>
     </header>
-    <main>
         <decorator:body/>
-    </main>
     <footer>
         <div class="container">
             <div class="row">

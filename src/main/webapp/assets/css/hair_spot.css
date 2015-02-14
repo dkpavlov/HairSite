@@ -299,6 +299,48 @@ span.scissors {
 {
     color:#fffeec
 }
+
+main.inner-page {
+    padding:12%;
+    background-color: #ebebeb;
+}
+
+nav.side-nav {
+    border-radius: 2px;
+    background-color: #d2d1d0;
+    padding:2% 10% 10%;
+    margin-bottom: 20px;
+}
+nav.side-nav ul li a{
+    color:#5d5751;
+    text-decoration: none;
+    padding:5%;
+    display: block;
+}
+
+main.inner-page h1 {
+    color:#433b33;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding:1% 0 5% 0;
+}
+
+main.inner-page .content a{
+    color:#9f7d3c;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+main.inner-page .content p{
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 13px;
+    text-align: justify;
+}
+
+main.inner-page .first-row {
+    margin-top: 6%;
+}
 /*------------------------------- FOOTER -------------------------------------------*/
 body > footer {
     background-color: #2f2823;

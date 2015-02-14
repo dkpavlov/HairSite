@@ -1,5 +1,5 @@
 
-
+<main>
     <!-- carousel -->
     <div class="row">
         <div class="columns twelve">
@@ -79,7 +79,7 @@
             </section>
         </div>
     </div>
-
+</main>
 
 <script>
     $(function(){
