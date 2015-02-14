@@ -350,6 +350,12 @@ body > footer {
     background-position: 90% 50%;
 }
 
+ .lower-footer {
+    background-color: #221c18;
+    color: #39332e;
+     padding: 0.5% 4.5% 1% 4.5%;
+}
+
 .lower-social-links {
     padding-left:3%;
 }

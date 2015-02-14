@@ -129,10 +129,13 @@
                         <a href="#" class="columns two social-links linkedin"></a>
                         <a href="#" class="columns six social-links you-tube"></a>
                     </div>
-                    <div class="columns eight mt8">
-                    </div>
                 </div>
             </div>
     </footer>
+    <div class="row lower-footer">
+        <div class="columns twelve mt8">
+            Hair Spot Valentin Tsvetkov - 2014
+        </div>
+    </div>
     </body>
 </html>
