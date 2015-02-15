@@ -15,13 +15,14 @@ import java.io.IOException;
  */
 
 @Controller
-@RequestMapping("/team")
 public class TeamController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/team", method = RequestMethod.GET)
     public String index(ModelMap model) throws IOException {
         return "public/team";
 
     }
+
+
 
 }

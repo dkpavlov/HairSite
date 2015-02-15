@@ -19,6 +19,7 @@ import java.io.IOException;
 @RequestMapping("/contacts")
 public class ContactsController {
 
+    @Deprecated
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(ModelMap model) throws IOException {
         return "public/contacts";

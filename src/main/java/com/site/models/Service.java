@@ -25,6 +25,17 @@ public class Service extends BaseEntity {
     @Column
     private String description;
 
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public Image getMainImage() {
         return mainImage;
     }

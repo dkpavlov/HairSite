@@ -48,7 +48,10 @@
                                 access="permitAll" />
 
         <security:intercept-url pattern="/admin/**"
-                                access="hasRole('ADMINISTRATOR')" />
+                                access="permitAll" />
+
+        <!--<security:intercept-url pattern="/admin/**"
+                                access="hasRole('ADMINISTRATOR')" />-->
 
         <security:intercept-url pattern="/**"
                                 access="permitAll" />
