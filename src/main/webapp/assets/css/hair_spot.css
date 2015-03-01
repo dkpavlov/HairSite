@@ -385,6 +385,111 @@ body > footer {
 .saloon-contacts:first-child > article {
     background: url("../img/separator_darker_gray.png") no-repeat right center;
 }
+input[type='text'].name, input[type='email'].email, textarea.message {
+    width:100.00%;
+    background-color: #d8d7d5;
+    border:1px solid #9b9489;
+    padding:15px;
+    height:45px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color:#423a32;
+}
+
+div.row.form {
+    padding-bottom: 2%;
+}
+
+textarea.message {
+    height:200px;
+    font-family: 'Open Sans', serif;
+}
+
+input[type='submit']{
+    background-color: #8d8a86;
+    color:#cecdcb;
+    font-size: 10px;
+    padding:18px 50px;
+    border-radius: 2px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background-color: #564f48;
+}
+
+.ta-right{
+    text-align: right;
+}
+
+input[type="text"].name::-webkit-input-placeholder
+{ /* WebKit browsers */
+    color: #a8a5a1;
+    font-style: italic;
+}
+input[type="text"].name:-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+input[type="text"].name::-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+input[type="text"].name:-ms-input-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+input[type="email"].email::-webkit-input-placeholder
+{ /* WebKit browsers */
+    color: #a8a5a1;
+    font-style: italic;
+}
+input[type="email"].email:-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+input[type="email"].email::-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+input[type="email"].email:-ms-input-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+textarea.message::-webkit-input-placeholder
+{ /* WebKit browsers */
+    color: #a8a5a1;
+    font-style: italic;
+}
+textarea.message:-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+textarea.message::-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+textarea.message:-ms-input-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+.error {
+    border:1px solid #ff0302!important;
+    background-color: #fff8f4!important;
+}
+
+input[type="text"].name:focus, input[type="email"].email:focus, textarea.message:focus {
+    background-color: #ffffff;
+    outline: none;
+}
+
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
     .rmm {
@@ -485,7 +590,20 @@ body > footer {
     body > footer {
         background-position: 50%;
     }
+    .saloon-contacts > article > div.row > .two{
+        padding:2% 0;
+    }
+    div.row.form > .columns.six {
+        padding-bottom: 6%;
+    }
 }
+@media screen and (min-width:482px) and (max-width: 1015px) {
+    .saloon-contacts > article > div.row > .two {
+        width:35%;
+        padding-bottom:5%;
+    }
+}
+
 @media screen and (min-width: 481px) and (max-width:563px){
     .logo {
         margin-top: -46px;

@@ -117,6 +117,30 @@
             </article>
         </div>
     </div>
+    <div class="row">
+        <div class="columns twelve">
+            <h1>напиши ни съобщение</h1>
+        </div>
+    </div>
+    <div class="row form">
+    <!--      TO DO: Da se dobaviat  ikonite na poletata ------------ Trqbvat PSD tata -->
+        <div class="columns six">
+            <input type="text" placeholder="Име" class="name error"/>
+        </div>
+        <div class="columns six">
+            <input type="email" placeholder="Email" class="email"/>
+        </div>
+    </div>
+    <div class="row form">
+        <div class="columns twelve">
+            <textarea class="message" placeholder="Съобщение"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns twelve ta-right">
+            <input type="submit" value="ИЗПРАТИ"/>
+        </div>
+    </div>
 </main>
 
 
