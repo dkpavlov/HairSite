@@ -360,6 +360,31 @@ body > footer {
     padding-left:3%;
 }
 
+/*---------------------------------- CONTACTS --------------------------------------*/
+#map-canvas {
+    height:300px;
+}
+.saloon-contacts {
+    padding:5% 0;
+}
+.saloon-contacts article > header{
+    color:#423a32;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding-bottom: 5%;
+}
+
+.saloon-contacts > article label {
+    color:#a19d99;
+}
+
+.saloon-contacts > article > div.row {
+    padding:2% 0;
+}
+
+.saloon-contacts:first-child > article {
+    background: url("../img/separator_darker_gray.png") no-repeat right center;
+}
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
     .rmm {

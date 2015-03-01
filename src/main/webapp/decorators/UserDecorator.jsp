@@ -12,6 +12,7 @@
         <script type="text/javascript" src="../assets/js/responsivemobilemenu.js"></script>
         <script type="text/javascript" src="../assets/js/jquery.bxslider.js"></script>
         <script type="text/javascript" src="../assets/js/jquery.shadow.js"></script>
+        <script type="text/javascript" src="../assets/js/google.js"></script>
         <title>Hair Spot - Valentin Tsvetkov</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </head>
