@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans">
         <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bxslider.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/jquery.shadow.css">
-        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="../assets/js/responsivemobilemenu.js"></script>
         <script type="text/javascript" src="../assets/js/jquery.bxslider.js"></script>
         <script type="text/javascript" src="../assets/js/jquery.shadow.js"></script>

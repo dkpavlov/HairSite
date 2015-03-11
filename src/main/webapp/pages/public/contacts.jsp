@@ -1,4 +1,4 @@
-<main class="inner-page">
+<div class="inner-page">
     <div class="row first-row">
         <div class="columns twelve content">
             <div id="map-canvas"></div>
@@ -123,7 +123,6 @@
         </div>
     </div>
     <div class="row form">
-    <!--      TO DO: Da se dobaviat  ikonite na poletata ------------ Trqbvat PSD tata -->
         <div class="columns six">
             <input type="text" placeholder="Име" class="name error"/>
         </div>
@@ -141,7 +140,7 @@
             <input type="submit" value="ИЗПРАТИ"/>
         </div>
     </div>
-</main>
+</div>
 
 
 <!------    TO DO Da vidia istoriata s markerite      -->

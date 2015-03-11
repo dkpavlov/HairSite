@@ -27,7 +27,7 @@ public class NewsController {
 
     @RequestMapping(value = "/news", method = RequestMethod.GET)
     public String index(ModelMap model) throws IOException {
-        return "public/contacts";
+        return "public/news";
 
     }
 

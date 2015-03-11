@@ -1,4 +1,4 @@
-<main class="inner-page">
+<div class="inner-page">
     <div class="row first-row">
         <div class="columns three">
             <nav class="side-nav">
@@ -31,4 +31,4 @@
             <p>Ut bibendum consequat rutrum. Fusce eget nunc a ante sodales pellentesque at a justo. Nunc lobortis neque turpis, eget volutpat odio varius eget. Curabitur porttitor sagittis cursus. Etiam sodales id orci eu faucibus. Quisque eget accumsan ligula. Duis euismod ligula vel magna porttitor, eu posuere augue pellentesque. Donec lectus nisi, scelerisque vitae ipsum sit amet, consequat rutrum lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla gravida ipsum tortor, sit amet dignissim ipsum pharetra vitae. Nulla nec diam velit. Maecenas euismod eu lectus efficitur pharetra. Phasellus fermentum, ex non dictum elementum, augue est lobortis arcu, fermentum tristique ipsum tortor nec odio. Donec sodales leo in auctor viverra.</p>
         </div>
     </div>
-</main>
+</div>
