@@ -551,6 +551,10 @@ p.close a.link {
     background-position: 50% 20%;
 }
 
+p.close a.link:hover {
+    text-decoration: underline;
+}
+
 div.pagination {
     font-size: 15px;
     padding:5% 0;
