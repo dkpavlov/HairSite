@@ -490,6 +490,24 @@ input[type="text"].name:focus, input[type="email"].email:focus, textarea.message
     outline: none;
 }
 
+input[type="text"].name, input[type="email"].email, textarea.message {
+    background-image: url('../img/user_icon.png');
+    background-repeat: no-repeat;
+    background-position: 3% 50%;
+    text-indent: 5%;
+}
+
+input[type="email"].email {
+    background-image: url('../img/mail_icon.png');
+}
+
+textarea.message {
+    background-image: url('../img/message_icon.png');
+    background-position: 1.5% 10%;
+    text-indent: 2.5%;
+    text-indent: 2.5%;
+}
+
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
     .rmm {
