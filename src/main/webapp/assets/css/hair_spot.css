@@ -597,7 +597,7 @@ div.gallery-hover {
     left:0;
     z-index: 2;
     display:none;
-    height:141px;
+    height:159px;
 }
 
 .gallery a {
@@ -625,6 +625,21 @@ div.gallery-hover {
 }
 .columns.gallery:nth-child(4n + 1){
     margin-left:0;
+}
+/*------------------------------- SINGLE GALLERY -----------------------------------*/
+div.inner-page h1.single-gallery {
+    font-size: 15px;
+}
+
+div.inner-page h1.single-gallery a {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+span.clich {
+    color:#9f7d3c;
+    font-size: 12px;
+    margin:0 10px;
 }
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
