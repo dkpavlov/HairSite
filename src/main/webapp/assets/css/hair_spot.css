@@ -592,13 +592,15 @@ div.gallery-hover {
     background-position: 50%;
     width:100%;
     height:100%;
-    position: relative;
+    position: absolute;
     top:0;
     left:0;
     z-index: 2;
+    display:none;
+    height:141px;
 }
 
-.gallery h2 a {
+.gallery a {
     font-size: 18px;
     color:#433b33;
     text-decoration: none;
@@ -608,6 +610,13 @@ div.gallery-hover {
     margin-bottom: 5%;
     line-height: 1.2;
     margin-top: 2%;
+}
+
+.gallery-image {
+    position: relative;
+}
+.gallery a:hover div.gallery-hover {
+    display:block;
 }
 
 .gallery label.gallery-content {

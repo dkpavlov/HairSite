@@ -6,11 +6,13 @@
     </div>
     <div class="row">
         <div class="columns three gallery">
-            <div class="gallery-image">
-                <img src="../../assets/img/news-image.jpg" width="100%"/>
-                <div class="gallery-hover"></div>
-            </div>
-            <h2><a href="">Заглавие на първата галерия</a></h2>
+            <a href="">
+                <div class="gallery-image">
+                    <img src="../../assets/img/news-image.jpg" width="100%"/>
+                    <div class="gallery-hover"></div>
+                </div>
+                <h2>Заглавие на първата галерия</h2>
+            </a>
             <label class="gallery-content">
                 18 снимки
             </label>
