@@ -531,7 +531,7 @@ textarea.message {
     margin-bottom: 2%;
 }
 
-.news-container article.news div.whole-news {
+.news-container article.news div.whole-news, .news-container article.news.offers  {
     padding-bottom: 10%;
     background-image: url('../img/news-separator.png');
     background-repeat: no-repeat;
@@ -709,6 +709,13 @@ div.inner-page.team .columns.four:nth-child(3n+1){
 }
 .news-container article.news p.price.promo span {
     color:#a09c98;
+}
+/*------------------------------- OFFERS -------------------------------------------*/
+article.news.offers p{
+    margin:2% 0;
+}
+article.news.offers p label {
+    color:#a19d99;
 }
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
