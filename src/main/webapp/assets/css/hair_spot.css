@@ -517,6 +517,7 @@ textarea.message {
     color:#423a32;
     font-size: 18px;
     margin-bottom:1%;
+    line-height:1.2;
 }
 
 .news-container article.news header a {
