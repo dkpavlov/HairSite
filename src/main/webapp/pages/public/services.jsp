@@ -1,34 +1,77 @@
 <div class="inner-page">
     <div class="row first-row">
-        <div class="columns three">
-            <nav class="side-nav">
-                <ul>
-                    <li>
-                        <a href="#">Меню номер едно</a>
-                    </li>
-                    <li>
-                        <a href="#">Меню номер две</a>
-                    </li>
-                    <li>
-                        <a href="#">Меню номер три</a>
-                    </li>
-                    <li>
-                        <a href="#">Меню номер четири</a>
-                    </li>
-                    <li>
-                        <a href="#">Меню номер пет</a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="columns twelve content">
+            <h1>услуги</h1>
         </div>
-        <div class="columns eight content">
-            <h1>заглавие</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget erat maximus, volutpat velit id, vulputate tellus. Etiam tempus tristique magna, eget condimentum massa vehicula ut. Phasellus gravida arcu quis purus suscipit consectetur. Curabitur elit felis, sollicitudin quis tellus vel, consequat accumsan orci. Morbi nibh sapien, consectetur nec varius maximus, tincidunt eu nunc. Mauris lacinia ligula risus, et rhoncus massa tincidunt ac. Morbi quis libero non felis euismod facilisis. Nulla facilisi. Nam nisi ligula, viverra at scelerisque in, molestie sed urna.</p>
-            <p>Donec consequat neque sed purus vehicula, vel porta enim viverra. Fusce porta sem quis tortor eleifend, hendrerit molestie odio tristique. Donec nec bibendum ex. Aliquam quis facilisis tellus. Ut in placerat purus, sed mattis arcu. Proin blandit elit ac orci semper, ac imperdiet erat vulputate. Ut cursus risus mauris, eget luctus tellus faucibus eu. Sed fringilla, purus ut vestibulum ultricies, est neque ullamcorper sem, sit amet lacinia velit neque at leo. Phasellus id posuere dui, feugiat tristique lorem. Curabitur volutpat bibendum accumsan. Fusce quis hendrerit mauris. Mauris aliquet ullamcorper tellus id pharetra. In varius quam id arcu tempor, vitae dictum elit maximus. Sed condimentum metus dolor.</p>
-            <p>
-                <a href="#">Прочети повече</a>
-            </p>
-            <p>Ut bibendum consequat rutrum. Fusce eget nunc a ante sodales pellentesque at a justo. Nunc lobortis neque turpis, eget volutpat odio varius eget. Curabitur porttitor sagittis cursus. Etiam sodales id orci eu faucibus. Quisque eget accumsan ligula. Duis euismod ligula vel magna porttitor, eu posuere augue pellentesque. Donec lectus nisi, scelerisque vitae ipsum sit amet, consequat rutrum lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla gravida ipsum tortor, sit amet dignissim ipsum pharetra vitae. Nulla nec diam velit. Maecenas euismod eu lectus efficitur pharetra. Phasellus fermentum, ex non dictum elementum, augue est lobortis arcu, fermentum tristique ipsum tortor nec odio. Donec sodales leo in auctor viverra.</p>
+    </div>
+    <div class="row single-news">
+        <div class="columns three">
+            <a href="" class="news-image"><img src="../../assets/img/news-image.jpg" width="100%"/></a>
+        </div>
+        <div class="columns nine news-container">
+            <article class="news">
+                <header>заглавие на първата услуга</header>
+                <p class="price">75.<sup>00</sup> <small>лева</small></p>
+                <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
+                <div class="whole-news hide">
+                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p class="close">
+                        <a class="link" href="">Затвори</a>
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="row single-news">
+        <div class="columns three">
+            <a href="" class="news-image"><img src="../../assets/img/news-image.jpg" width="100%"/></a>
+        </div>
+        <div class="columns nine news-container">
+            <article class="news">
+                <header>заглавие на първата услуга</header>
+                <p class="price promo">75.<sup>00</sup> <small>лева | <span>досега 89.99 лева<span></span></small></p>
+                <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
+                <div class="whole-news hide">
+                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p class="close">
+                        <a class="link" href="">Затвори</a>
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="row pagination">
+        <div class="columns twelve">
+            <a href="">
+                <img src="../../assets/img/pagination-prev.png" />
+            </a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="" class="active">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">
+                <img src="../../assets/img/pagination-next.png"/>
+            </a>
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        $('.news-image').click(function(){
+            $(this).parent().next().find('p.news-description').addClass('hide');
+            $(this).parent().next().find('div.whole-news').removeClass('hide');
+            return false;
+        });
+        $('p.close a.link').click(function(){
+            $(this).parent().parent().addClass('hide');
+            $(this).parent().parent().parent().find('p.news-description').removeClass('hide');
+            return false;
+        })
+    })
+</script>
