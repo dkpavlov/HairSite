@@ -641,6 +641,57 @@ span.clich {
     font-size: 12px;
     margin:0 10px;
 }
+/*------------------------------- TEAM ----------------------------------------------*/
+article.team {
+    margin-bottom: 20%;
+}
+article.team header{
+    text-transform: uppercase;
+    margin-bottom: 5%;
+    font-size: 20px;
+    color:#423a32;
+}
+
+.centered-text {
+    text-align: center;
+}
+div.portrait {
+    width: 80%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #d8d7d5;;
+    margin: 0 auto 5% auto;
+}
+
+article.team a {
+    color:#9e7c3d;
+    text-decoration: none;
+    margin-bottom: 1%;
+    display: block;
+}
+
+article.team a:hover {
+    text-decoration: underline;
+}
+
+article.team p.primary-info {
+    color:#a09c98;
+    margin-bottom: 7%;
+}
+
+article.team p.secondary-info {
+    color:#423a32;
+    margin-bottom: 5%;
+    line-height: 1.2;
+}
+
+article.team p.secondary-info label {
+    font-weight: bold;
+}
+
+div.inner-page.team .columns.four:nth-child(3n+1){
+    margin-left: 0;
+}
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
     .rmm {
@@ -755,6 +806,10 @@ span.clich {
     }
     .news-container {
         margin-top: 5%;
+    }
+    article.team {
+        border-bottom: 1px solid #C2BDBD;
+        box-shadow: 0px 1px 0px #FFF;
     }
 }
 @media screen and (min-width:482px) and (max-width: 1015px) {
