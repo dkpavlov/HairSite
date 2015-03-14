@@ -10,7 +10,7 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, strong, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -64,6 +64,10 @@ input[type="text"], input[type="password"] {
 
 img.carousel {
     width:100%;
+}
+
+.hide {
+    display:none;
 }
 
 /*--------------------------- HEADER -------------------------------*/
@@ -276,7 +280,7 @@ span.scissors {
     color:#fffeec;
 }
 
-.summary section article.news header {
+.summary section article.news header{
     margin-bottom: 0.5%;
 }
 
@@ -286,7 +290,7 @@ span.scissors {
     text-decoration: none;
 }
 
-.summary section article.news p.date {
+.summary section article.news p.date{
     font-size: 8px;
     color:#696258;
     margin-bottom: 3%;
@@ -300,7 +304,7 @@ span.scissors {
     color:#fffeec
 }
 
-main.inner-page {
+div.inner-page {
     padding:12%;
     background-color: #ebebeb;
 }
@@ -318,27 +322,27 @@ nav.side-nav ul li a{
     display: block;
 }
 
-main.inner-page h1 {
+div.inner-page h1 {
     color:#433b33;
     text-transform: uppercase;
     font-size: 30px;
     padding:1% 0 5% 0;
 }
 
-main.inner-page .content a{
+div.inner-page .content a, a.link{
     color:#9f7d3c;
     text-decoration: none;
     font-size: 13px;
 }
 
-main.inner-page .content p{
+div.inner-page .content p{
     margin-bottom: 20px;
     line-height: 1.5;
     font-size: 13px;
     text-align: justify;
 }
 
-main.inner-page .first-row {
+div.inner-page .first-row {
     margin-top: 6%;
 }
 /*------------------------------- FOOTER -------------------------------------------*/
@@ -360,6 +364,359 @@ body > footer {
     padding-left:3%;
 }
 
+/*---------------------------------- CONTACTS --------------------------------------*/
+#map-canvas {
+    height:300px;
+}
+.saloon-contacts {
+    padding:5% 0;
+}
+.saloon-contacts article > header{
+    color:#423a32;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding-bottom: 5%;
+}
+
+.saloon-contacts > article label {
+    color:#a19d99;
+}
+
+.saloon-contacts > article > div.row {
+    padding:2% 0;
+}
+
+.saloon-contacts:first-child > article {
+    background: url("../img/separator_darker_gray.png") no-repeat right center;
+}
+input[type='text'].name, input[type='email'].email, textarea.message {
+    width:100.00%;
+    background-color: #d8d7d5;
+    border:1px solid #9b9489;
+    padding:15px;
+    height:45px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    color:#423a32;
+}
+
+div.row.form {
+    padding-bottom: 2%;
+}
+
+textarea.message {
+    height:200px;
+    font-family: 'Open Sans', serif;
+}
+
+input[type='submit']{
+    background-color: #8d8a86;
+    color:#cecdcb;
+    font-size: 10px;
+    padding:18px 50px;
+    border-radius: 2px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type='submit']:hover {
+    background-color: #564f48;
+}
+
+.ta-right{
+    text-align: right;
+}
+
+input[type="text"].name::-webkit-input-placeholder
+{ /* WebKit browsers */
+    color: #a8a5a1;
+    font-style: italic;
+}
+input[type="text"].name:-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+input[type="text"].name::-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+input[type="text"].name:-ms-input-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+input[type="email"].email::-webkit-input-placeholder
+{ /* WebKit browsers */
+    color: #a8a5a1;
+    font-style: italic;
+}
+input[type="email"].email:-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+input[type="email"].email::-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+input[type="email"].email:-ms-input-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+textarea.message::-webkit-input-placeholder
+{ /* WebKit browsers */
+    color: #a8a5a1;
+    font-style: italic;
+}
+textarea.message:-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+textarea.message::-moz-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+textarea.message:-ms-input-placeholder {
+    color:#a8a5a1;
+    font-style: italic;
+}
+
+.error {
+    border:1px solid #ff0302!important;
+    background-color: #fff8f4!important;
+}
+
+input[type="text"].name:focus, input[type="email"].email:focus, textarea.message:focus {
+    background-color: #ffffff;
+    outline: none;
+}
+
+input[type="text"].name, input[type="email"].email, textarea.message {
+    background-image: url('../img/user_icon.png');
+    background-repeat: no-repeat;
+    background-position: 3% 50%;
+    text-indent: 5%;
+}
+
+input[type="email"].email {
+    background-image: url('../img/mail_icon.png');
+}
+
+textarea.message {
+    background-image: url('../img/message_icon.png');
+    background-position: 1.5% 10%;
+    text-indent: 2.5%;
+    text-indent: 2.5%;
+}
+/*------------------------------- NEWS ---------------------------------------------*/
+.news-container article.news header {
+    text-transform: uppercase;
+    color:#423a32;
+    font-size: 18px;
+    margin-bottom:1%;
+    line-height:1.2;
+}
+
+.news-container article.news header a {
+    text-decoration: none;
+    color:#423a32;
+}
+
+.news-container article.news p.date {
+    font-size: 10px;
+    color:#a09c98;
+    margin-bottom: 2%;
+}
+
+.news-container article.news div.whole-news, .news-container article.news.offers  {
+    padding-bottom: 10%;
+    background-image: url('../img/news-separator.png');
+    background-repeat: no-repeat;
+    background-position: 50% 92%;
+    line-height: 1.3;
+    text-align: justify;
+}
+
+p.close {
+    margin-top:4%;
+    text-align:right;
+
+}
+p.close a.link {
+    padding:2%;
+    background: url(../img/close-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+}
+
+p.close a.link:hover {
+    text-decoration: underline;
+}
+
+div.pagination {
+    font-size: 15px;
+    padding:5% 0;
+    text-align: center;
+}
+
+div.pagination a {
+    color:#c6c4c1;
+    text-decoration: none;
+    margin:1%;
+}
+
+div.pagination a img {
+    vertical-align: sub;
+}
+
+div.pagination a.active {
+    font-weight: bold;
+    color:#423a32;
+}
+
+div.single-news {
+    margin-bottom: 5%;
+}
+/*------------------------------- GALLERY -----------------------------------------------*/
+.gallery {
+    margin-bottom: 2%;
+}
+
+div.gallery-hover {
+    background-color: #fffeec;
+    opacity: 0.7;
+    background-image: url('../img/magni-glass.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 2;
+    display:none;
+    height:159px;
+}
+
+.gallery a {
+    font-size: 18px;
+    color:#433b33;
+    text-decoration: none;
+}
+
+.gallery h2 {
+    margin-bottom: 5%;
+    line-height: 1.2;
+    margin-top: 2%;
+}
+
+.gallery-image {
+    position: relative;
+}
+.gallery a:hover div.gallery-hover {
+    display:block;
+}
+
+.gallery label.gallery-content {
+    color:#a09c98;
+    display:block;
+}
+.columns.gallery:nth-child(4n + 1){
+    margin-left:0;
+}
+/*------------------------------- SINGLE GALLERY -----------------------------------*/
+div.inner-page h1.single-gallery {
+    font-size: 15px;
+}
+
+div.inner-page h1.single-gallery a {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+span.clich {
+    color:#9f7d3c;
+    font-size: 12px;
+    margin:0 10px;
+}
+/*------------------------------- TEAM ----------------------------------------------*/
+article.team {
+    margin-bottom: 20%;
+}
+article.team header{
+    text-transform: uppercase;
+    margin-bottom: 5%;
+    font-size: 20px;
+    color:#423a32;
+}
+
+.centered-text {
+    text-align: center;
+}
+div.portrait {
+    width: 80%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #d8d7d5;;
+    margin: 0 auto 5% auto;
+}
+
+article.team a {
+    color:#9e7c3d;
+    text-decoration: none;
+    margin-bottom: 1%;
+    display: block;
+}
+
+article.team a:hover {
+    text-decoration: underline;
+}
+
+article.team p.primary-info {
+    color:#a09c98;
+    margin-bottom: 7%;
+}
+
+article.team p.secondary-info {
+    color:#423a32;
+    margin-bottom: 5%;
+    line-height: 1.2;
+}
+
+article.team p.secondary-info label {
+    font-weight: bold;
+}
+
+div.inner-page.team .columns.four:nth-child(3n+1){
+    margin-left: 0;
+}
+/*------------------------------- SERVICES -----------------------------------------*/
+.news-container article.news p.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin:2% 0;
+    color:#a09c98;
+}
+.news-container article.news p.price sup, .news-container article.news p.price small {
+    font-weight: normal;
+    font-size: 12px;
+}
+.news-container article.news p.price.promo {
+    color:#3ba52a;
+}
+.news-container article.news p.price.promo span {
+    color:#a09c98;
+}
+/*------------------------------- OFFERS -------------------------------------------*/
+article.news.offers p{
+    margin:2% 0;
+}
+article.news.offers p label {
+    color:#a19d99;
+}
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
     .rmm {
@@ -460,7 +817,33 @@ body > footer {
     body > footer {
         background-position: 50%;
     }
+    .saloon-contacts > article > div.row > .two{
+        padding:2% 0;
+    }
+    div.row.form > .columns.six {
+        padding-bottom: 6%;
+    }
+    div.single-news {
+        margin-bottom: 10%;
+    }
+    .news-container article.news div.whole-news {
+        padding-bottom: 20%;
+    }
+    .news-container {
+        margin-top: 5%;
+    }
+    article.team {
+        border-bottom: 1px solid #C2BDBD;
+        box-shadow: 0px 1px 0px #FFF;
+    }
 }
+@media screen and (min-width:482px) and (max-width: 1015px) {
+    .saloon-contacts > article > div.row > .two {
+        width:35%;
+        padding-bottom:5%;
+    }
+}
+
 @media screen and (min-width: 481px) and (max-width:563px){
     .logo {
         margin-top: -46px;

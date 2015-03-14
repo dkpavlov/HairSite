@@ -1,9 +1,40 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="inner-page">
+    <div class="row first-row">
+        <div class="columns twelve content">
+            <h1>галерия</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns three gallery">
+            <a href="">
+                <div class="gallery-image">
+                    <img src="../../assets/img/news-image.jpg" width="100%"/>
+                    <div class="gallery-hover"></div>
+                </div>
+                <h2>Заглавие на първата галерия</h2>
+            </a>
+            <label class="gallery-content">
+                18 снимки
+            </label>
+        </div>
 
-</body>
-</html>
+    </div>
+</div>
+
+<script>
+    var setHeight = function (){
+        var maxHeight = Math.max.apply(null, $("div.gallery").map(function ()
+        {
+            return $(this).height();
+        }).get());
+
+        $('div.gallery').each(function(){
+            $(this).css('height', maxHeight);
+        });
+    };
+
+    $(function(){
+        setHeight();
+        window.resize = setHeight();
+    })
+</script>
