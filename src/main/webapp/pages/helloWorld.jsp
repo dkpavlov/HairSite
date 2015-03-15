@@ -6,9 +6,10 @@
             <div class="row box sides-hz-1">
                <ul class="bxslider">
                    <!-- изображенията трябва да са в съотношение 4:3 (1600 х 1200 препоръчителна резолюция) -->
-                    <li><a href="#"><img src="http://www.abload.de/img/1257693602237byi7.png" width="1600" /></a></li>
-                    <li><a href="#"><img src="http://images6.alphacoders.com/316/316963.jpg" width="1600"/></a></li>
-                    <li><a href="#"><img src="http://ewallpaperhub.com/wp-content/uploads/2014/12/cool-3d-desktop-backgrounds.jpg" width="1600" /></a></li>
+                    <li><a href="#"><img src="../assets/images/1.jpg" width="1600" /></a></li>
+                    <li><a href="#"><img src="../assets/images/2.jpg" width="1600" /></a></li>
+                    <li><a href="#"><img src="../assets/images/3.jpg" width="1600" /></a></li>
+                    <li><a href="#"><img src="../assets/images/4.jpg" width="1600" /></a></li>
                 </ul>
             </div>
         </div>

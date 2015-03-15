@@ -22,7 +22,20 @@ public class Salon extends BaseEntity {
     @ManyToOne(targetEntity = Image.class)
     private List<Image> images;
 
-    //TODO contacts
+    @Column
+    private String address;
+
+    @Column
+    private String phoneNumber;
+
+    @Column
+    private String mobilePhoneNumber;
+
+    @Column
+    private String email;
+
+    @Column
+    private String skype;
 
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -57,5 +70,45 @@ public class Salon extends BaseEntity {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getMobilePhoneNumber() {
+        return mobilePhoneNumber;
+    }
+
+    public void setMobilePhoneNumber(String mobilePhoneNumber) {
+        this.mobilePhoneNumber = mobilePhoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSkype() {
+        return skype;
+    }
+
+    public void setSkype(String skype) {
+        this.skype = skype;
     }
 }

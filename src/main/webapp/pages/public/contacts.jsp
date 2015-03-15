@@ -1,3 +1,5 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <div class="inner-page">
     <div class="row first-row">
         <div class="columns twelve content">
@@ -122,24 +124,26 @@
             <h1>напиши ни съобщение</h1>
         </div>
     </div>
-    <div class="row form">
-        <div class="columns six">
-            <input type="text" placeholder="Име" class="name error"/>
+    <form:form modelAttribute="message">
+        <div class="row form">
+            <div class="columns six">
+                <form:input path="name" type="text" placeholder="Име" class="name error"/>
+            </div>
+            <div class="columns six">
+                <form:input path="email" type="email" placeholder="Email" class="email"/>
+            </div>
         </div>
-        <div class="columns six">
-            <input type="email" placeholder="Email" class="email"/>
+        <div class="row form">
+            <div class="columns twelve">
+                <form:textarea path="text" class="message" placeholder="Съобщение"/>
+            </div>
         </div>
-    </div>
-    <div class="row form">
-        <div class="columns twelve">
-            <textarea class="message" placeholder="Съобщение"></textarea>
+        <div class="row">
+            <div class="columns twelve ta-right">
+                <input type="submit" value="ИЗПРАТИ"/>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="columns twelve ta-right">
-            <input type="submit" value="ИЗПРАТИ"/>
-        </div>
-    </div>
+    </form:form>
 </div>
 
 

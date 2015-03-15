@@ -15,10 +15,9 @@ import java.io.IOException;
  */
 
 @Controller
-@RequestMapping("/gallery")
 public class GalleryController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/gallery", method = RequestMethod.GET)
     public String index(ModelMap model) throws IOException {
         return "public/gallery";
 

@@ -3,7 +3,7 @@
         <Arg>jdbc/site</Arg>
         <Arg>
             <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-                <Set name="Url">jdbc:mysql://site.cgeravtrrjt4.us-west-2.rds.amazonaws.com:3306/site</Set>
+                <Set name="Url">jdbc:mysql://site.cgeravtrrjt4.us-west-2.rds.amazonaws.com:3306/mydb?useUnicode=yes&amp;characterEncoding=UTF-8</Set>
                 <Set name="User">tomcat</Set>
                 <Set name="Password">tomcat123</Set>
             </New>

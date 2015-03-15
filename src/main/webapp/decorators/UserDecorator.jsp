@@ -56,7 +56,7 @@
                         </span>
                         </div>
                         <div class="columns three">
-                            <a href="#">Галерия</a>
+                            <a href="/gallery">Галерия</a>
                         <span class="scissors">
                         </span>
                         </div>
@@ -85,8 +85,8 @@
                             <a href="#">Оферти</a>
                         </div>
                         <div class="columns three">
-                            <a href="#">Контакти</a>
-                            </ul>
+                            <a href="/contacts">Контакти</a>
+                        </div>
                     </nav>
                 </div>
             </div>
