@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dkpavlov
-  Date: 3/15/15
-  Time: 20:10
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div style="text-align:center; display: inline;">
+    <div>
+        <lable>Име</lable>
+        <lable>${message.name}</lable>
+    </div>
+    <div>
+        <lable>Email</lable>
+        <lable>${message.email}</lable>
+    </div>
+    <div>
+        <lable>Текс</lable>
+        <lable>${message.text}</lable>
+    </div>
+    <a href="/admin/message/${message.id}/delete">Изтрий</a>
+</div>

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-public class MessagesController {
+public class AdminMessagesController {
 
     @Autowired
     MessageRepository messageRepository;
@@ -33,5 +33,11 @@ public class MessagesController {
     public String preview(@PathVariable("id") Long id, ModelMap model){
         model.put("message", messageRepository.findOne(id));
         return "admin/messages/preview";
+    }
+
+    @RequestMapping(value = "/admin/message/{id}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable("id") Long id){
+        messageRepository.delete(id);
+        return "redirect:/admin/messages";
     }
 }

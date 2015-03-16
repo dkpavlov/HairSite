@@ -23,6 +23,7 @@
                         <li><a href="">Gallery</a></li>
                         <li><a href="">Tutorials</a></li>
                         <li><a href="">Contact</a></li>
+                        <li><a href="/admin/messages">Съобщения</a></li>
                     </ul>
                 </nav>
                 <div id="nav-trigger">

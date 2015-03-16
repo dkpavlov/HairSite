@@ -1,15 +1,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<table>
-    <tr>
-        <th>From</th>
-        <th>Email</th>
-        <th>Message</th>
-    </tr>
-    <c:forEach items="${messagesPage.content}" var="message">
+<div style="text-align:center;">
+    <table class="flat-table">
         <tr>
-            <th>${message.name}</th>
-            <th>${message.email}</th>
-            <th>${message.shortText}</th>
+            <th>From</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th></th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items="${messagesPage.content}" var="message">
+            <tr>
+                <td>${message.name}</td>
+                <td>${message.email}</td>
+                <td>${message.shortText}</td>
+                <td><a href="/admin/messages/${message.id}">Преглед</a></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
