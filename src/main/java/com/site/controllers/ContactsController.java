@@ -2,6 +2,8 @@ package com.site.controllers;
 
 
 import com.site.models.Message;
+import com.site.models.Status;
+import com.site.repositories.ContactRepository;
 import com.site.repositories.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,10 +26,13 @@ public class ContactsController {
     @Autowired
     MessageRepository messageRepository;
 
+    @Autowired
+    ContactRepository contactRepository;
+
     @RequestMapping(value = "/contacts", method = RequestMethod.GET)
     public ModelAndView index() {
-        //TODO add salons to model
         ModelAndView mv = new ModelAndView("public/contacts", "message", new Message());
+        mv.getModel().put("contacts", contactRepository.findByStatus(Status.ACTIVE));
         return mv;
     }
 

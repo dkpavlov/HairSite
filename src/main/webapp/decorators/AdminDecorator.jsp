@@ -1,55 +1,61 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/admin/main.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/admin/base.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/admin/table.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/admin/form.css">
-        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="/assets/js/responsivemobilemenu.js"></script>
-        <script type="text/javascript" src="/assets/js/jquery.bxslider.js"></script>
-        <script type="text/javascript" src="/assets/js/jquery.shadow.js"></script>
-        <title>Hair Spot - Valentin Tsvetkov</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+        <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
+        <%-- TODO downloade css --%>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/assets/css/admin/side-menu-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/assets/css/admin/side-menu.css">
+        <!--<![endif]-->
     </head>
     <body>
-        <div id="main">
-            <div class="container">
-                <nav id="nav-main">
-                    <ul>
-                        <li><a href="${pageContext.request.contextPath}/admin/services">Услуги</a></li>
-                        <li><a href="${pageContext.request.contextPath}/admin/product">Продукти</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Gallery</a></li>
-                        <li><a href="">Tutorials</a></li>
-                        <li><a href="">Contact</a></li>
-                        <li><a href="/admin/messages">Съобщения</a></li>
+        <div id="layout">
+            <!-- Menu toggle -->
+            <a href="#menu" id="menuLink" class="menu-link">
+                <!-- Hamburger icon -->
+                <span></span>
+            </a>
+
+            <div id="menu">
+                <div class="pure-menu">
+                    <a class="pure-menu-heading" href="#">Company</a>
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/services" class="pure-menu-link">Услуги</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/product" class="pure-menu-link">Продукти</a>
+                        </li>
+                        <li class="pure-menu-item"><a href="" class="pure-menu-link">About</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="" class="pure-menu-link">Gallery</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="" class="pure-menu-link">Tutorials</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="/admin/contact" class="pure-menu-link">Контакти</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="/admin/messages" class="pure-menu-link">Съобщения</a>
+                        </li>
                     </ul>
-                </nav>
-                <div id="nav-trigger">
-                    <span>Menu</span>
                 </div>
-                <nav id="nav-mobile"></nav>
+            </div>
 
+            <div id="main">
                 <decorator:body/>
-
             </div>
         </div>
+        <script src="/assets/js/ui.js"></script>
     </body>
 </html>
-
-<script>
-    $(document).ready(function(){
-        $("#nav-mobile").html($("#nav-main").html());
-        $("#nav-trigger span").click(function(){
-            if ($("nav#nav-mobile ul").hasClass("expanded")) {
-                $("nav#nav-mobile ul.expanded").removeClass("expanded").slideUp(250);
-                $(this).removeClass("open");
-            } else {
-                $("nav#nav-mobile ul").addClass("expanded").slideDown(250);
-                $(this).addClass("open");
-            }
-        });
-    });
-</script>
