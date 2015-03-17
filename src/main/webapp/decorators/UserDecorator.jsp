@@ -51,17 +51,17 @@
                 <div class="columns four w468">
                     <nav class="main-menu normal-nav">
                         <div class="columns three">
-                            <a href="#">Салони</a>
+                            <a href="${pageContext.request.contextPath}/salons">Салони</a>
                         <span class="scissors">
                         </span>
                         </div>
                         <div class="columns three">
-                            <a href="/gallery">Галерия</a>
+                            <a href="${pageContext.request.contextPath}/gallery">Галерия</a>
                         <span class="scissors">
                         </span>
                         </div>
                         <div class="columns three">
-                            <a href="#">Новини</a>
+                            <a href="${pageContext.request.contextPath}/news">Новини</a>
                         <span class="scissors">
                         </span>
                         </div>
@@ -76,13 +76,13 @@
                 <div class="columns four w468">
                     <nav class="main-menu  normal-nav">
                         <div class="columns three">
-                            <a href="#">Услуги</a>
+                            <a href="${pageContext.request.contextPath}/services">Услуги</a>
                         </div>
                         <div class="columns three">
                             <a href="${pageContext.request.contextPath}/products">Продукти</a>
                         </div>
                         <div class="columns three">
-                            <a href="#">Оферти</a>
+                            <a href="${pageContext.request.contextPath}/offers">Оферти</a>
                         </div>
                         <div class="columns three">
                             <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
@@ -92,14 +92,14 @@
             </div>
             <div class="row rmm">
                 <ul>
-                    <li><a href='#'>Салони</a></li>
-                    <li><a href='#'>Галерия</a></li>
-                    <li><a href='#'>Новини</a></li>
-                    <li><a href='#'>Екип</a></li>
-                    <li><a href='#'>Услуги</a></li>
-                    <li><a href='#'>Продукти</a></li>
-                    <li><a href='#'>Оферти</a></li>
-                    <li><a href='#'>Контакти</a></li>
+                    <li><a href='${pageContext.request.contextPath}/salons'>Салони</a></li>
+                    <li><a href='${pageContext.request.contextPath}/gallery'>Галерия</a></li>
+                    <li><a href='${pageContext.request.contextPath}/news'>Новини</a></li>
+                    <li><a href='${pageContext.request.contextPath}/team'>Екип</a></li>
+                    <li><a href='${pageContext.request.contextPath}/services'>Услуги</a></li>
+                    <li><a href='${pageContext.request.contextPath}/products'>Продукти</a></li>
+                    <li><a href='${pageContext.request.contextPath}/offers'>Оферти</a></li>
+                    <li><a href='${pageContext.request.contextPath}/contacts'>Контакти</a></li>
                 </ul>
             </div>
         </div>
@@ -110,19 +110,19 @@
             <div class="row">
                 <div class="columns eleven mt8 lower-menu">
                     <!-- <div class="columns two offset-two"> -->
-                    <a href="#">салони</a>
+                    <a href="${pageContext.request.contextPath}/salons">салони</a>
                     <!--  </div>
                       <div class="columns two"> -->
-                    <a href="#">персонал</a>
+                    <a href="${pageContext.request.contextPath}/team">персонал</a>
                     <!--  </div>
                       <div class="columns two"> -->
-                    <a href="#">блог</a>
+                    <a href="${pageContext.request.contextPath}/news">блог</a>
                     <!--  </div>
                       <div class="columns two"> -->
                     <a href="#">карта на сайта</a>
                     <!--  </div>
                       <div class="columns two"> -->
-                    <a href="#">контакти</a>
+                    <a href="${pageContext.request.contextPath}/contacts">контакти</a>
                     <!--  </div> -->
                 </div>
             </div>

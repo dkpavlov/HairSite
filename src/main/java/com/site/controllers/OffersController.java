@@ -15,10 +15,10 @@ import java.io.IOException;
  */
 
 @Controller
-@RequestMapping("/offers")
+@RequestMapping("")
 public class OffersController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/offers", method = RequestMethod.GET)
     public String index(ModelMap model) throws IOException {
         return "public/offers";
 
