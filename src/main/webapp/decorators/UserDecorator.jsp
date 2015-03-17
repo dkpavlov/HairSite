@@ -66,7 +66,7 @@
                         </span>
                         </div>
                         <div class="columns three">
-                            <a href="#">Екип</a>
+                            <a href="${pageContext.request.contextPath}/team">Екип</a>
                         <span class="scissors">
                         </span>
                         </div>
@@ -79,13 +79,13 @@
                             <a href="#">Услуги</a>
                         </div>
                         <div class="columns three">
-                            <a href="#">Продукти</a>
+                            <a href="${pageContext.request.contextPath}/products">Продукти</a>
                         </div>
                         <div class="columns three">
                             <a href="#">Оферти</a>
                         </div>
                         <div class="columns three">
-                            <a href="/contacts">Контакти</a>
+                            <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
                         </div>
                     </nav>
                 </div>

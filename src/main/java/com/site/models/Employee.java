@@ -1,7 +1,6 @@
 package com.site.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +16,7 @@ public class Employee extends BaseEntity {
     private String name;
 
     @Column
-    private String summary;
+    private String experience;
 
     @Column
     private String description;
@@ -25,11 +24,19 @@ public class Employee extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image mainImage;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> imagesList;
-
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.INACTIVE;
+
+    @ManyToOne
+    private Salon salon;
+
+    public Salon getSalon() {
+        return salon;
+    }
+
+    public void setSalon(Salon salon) {
+        this.salon = salon;
+    }
 
     public Status getStatus() {
         return status;
@@ -47,12 +54,12 @@ public class Employee extends BaseEntity {
         this.name = name;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getExperience() {
+        return experience;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 
     public String getDescription() {
@@ -69,13 +76,5 @@ public class Employee extends BaseEntity {
 
     public void setMainImage(Image mainImage) {
         this.mainImage = mainImage;
-    }
-
-    public List<Image> getImagesList() {
-        return imagesList;
-    }
-
-    public void setImagesList(List<Image> imagesList) {
-        this.imagesList = imagesList;
     }
 }

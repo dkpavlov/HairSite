@@ -18,7 +18,8 @@
             <div class="container">
                 <nav id="nav-main">
                     <ul>
-                        <li><a href="/admin/services">Услуги</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/services">Услуги</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/product">Продукти</a></li>
                         <li><a href="">About</a></li>
                         <li><a href="">Gallery</a></li>
                         <li><a href="">Tutorials</a></li>
