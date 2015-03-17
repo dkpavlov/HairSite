@@ -25,7 +25,7 @@ public class Employee extends BaseEntity {
     private Image mainImage;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.INACTIVE;
 
     @ManyToOne
     private Salon salon;

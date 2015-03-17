@@ -79,7 +79,7 @@
                             <a href="#">Услуги</a>
                         </div>
                         <div class="columns three">
-                            <a href="#">Продукти</a>
+                            <a href="${pageContext.request.contextPath}/products">Продукти</a>
                         </div>
                         <div class="columns three">
                             <a href="#">Оферти</a>

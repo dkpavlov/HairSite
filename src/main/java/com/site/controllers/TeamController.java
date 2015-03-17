@@ -1,7 +1,10 @@
 package com.site.controllers;
 
+import com.site.models.Status;
 import com.site.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +26,8 @@ public class TeamController {
     EmployeeRepository employeeRepository;
 
     @RequestMapping(value = "/team", method = RequestMethod.GET)
-    public String index(ModelMap model) throws IOException {
-        model.put("employees", employeeRepository.findAll());
+    public String index(@PageableDefault Pageable pageable, ModelMap model) throws IOException {
+        model.put("page", employeeRepository.findByStatus(Status.ACTIVE, pageable));
         return "public/team";
     }
 }

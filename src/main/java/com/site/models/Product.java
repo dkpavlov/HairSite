@@ -18,11 +18,28 @@ public class Product extends BaseEntity {
     @Column
     private String description;
 
+    @Column
+    private Double price;
+
+    @Column
+    private Boolean promo = false;
+
+    @Column
+    private Double oldPrice;
+
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.INACTIVE;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     public String getName() {
         return name;
