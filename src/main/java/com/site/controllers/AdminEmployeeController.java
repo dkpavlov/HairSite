@@ -70,5 +70,4 @@ public class AdminEmployeeController {
         employeeRepository.save(employee);
         return "SUCCESS";
     }
-
 }

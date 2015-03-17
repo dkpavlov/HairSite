@@ -85,7 +85,7 @@
                             <a href="#">Оферти</a>
                         </div>
                         <div class="columns three">
-                            <a href="#">Контакти</a>
+                            <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
                         </div>
                     </nav>
                 </div>

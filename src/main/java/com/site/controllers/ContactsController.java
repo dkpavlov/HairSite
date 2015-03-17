@@ -1,12 +1,12 @@
 package com.site.controllers;
 
 
+import com.site.repositories.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,12 +16,15 @@ import java.io.IOException;
  */
 
 @Controller
-@RequestMapping("/contacts")
 public class ContactsController {
 
+    @Autowired
+    ContactRepository contactRepository;
+
     @Deprecated
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(ModelMap model) throws IOException {
+    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
+    public String index(ModelMap model){
+        model.put("contacts", contactRepository.findAll());
         return "public/contacts";
 
     }
