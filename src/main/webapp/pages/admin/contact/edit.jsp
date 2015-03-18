@@ -2,7 +2,12 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <div class="header">
     <h1>Контакти</h1>
-    <h2>Нов контакти</h2>
+    <c:if test="${not empty contact.id}">
+    <h2>Редактиране на ${contact.name}</h2>
+    </c:if>
+    <c:if test="${empty contact.id}">
+    <h2>Нов контакт</h2>
+    </c:if>
 </div>
 <br/>
 <div class="content">

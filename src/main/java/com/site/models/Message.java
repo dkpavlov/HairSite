@@ -48,7 +48,7 @@ public class Message extends BaseEntity {
 
     public String getShortText(){
         if(text.length() > 35){
-            return text.substring(0, 35) + "...";
+            return text.substring(0, 32) + "...";
         } else {
             return text;
         }

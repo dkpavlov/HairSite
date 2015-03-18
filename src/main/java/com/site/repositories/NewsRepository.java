@@ -1,6 +1,9 @@
 package com.site.repositories;
 
 import com.site.models.News;
+import com.site.models.Status;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -10,4 +13,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * Time: 13:25
  */
 public interface NewsRepository extends PagingAndSortingRepository<News, Long> {
+    public Page<News> findByStatusNot(Status status, Pageable pageable);
 }

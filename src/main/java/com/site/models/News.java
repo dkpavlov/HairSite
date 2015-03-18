@@ -1,9 +1,6 @@
 package com.site.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,13 +16,21 @@ public class News extends BaseEntity{
     private String title;
 
     @Column
-    private String summary;
+    private String text;
 
-    @Column
-    private String description;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Image image;
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    public String getShortText(){
+        if(text.length() > 35){
+            return text.substring(0, 32) + "...";
+        } else {
+            return text;
+        }
+    }
 
     public String getTitle() {
         return title;
@@ -35,20 +40,20 @@ public class News extends BaseEntity{
         this.title = title;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getText() {
+        return text;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getDescription() {
-        return description;
+    public Image getImage() {
+        return image;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     public Status getStatus() {

@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="/assets/css/admin/side-menu.css">
         <!--<![endif]-->
 
-        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 
     </head>
     <body>
@@ -37,7 +37,8 @@
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/product" class="pure-menu-link">Продукти</a>
                         </li>
-                        <li class="pure-menu-item"><a href="" class="pure-menu-link">About</a>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/news" class="pure-menu-link">Новини</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="" class="pure-menu-link">Gallery</a>
