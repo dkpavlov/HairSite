@@ -15,6 +15,9 @@
         <!--[if gt IE 8]><!-->
         <link rel="stylesheet" href="/assets/css/admin/side-menu.css">
         <!--<![endif]-->
+
+        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+
     </head>
     <body>
         <div id="layout">
@@ -26,7 +29,7 @@
 
             <div id="menu">
                 <div class="pure-menu">
-                    <a class="pure-menu-heading" href="#">Company</a>
+                    <a class="pure-menu-heading" href="#">CMS</a>
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/services" class="pure-menu-link">Услуги</a>
@@ -43,7 +46,7 @@
                             <a href="" class="pure-menu-link">Tutorials</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="/admin/contact" class="pure-menu-link">Контакти</a>
+                            <a href="${pageContext.request.contextPath}/admin/contact" class="pure-menu-link">Контакти</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="/admin/messages" class="pure-menu-link">Съобщения</a>
@@ -55,7 +58,7 @@
             <div id="main">
                 <decorator:body/>
             </div>
+            <script src="/assets/js/ui.js"></script>
         </div>
-        <script src="/assets/js/ui.js"></script>
     </body>
 </html>

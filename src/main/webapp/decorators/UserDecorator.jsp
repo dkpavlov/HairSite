@@ -136,6 +136,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </footer>
     <div class="row lower-footer">
         <div class="columns twelve mt8">

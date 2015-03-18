@@ -55,7 +55,6 @@ public class AdminContactsController {
     @RequestMapping(value = "/admin/contact/{id}/edit", method = RequestMethod.POST)
     public String postEditEmployee(@ModelAttribute("contact") Contact contact,
                                    @PathVariable("id") Long id){
-        //TODO check if necessary
         contact.setId(id);
         contactRepository.save(contact);
         return "redirect:/admin/contact";
@@ -66,9 +65,15 @@ public class AdminContactsController {
     @ResponseBody
     public String changeStatus(@PathVariable("id") Long id, Status status){
         Contact contact = contactRepository.findOne(id);
-        //TODO
-        //contact.setStatus(status);
+        contact.setStatus(status);
         contactRepository.save(contact);
         return "SUCCESS";
     }
+
+    /* STATUSES */
+    @ModelAttribute("statuses")
+    public Status[] getStatuses(){
+        return Status.values();
+    }
+
 }
