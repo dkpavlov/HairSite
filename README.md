@@ -31,3 +31,9 @@ Testet on MySQL Server version 5.1.67
 
 
 ##Default admin user
+
+
+##Design
+
+Public part uses custom design.
+CMS uses [Pure](http://purecss.io/)
