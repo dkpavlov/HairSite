@@ -11,21 +11,37 @@
 </div>
 <br/>
 <div class="content">
-    <form:form modelAttribute="news" class="pure-form pure-form-aligned">
+    <form:form modelAttribute="news" class="pure-form pure-form-aligned" enctype="multipart/form-data">
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Заглавие</label>
                 <form:input path="title" id="title" type="text" placeholder="Заглавие"/>
             </div>
 
-            <div class="pure-control-group">
-                <label for="image">Изображение</label>
-                <input type="file" id="image" placeholder="Изображение"/>
-            </div>
+            <c:if test="${empty news.id}">
+                <div class="pure-control-group">
+                    <label for="image">Изображение</label>
+                    <input type="file" name="file" id="image" placeholder="Изображение"/>
+                </div>
+            </c:if>
+
+            <c:if test="${not empty news.id}">
+                <c:if test="${not empty news.image}">
+                    <div class="pure-control-group">
+                        <%-- TODO fix lable position--%>
+                        <label for="old-image">Изображение</label>
+                        <img src="${pageContext.request.contextPath}/storage/${news.image.fileName}" height="200" width="200" id="old-image">
+                    </div>
+                </c:if>
+                <div class="pure-control-group">
+                    <label for="image">Нов изображение</label>
+                    <input type="file" name="file" id="image" placeholder="Изображение"/>
+                </div>
+            </c:if>
 
             <div class="pure-control-group">
                 <label for="text">Текст</label>
-                <form:textarea path="text" id="text" type="text" rows="7" cols="70" placeholder="Адрес"/>
+                <form:textarea path="text" id="text" type="text" rows="7" cols="70" placeholder="Текст"/>
             </div>
 
             <div class="pure-control-group">

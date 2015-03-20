@@ -24,10 +24,10 @@
             <c:forEach items="${page.content}" var="news">
                 <tr>
                     <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${news.dateCreated}"/></td>
-                    <td>${news.name}</td>
+                    <td>${news.title}</td>
                     <td>${news.status}</td>
                     <td><a class="pure-button" href="#">Преглед</a></td>
-                    <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/news/${contact.id}/edit">Редактирай</a></td>
+                    <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/news/${news.id}/edit">Редактирай</a></td>
                     <td><button class="pure-button delete" var="${news.id}">Изтрий</button></td>
                 </tr>
             </c:forEach>

@@ -15,7 +15,7 @@ public class News extends BaseEntity{
     @Column
     private String title;
 
-    @Column
+    @Column(length = 2048)
     private String text;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -23,6 +23,12 @@ public class News extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    public void copy(News news){
+        this.title = news.getTitle();
+        this.text = news.getText();
+        this.status = news.getStatus();
+    }
 
     public String getShortText(){
         if(text.length() > 35){

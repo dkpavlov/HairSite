@@ -3,6 +3,7 @@ package com.site.controllers;
 import com.site.models.News;
 import com.site.models.Status;
 import com.site.repositories.NewsRepository;
+import com.site.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -43,8 +44,7 @@ public class AdminNewsController {
     public String postNewNews(@ModelAttribute("news") News news,
                               @RequestParam("file") MultipartFile file){
 
-        /* TODO Store file */
-
+        news.setImage(FileUtils.createImage(file));
         newsRepository.save(news);
         return "redirect:/admin/news";
     }
@@ -59,9 +59,14 @@ public class AdminNewsController {
 
     @RequestMapping(value = "/admin/news/{id}/edit", method = RequestMethod.POST)
     public String postEditNews(@ModelAttribute("news") News news,
-                               @PathVariable("id") Long id){
-        news.setId(id);
-        newsRepository.save(news);
+                               @PathVariable("id") Long id,
+                               MultipartFile file){
+        News old = newsRepository.findOne(id);
+        old.copy(news);
+        if(!file.isEmpty()){
+            old.setImage(FileUtils.createImage(file));
+        };
+        newsRepository.save(old);
         return "redirect:/admin/news";
     }
 

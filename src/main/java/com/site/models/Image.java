@@ -19,6 +19,13 @@ public class Image extends BaseEntity {
     @Column
     private String text;
 
+    public Image(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Image() {
+    }
+
     public String getFileName() {
         return fileName;
     }

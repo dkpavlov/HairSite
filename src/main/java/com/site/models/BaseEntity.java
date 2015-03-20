@@ -87,6 +87,7 @@ public abstract class BaseEntity implements Serializable {
 
     @PrePersist
     public void perCreate(){
+        /* TODO DELETED on UPDATE */
         this.dateCreated = new Date();
     }
 

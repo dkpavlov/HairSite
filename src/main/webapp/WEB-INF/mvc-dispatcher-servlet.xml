@@ -36,6 +36,7 @@
 	</bean>
 
     <mvc:resources mapping="/assets/**" location="/assets/" />
+    <mvc:resources mapping="/storage/**" location="/storage/" />
     <mvc:annotation-driven />
 </beans>
 
