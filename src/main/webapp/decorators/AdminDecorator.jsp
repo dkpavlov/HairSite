@@ -32,19 +32,19 @@
                     <a class="pure-menu-heading" href="#">CMS</a>
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item">
-                            <a href="${pageContext.request.contextPath}/admin/services" class="pure-menu-link">Услуги</a>
-                        </li>
-                        <li class="pure-menu-item">
-                            <a href="${pageContext.request.contextPath}/admin/product" class="pure-menu-link">Продукти</a>
+                            <a href="" class="pure-menu-link">Gallery</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/news" class="pure-menu-link">Новини</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="" class="pure-menu-link">Gallery</a>
+                            <a href="${pageContext.request.contextPath}/admin/employee" class="pure-menu-link">Екип</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="" class="pure-menu-link">Tutorials</a>
+                            <a href="${pageContext.request.contextPath}/admin/services" class="pure-menu-link">Услуги</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/product" class="pure-menu-link">Продукти</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/contact" class="pure-menu-link">Контакти</a>

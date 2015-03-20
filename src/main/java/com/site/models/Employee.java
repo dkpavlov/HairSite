@@ -21,14 +21,58 @@ public class Employee extends BaseEntity {
     @Column
     private String description;
 
+    @Column
+    private String activity;
+
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Image mainImage;
+    private Image image;
+
+    @Column
+    private String email;
+
+    @Column
+    private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
     @ManyToOne
     private Salon salon;
+
+    public void copy(Employee employee){
+        this.name = employee.getName();
+        this.experience = employee.getExperience();
+        this.description = employee.getDescription();
+        this.activity = employee.getActivity();
+        this.email = employee.getEmail();
+        this.phoneNumber = employee.getPhoneNumber();
+        this.status = employee.getStatus();
+        this.salon = employee.getSalon();
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public Salon getSalon() {
         return salon;
@@ -70,11 +114,11 @@ public class Employee extends BaseEntity {
         this.description = description;
     }
 
-    public Image getMainImage() {
-        return mainImage;
+    public Image getImage() {
+        return image;
     }
 
-    public void setMainImage(Image mainImage) {
-        this.mainImage = mainImage;
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

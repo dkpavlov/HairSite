@@ -22,7 +22,7 @@ public class News extends BaseEntity{
     private Image image;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.INACTIVE;
 
     public void copy(News news){
         this.title = news.getTitle();

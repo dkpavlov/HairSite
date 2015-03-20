@@ -11,37 +11,57 @@
 </div>
 <br/>
 <div class="content">
-    <form:form modelAttribute="news" class="pure-form pure-form-aligned" enctype="multipart/form-data">
+    <form:form modelAttribute="employee" class="pure-form pure-form-aligned" enctype="multipart/form-data">
         <fieldset>
             <div class="pure-control-group">
-                <label for="title">Заглавие</label>
-                <form:input path="title" id="title" type="text" placeholder="Заглавие"/>
+                <label for="title">Име</label>
+                <form:input path="name" id="title" type="text" placeholder="Име"/>
             </div>
 
-            <c:if test="${empty news.id}">
+            <c:if test="${empty employee.id}">
                 <div class="pure-control-group">
-                    <label for="image">Изображение</label>
-                    <input type="file" name="file" id="image" placeholder="Изображение"/>
+                    <label for="image">Снимка</label>
+                    <input type="file" name="file" id="image" placeholder="Снимка"/>
                 </div>
             </c:if>
 
-            <c:if test="${not empty news.id}">
-                <c:if test="${not empty news.image}">
+            <c:if test="${not empty employee.id}">
+                <c:if test="${not empty employee.image}">
                     <div class="pure-control-group">
                             <%-- TODO fix lable position--%>
-                        <label for="old-image">Изображение</label>
-                        <img src="${pageContext.request.contextPath}/storage/${news.image.fileName}" height="200" width="200" id="old-image">
+                        <label for="old-image">Снимка</label>
+                        <img src="${pageContext.request.contextPath}/storage/${employee.image.fileName}" height="200" width="200" id="old-image">
                     </div>
                 </c:if>
                 <div class="pure-control-group">
-                    <label for="image">Нов изображение</label>
-                    <input type="file" name="file" id="image" placeholder="Изображение"/>
+                    <label for="image">Нов снимка</label>
+                    <input type="file" name="file" id="image" placeholder="Нов снимка"/>
                 </div>
             </c:if>
 
             <div class="pure-control-group">
-                <label for="text">Текст</label>
-                <form:textarea path="text" id="text" type="text" rows="7" cols="70" placeholder="Текст"/>
+                <label for="title">Длъжност</label>
+                <form:input path="description" id="title" type="text" placeholder="Длъжност"/>
+            </div>
+
+            <div class="pure-control-group">
+                <label for="title">Опит</label>
+                <form:input path="experience" id="title" type="text" placeholder="Опит"/>
+            </div>
+
+            <div class="pure-control-group">
+                <label for="text">Дейност</label>
+                <form:textarea path="activity" id="text" type="text" rows="7" cols="70" placeholder="Дейност"/>
+            </div>
+
+            <div class="pure-control-group">
+                <label for="title">E-Mail</label>
+                <form:input path="email" id="title" type="text" placeholder="E-Mail"/>
+            </div>
+
+            <div class="pure-control-group">
+                <label for="title">Телефон</label>
+                <form:input path="phoneNumber" id="title" type="text" placeholder="Телефон"/>
             </div>
 
             <div class="pure-control-group">
