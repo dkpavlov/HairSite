@@ -3,12 +3,14 @@ package com.site.controllers;
 import com.site.models.Product;
 import com.site.models.Status;
 import com.site.repositories.ProductRepository;
+import com.site.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -39,7 +41,9 @@ public class AdminProductController {
     }
 
     @RequestMapping(value = "/admin/product/new", method = RequestMethod.POST)
-    public String postNewEmployee(@ModelAttribute("product") Product product){
+    public String postNewEmployee(@ModelAttribute("product") Product product,
+                                  MultipartFile file){
+        product.setImage(FileUtils.createImage(file));
         productRepository.save(product);
         return "redirect:/admin/product";
     }
@@ -54,11 +58,14 @@ public class AdminProductController {
 
     @RequestMapping(value = "/admin/product/{id}/edit", method = RequestMethod.POST)
     public String postEditEmployee(@ModelAttribute("product") Product product,
-                                   @PathVariable("id") Long id){
-        //TODO check if necessary
-        product.setId(id);
-
-        productRepository.save(product);
+                                   @PathVariable("id") Long id,
+                                   MultipartFile file){
+        Product old = productRepository.findOne(id);
+        old.copy(product);
+        if(!file.isEmpty()){
+            old.setImage(FileUtils.createImage(file));
+        }
+        productRepository.save(old);
         return "redirect:/admin/product";
     }
 
@@ -70,5 +77,11 @@ public class AdminProductController {
         product.setStatus(status);
         productRepository.save(product);
         return "SUCCESS";
+    }
+
+    /* STATUSES */
+    @ModelAttribute("statuses")
+    public Status[] getStatuses(){
+        return Status.values();
     }
 }

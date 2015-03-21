@@ -27,7 +27,7 @@
                 <td>${news.title}</td>
                 <td>${news.status}</td>
                 <td><a class="pure-button" href="#">Преглед</a></td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/news/${news.id}/edit">Редактирай</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/service/${news.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${news.id}">Изтрий</button></td>
             </tr>
         </c:forEach>
@@ -51,7 +51,7 @@
             $('.delete').click(function(){
                 var contactId = $(this).attr('var');
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/admin/news/'+contactId+'/status',
+                    url: '${pageContext.request.contextPath}/admin/service/'+contactId+'/status',
                     type: 'PUT',
                     data: "status=ARCHIVED",
                     success: function(data) {

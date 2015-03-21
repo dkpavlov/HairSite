@@ -13,14 +13,8 @@ import java.util.List;
 @Entity
 public class Service extends BaseEntity {
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Image mainImage;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> gallery;
-
     @Column
-    private String title;
+    private String name;
 
     @Column
     private Double price;
@@ -35,19 +29,25 @@ public class Service extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Image mainImage;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Image> gallery;
+
     public void copy(Service service){
-        this.title = service.getTitle();
+        this.name = service.getName();
         this.description = service.getDescription();
         this.price = service.getPrice();
         this.status = service.getStatus();
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getPrice() {

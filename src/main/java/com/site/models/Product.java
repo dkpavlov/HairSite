@@ -21,17 +21,18 @@ public class Product extends BaseEntity {
     @Column
     private Double price;
 
-    @Column
-    private Boolean promo = false;
-
-    @Column
-    private Double oldPrice;
-
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
+
+    public void copy(Product product){
+        this.name = product.getName();
+        this.description = product.getDescription();
+        this.price = product.getPrice();
+        this.status = product.getStatus();
+    }
 
     public Double getPrice() {
         return price;
