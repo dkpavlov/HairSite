@@ -22,7 +22,13 @@ public class FileUtils {
     public static String TEST_DIR_WIN = "D:\\WorkSpace\\HairSite\\src\\main\\webapp\\storage";
 
     static {
-        BASE_DIR = TEST_DIR_WIN;
+        String catalinaBase = System.getProperty("catalina.base");
+        if(catalinaBase != null){
+            /* TODO */
+        } else {
+            BASE_DIR = TEST_DIR_WIN;
+        }
+
     }
 
     public static Image createImage(MultipartFile file){
