@@ -29,13 +29,13 @@ public class AdminServiceController {
     @RequestMapping(value = "/admin/service", method = RequestMethod.GET)
     public String adminIndex(ModelMap model) throws IOException {
         model.put("services", serviceRepository.findAll());
-        return "admin/services/index";
+        return "admin/services/list";
     }
 
     /* CREATE */
     @RequestMapping(value = "/admin/service/new", method = RequestMethod.GET)
     public ModelAndView adminNew() throws IOException {
-        ModelAndView mv = new ModelAndView("admin/services/form", "service", new Service());
+        ModelAndView mv = new ModelAndView("admin/services/edit", "service", new Service());
         return mv;
     }
 
@@ -51,7 +51,7 @@ public class AdminServiceController {
     @RequestMapping(value = "/admin/service/{id}/edit", method = RequestMethod.GET)
     public ModelAndView editNews(@PathVariable("id") Long id){
         Service service = serviceRepository.findOne(id);
-        ModelAndView mv = new ModelAndView("admin/service/edit", "service", service);
+        ModelAndView mv = new ModelAndView("admin/services/edit", "service", service);
         return mv;
     }
 

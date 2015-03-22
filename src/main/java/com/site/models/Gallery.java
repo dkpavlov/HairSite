@@ -1,6 +1,7 @@
 package com.site.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,10 +21,15 @@ public class Gallery extends BaseEntity {
     private Image mainImage;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> gallery;
+    private List<Image> images = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.INACTIVE;
+
+    public void copy(Gallery gallery){
+        this.name = gallery.getName();
+        this.status = gallery.getStatus();
+    }
 
     public String getName() {
         return name;
@@ -41,12 +47,12 @@ public class Gallery extends BaseEntity {
         this.mainImage = mainImage;
     }
 
-    public List<Image> getGallery() {
-        return gallery;
+    public List<Image> getImages() {
+        return images;
     }
 
-    public void setGallery(List<Image> gallery) {
-        this.gallery = gallery;
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 
     public Status getStatus() {
