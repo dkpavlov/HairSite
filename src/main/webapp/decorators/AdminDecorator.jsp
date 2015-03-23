@@ -9,14 +9,15 @@
 
         <%-- TODO downloade css --%>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/images.css">
         <!--[if lte IE 8]>
-        <link rel="stylesheet" href="/assets/css/admin/side-menu-old-ie.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/side-menu-old-ie.css">
         <![endif]-->
         <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="/assets/css/admin/side-menu.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/side-menu.css">
         <!--<![endif]-->
 
-        <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 
     </head>
     <body>

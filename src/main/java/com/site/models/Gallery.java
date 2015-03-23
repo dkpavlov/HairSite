@@ -1,5 +1,9 @@
 package com.site.models;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,18 +21,52 @@ public class Gallery extends BaseEntity {
     @Column
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     private Image mainImage;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Image> images = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
+    @Transient
+    private MultipartFile[] files;
+
+    @Transient
+    private MultipartFile file;
+
+    @Transient
+    private List<Long> oldImages;
+
     public void copy(Gallery gallery){
         this.name = gallery.getName();
         this.status = gallery.getStatus();
+    }
+
+    public MultipartFile[] getFiles() {
+        return files;
+    }
+
+    public void setFiles(MultipartFile[] files) {
+        this.files = files;
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    public List<Long> getOldImages() {
+        return oldImages;
+    }
+
+    public void setOldImages(List<Long> oldImages) {
+        this.oldImages = oldImages;
     }
 
     public String getName() {
