@@ -15,4 +15,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
     public Page<Product> findByStatus(Status status, Pageable pageable);
+    public Page<Product> findById(Long id, Pageable pageable);
 }

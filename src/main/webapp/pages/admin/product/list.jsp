@@ -18,17 +18,19 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${page.content}" var="news">
+        <c:forEach items="${page.content}" var="product">
             <tr>
-                <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${news.dateCreated}"/></td>
-                <td>${news.title}</td>
-                <td>${news.status}</td>
+                <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${product.dateCreated}"/></td>
+                <td>${product.name}</td>
+                <td>${product.status}</td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/offers/product/${product.id}">Нова оферта</a></td>
                 <td><a class="pure-button" href="#">Преглед</a></td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/product/${news.id}/edit">Редактирай</a></td>
-                <td><button class="pure-button delete" var="${news.id}">Изтрий</button></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/product/${product.id}/edit">Редактирай</a></td>
+                <td><button class="pure-button delete" var="${product.id}">Изтрий</button></td>
             </tr>
         </c:forEach>
         </tbody>

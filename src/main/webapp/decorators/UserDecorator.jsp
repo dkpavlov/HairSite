@@ -2,21 +2,21 @@
 <!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/responsivemobilemenu.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/smart-grid.css" >
-        <link rel="stylesheet" type="text/css" href="../assets/css/hair_spot.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/responsivemobilemenu.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/smart-grid.css" >
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/hair_spot.css">
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans">
-        <link rel="stylesheet" type="text/css" href="../assets/css/jquery.bxslider.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/jquery.shadow.css">
-        <link rel="stylesheet" type="text/css" href="../assets/css/bottom.css">
-        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
-        <script type="text/javascript" src="../assets/js/responsivemobilemenu.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.bxslider.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.shadow.js"></script>
-        <script type="text/javascript" src="../assets/js/google.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.jcarousel.min.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.pikachoose.min.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery.touchwipe.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.bxslider.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/jquery.shadow.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/bottom.css">
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/responsivemobilemenu.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.shadow.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/google.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.jcarousel.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.pikachoose.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.touchwipe.min.js"></script>
         <title>Hair Spot - Valentin Tsvetkov</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </head>
@@ -96,7 +96,7 @@
                     <li><a href='${pageContext.request.contextPath}/gallery'>Галерия</a></li>
                     <li><a href='${pageContext.request.contextPath}/news'>Новини</a></li>
                     <li><a href='${pageContext.request.contextPath}/team'>Екип</a></li>
-                    <li><a href='${pageContext.request.contextPath}/services'>Услуги</a></li>
+                    <li><a href='${pageContext.request.contextPath}/service'>Услуги</a></li>
                     <li><a href='${pageContext.request.contextPath}/products'>Продукти</a></li>
                     <li><a href='${pageContext.request.contextPath}/offers'>Оферти</a></li>
                     <li><a href='${pageContext.request.contextPath}/contacts'>Контакти</a></li>

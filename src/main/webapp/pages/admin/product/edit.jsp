@@ -2,10 +2,10 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <div class="header">
     <h1>Продукти</h1>
-    <c:if test="${not empty service.id}">
-        <h2>Редактиране на ${service.title}</h2>
+    <c:if test="${not empty product.id}">
+        <h2>Редактиране на ${product.title}</h2>
     </c:if>
-    <c:if test="${empty service.id}">
+    <c:if test="${empty product.id}">
         <h2>Нова продукт</h2>
     </c:if>
 </div>
@@ -41,7 +41,7 @@
 
             <div class="pure-control-group">
                 <label for="title">Цена</label>
-                <form:input path="price" id="title" type="text" placeholder="Цена(12,99)"/>
+                <form:input path="price" id="title" type="text" placeholder="Цена(12.99)"/>
             </div>
 
             <div class="pure-control-group">

@@ -8,6 +8,12 @@
         </excludes>
         <pattern>/admin/*</pattern>
     </decorator>
+    <decorator name="public" page="UserDecorator.jsp">
+        <excludes>
+            <pattern>/assets/*</pattern>
+        </excludes>
+        <pattern>/cms/preview/**</pattern>
+    </decorator>
     <decorator name="default" page="UserDecorator.jsp">
         <excludes>
             <pattern>/assets/*</pattern>

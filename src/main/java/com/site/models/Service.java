@@ -1,5 +1,7 @@
 package com.site.models;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -35,11 +37,22 @@ public class Service extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Image> gallery;
 
+    @Transient
+    private MultipartFile file;
+
     public void copy(Service service){
         this.name = service.getName();
         this.description = service.getDescription();
         this.price = service.getPrice();
         this.status = service.getStatus();
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
     public String getName() {

@@ -10,6 +10,7 @@
         <%-- TODO downloade css --%>
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/images.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery-ui.min.css">
         <!--[if lte IE 8]>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/side-menu-old-ie.css">
         <![endif]-->
@@ -18,6 +19,7 @@
         <!--<![endif]-->
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-ui.min.js"></script>
 
     </head>
     <body>
@@ -46,6 +48,9 @@
                         </li>
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/product" class="pure-menu-link">Продукти</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/offers" class="pure-menu-link">Оферти</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/contact" class="pure-menu-link">Контакти</a>

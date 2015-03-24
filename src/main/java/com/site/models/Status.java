@@ -8,7 +8,17 @@ package com.site.models;
  */
 
 public enum Status {
-    ACTIVE,
-    INACTIVE,
-    ARCHIVED;
+    ACTIVE("Активно"),
+    INACTIVE("Неактивно"),
+    ARCHIVED("Архивирано");
+
+    private String name;
+
+    Status(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

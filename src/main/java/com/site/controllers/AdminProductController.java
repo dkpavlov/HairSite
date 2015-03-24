@@ -10,7 +10,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -30,7 +29,7 @@ public class AdminProductController {
     @RequestMapping(value = "/admin/product", method = RequestMethod.GET)
     public String getAll(@PageableDefault Pageable pageable, ModelMap model){
         model.put("page", productRepository.findAll(pageable));
-        return "admin/employee/list";
+        return "admin/product/list";
     }
 
     /* NEW */
@@ -41,9 +40,8 @@ public class AdminProductController {
     }
 
     @RequestMapping(value = "/admin/product/new", method = RequestMethod.POST)
-    public String postNewEmployee(@ModelAttribute("product") Product product,
-                                  MultipartFile file){
-        product.setImage(FileUtils.createImage(file));
+    public String postNewEmployee(@ModelAttribute("product") Product product){
+        product.setImage(FileUtils.createImage(product.getFile()));
         productRepository.save(product);
         return "redirect:/admin/product";
     }
@@ -58,12 +56,11 @@ public class AdminProductController {
 
     @RequestMapping(value = "/admin/product/{id}/edit", method = RequestMethod.POST)
     public String postEditEmployee(@ModelAttribute("product") Product product,
-                                   @PathVariable("id") Long id,
-                                   MultipartFile file){
+                                   @PathVariable("id") Long id){
         Product old = productRepository.findOne(id);
         old.copy(product);
-        if(!file.isEmpty()){
-            old.setImage(FileUtils.createImage(file));
+        if(!product.getFile().isEmpty()){
+            old.setImage(FileUtils.createImage(product.getFile()));
         }
         productRepository.save(old);
         return "redirect:/admin/product";

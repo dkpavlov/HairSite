@@ -1,6 +1,9 @@
 package com.site.models;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -13,21 +16,10 @@ import java.util.Date;
 @Entity
 public class Offering extends BaseEntity {
 
-    public enum Type {
-        VOUCHER, PROMOTION;
-    }
-
-    @Enumerated(EnumType.STRING)
-    private Type type;
-
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private static DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
     @Column
-    private String name;
-
-    @Column
-    private String description;
+    private Double price;
 
     @Column
     private Date from;
@@ -35,15 +27,67 @@ public class Offering extends BaseEntity {
     @Column
     private Date to;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    private Image image;
+    @ManyToOne
+    private Product product;
 
-    public Type getType() {
-        return type;
+    @ManyToOne
+    private Service service;
+
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.INACTIVE;
+
+    public void copy(Offering offering){
+        this.price = offering.getPrice();
+        this.from = offering.getFrom();
+        this.to = offering.getTo();
+        this.status = offering.getStatus();
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public String getToAsString(){
+        return to != null ? df.format(from) : null;
+
+    }
+
+    public void setToAsString(String to){
+        try{
+            this.to = df.parse(to);
+        } catch (Exception e){
+        }
+    }
+
+    public String getFromAsString(){
+        return from != null ? df.format(from) : null;
+    }
+
+    public void setFromAsString(String from){
+        try {
+            this.to = df.parse(from);
+        } catch (ParseException e) {
+        }
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
 
     public Status getStatus() {
@@ -52,22 +96,6 @@ public class Offering extends BaseEntity {
 
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Date getFrom() {
@@ -86,11 +114,5 @@ public class Offering extends BaseEntity {
         this.to = to;
     }
 
-    public Image getImage() {
-        return image;
-    }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
 }

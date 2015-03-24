@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -40,9 +39,8 @@ public class AdminServiceController {
     }
 
     @RequestMapping(value = "/admin/service/new", method = RequestMethod.POST)
-    public String adminNewSave(@ModelAttribute("service") Service service,
-                               MultipartFile file) throws IOException {
-        service.setMainImage(FileUtils.createImage(file));
+    public String adminNewSave(@ModelAttribute("service") Service service){
+        service.setMainImage(FileUtils.createImage(service.getFile()));
         serviceRepository.save(service);
         return "redirect:/admin/services";
     }
@@ -57,12 +55,11 @@ public class AdminServiceController {
 
     @RequestMapping(value = "/admin/service/{id}/edit", method = RequestMethod.POST)
     public String postEditNews(@ModelAttribute("service") Service service,
-                               @PathVariable("id") Long id,
-                               MultipartFile file){
+                               @PathVariable("id") Long id){
         Service old = serviceRepository.findOne(id);
         old.copy(service);
-        if(!file.isEmpty()){
-            old.setMainImage(FileUtils.createImage(file));
+        if(!service.getFile().isEmpty()){
+            old.setMainImage(FileUtils.createImage(service.getFile()));
         };
         serviceRepository.save(old);
         return "redirect:/admin/service";
