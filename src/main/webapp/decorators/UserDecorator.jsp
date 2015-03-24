@@ -97,7 +97,7 @@
                     <li><a href='${pageContext.request.contextPath}/news'>Новини</a></li>
                     <li><a href='${pageContext.request.contextPath}/team'>Екип</a></li>
                     <li><a href='${pageContext.request.contextPath}/service'>Услуги</a></li>
-                    <li><a href='${pageContext.request.contextPath}/products'>Продукти</a></li>
+                    <li><a href='${pageContext.request.contextPath}/product'>Продукти</a></li>
                     <li><a href='${pageContext.request.contextPath}/offers'>Оферти</a></li>
                     <li><a href='${pageContext.request.contextPath}/contacts'>Контакти</a></li>
                 </ul>

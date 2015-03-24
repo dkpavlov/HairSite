@@ -24,7 +24,7 @@ public class ProductsController {
     @Autowired
     ProductRepository productRepository;
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
     public String index(@PageableDefault Pageable pageable, ModelMap model){
         model.put("page", productRepository.findByStatus(Status.ACTIVE, pageable));
         return "public/products";
