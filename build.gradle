@@ -32,8 +32,17 @@ dependencies {
 
     compile 'net.coobird:thumbnailator:0.4.8'
 
+    compile 'javax.servlet:jsp-api:2.0'
+
     runtime 'javax.servlet:jstl:1.2'
     runtime 'mysql:mysql-connector-java:5.1.6'
+}
+
+repositories { mavenCentral() }
+
+task getDeps(type: Copy) {
+    from sourceSets.main.runtimeClasspath
+    into 'runtime/'
 }
 
 jettyRun.contextPath = ''

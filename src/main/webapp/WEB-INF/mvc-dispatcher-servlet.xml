@@ -32,12 +32,22 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView" />
+        <property name="requestContextAttribute" value="rc" />
 		<property name="prefix">
 			<value>/pages/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
+        <property name="exposedContextBeanNames" >
+            <list>
+                <value>
+                    properties
+                </value>
+            </list>
+        </property>
 	</bean>
 
     <mvc:resources mapping="/assets/**" location="/assets/" />

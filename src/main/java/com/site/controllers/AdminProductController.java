@@ -28,7 +28,7 @@ public class AdminProductController {
     /* LIST */
     @RequestMapping(value = "/admin/product", method = RequestMethod.GET)
     public String getAll(@PageableDefault Pageable pageable, ModelMap model){
-        model.put("page", productRepository.findAll(pageable));
+        model.put("page", productRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/product/list";
     }
 

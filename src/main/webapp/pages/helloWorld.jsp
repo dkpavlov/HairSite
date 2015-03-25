@@ -6,10 +6,10 @@
             <div class="row box sides-hz-1">
                <ul class="bxslider">
                    <!-- изображенията трябва да са в съотношение 4:3 (1600 х 1200 препоръчителна резолюция) -->
-                    <li><a href="#"><img src="../assets/images/1.jpg" width="1600" /></a></li>
-                    <li><a href="#"><img src="../assets/images/2.jpg" width="1600" /></a></li>
-                    <li><a href="#"><img src="../assets/images/3.jpg" width="1600" /></a></li>
-                    <li><a href="#"><img src="../assets/images/4.jpg" width="1600" /></a></li>
+                    <li><a href="#"><img src="../assets/images/1.jpg" /></a></li>
+                    <li><a href="#"><img src="../assets/images/2.jpg" /></a></li>
+                    <li><a href="#"><img src="../assets/images/3.jpg" /></a></li>
+                    <li><a href="#"><img src="../assets/images/4.jpg" /></a></li>
                 </ul>
             </div>
         </div>

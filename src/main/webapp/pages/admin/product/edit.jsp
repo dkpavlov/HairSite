@@ -3,7 +3,7 @@
 <div class="header">
     <h1>Продукти</h1>
     <c:if test="${not empty product.id}">
-        <h2>Редактиране на ${product.title}</h2>
+        <h2>Редактиране на ${product.name}</h2>
     </c:if>
     <c:if test="${empty product.id}">
         <h2>Нова продукт</h2>
