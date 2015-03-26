@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
 
 <div class="inner-page">
     <div class="row first-row">
@@ -30,21 +31,20 @@
         </div>
     </c:forEach>
 
-    <div class="row pagination">
-        <div class="columns twelve">
-            <a href="">
-                <img src="${pageContext.request.contextPath}/assets/img/pagination-prev.png" />
-            </a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="" class="active">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">
-                <img src="${pageContext.request.contextPath}/assets/img/pagination-next.png"/>
-            </a>
-        </div>
-    </div>
+    <%
+        String url = "";
+        if (request.getQueryString() != null) {
+            url = "?" + request.getQueryString().split("page")[0];
+
+            if (url.endsWith("&")) {
+                url = url.substring(0, url.length() - 1);
+            }
+        }
+    %>
+    <c:set var="current" value="<%=url%>" />
+    <c:set var="base" value="<%= request.getContextPath().toString().substring(0)%>"/>
+    <util:pagination maxPages="${page.totalPages}" page="${page.number}" size="${page.size}" url="${current}" base="${base}"/>
+
 </div>
 
 <script>
