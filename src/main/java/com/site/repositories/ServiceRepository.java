@@ -15,4 +15,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface ServiceRepository extends PagingAndSortingRepository<Service, Long> {
     public Page<Service> findByStatus(Status status, Pageable pageable);
+    public Page<Service> findByStatusNot(Status status, Pageable pageable);
+    public Page<Service> findById(Long id, Pageable pageable);
 }

@@ -44,7 +44,7 @@
                             <a href="${pageContext.request.contextPath}/admin/employee" class="pure-menu-link">Екип</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="${pageContext.request.contextPath}/admin/services" class="pure-menu-link">Услуги</a>
+                            <a href="${pageContext.request.contextPath}/admin/service" class="pure-menu-link">Услуги</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/product" class="pure-menu-link">Продукти</a>

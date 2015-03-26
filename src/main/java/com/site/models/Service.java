@@ -3,7 +3,6 @@ package com.site.models;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,9 +33,7 @@ public class Service extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image mainImage;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> gallery;
-
+    /* TODO add promotions */
     @Transient
     private MultipartFile file;
 
@@ -87,13 +84,7 @@ public class Service extends BaseEntity {
         this.mainImage = mainImage;
     }
 
-    public List<Image> getGallery() {
-        return gallery;
-    }
-
-    public void setGallery(List<Image> gallery) {
-        this.gallery = gallery;
-    }
+    /* TODO add promotions */
 
     public String getSummary() {
         return summary;

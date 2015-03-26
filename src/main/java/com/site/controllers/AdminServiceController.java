@@ -5,6 +5,8 @@ import com.site.models.Status;
 import com.site.repositories.ServiceRepository;
 import com.site.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +28,8 @@ public class AdminServiceController {
 
     /* LIST */
     @RequestMapping(value = "/admin/service", method = RequestMethod.GET)
-    public String adminIndex(ModelMap model) throws IOException {
-        model.put("services", serviceRepository.findAll());
+    public String adminIndex(@PageableDefault Pageable pageable, ModelMap model) throws IOException {
+        model.put("page", serviceRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/services/list";
     }
 
@@ -42,7 +44,7 @@ public class AdminServiceController {
     public String adminNewSave(@ModelAttribute("service") Service service){
         service.setMainImage(FileUtils.createImage(service.getFile()));
         serviceRepository.save(service);
-        return "redirect:/admin/services";
+        return "redirect:/admin/service";
     }
 
     /* EDIT */

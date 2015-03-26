@@ -32,6 +32,8 @@ public class Product extends BaseEntity {
     @Transient
     private MultipartFile file;
 
+    /* TODO add promotions */
+
     public void copy(Product product){
         this.name = product.getName();
         this.description = product.getDescription();

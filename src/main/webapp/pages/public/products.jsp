@@ -1,6 +1,4 @@
-<%@ page import="com.site.models.Product" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
 
 <div class="inner-page">
@@ -35,7 +33,7 @@
     <div class="row pagination">
         <div class="columns twelve">
             <a href="">
-                <img src="../../assets/img/pagination-prev.png" />
+                <img src="${pageContext.request.contextPath}/assets/img/pagination-prev.png" />
             </a>
             <a href="">1</a>
             <a href="">2</a>
@@ -43,7 +41,7 @@
             <a href="">4</a>
             <a href="">5</a>
             <a href="">
-                <img src="../../assets/img/pagination-next.png"/>
+                <img src="${pageContext.request.contextPath}/assets/img/pagination-next.png"/>
             </a>
         </div>
     </div>

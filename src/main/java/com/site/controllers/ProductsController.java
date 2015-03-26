@@ -28,7 +28,6 @@ public class ProductsController {
     public String index(@PageableDefault Pageable pageable, ModelMap model){
         model.put("page", productRepository.findByStatus(Status.ACTIVE, pageable));
         return "public/products";
-
     }
 
     @RequestMapping(value = "/cms/products/preview/{id}", method = RequestMethod.GET)
