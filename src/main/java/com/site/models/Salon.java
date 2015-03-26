@@ -1,6 +1,9 @@
 package com.site.models;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,26 +22,31 @@ public class Salon extends BaseEntity {
     @Column
     private String information;
 
+    @Column
+    private String providedServices;
+
     @ManyToOne(targetEntity = Image.class)
-    private List<Image> images;
+    private List<Image> images = new ArrayList<>();
 
-    @Column
-    private String address;
-
-    @Column
-    private String phoneNumber;
-
-    @Column
-    private String mobilePhoneNumber;
-
-    @Column
-    private String email;
-
-    @Column
-    private String skype;
+    @ManyToOne
+    private Contact contact;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.INACTIVE;
+
+    @Transient
+    private MultipartFile[] files;
+
+    @Transient
+    private List<Long> oldImages;
+
+    public void copy(Salon salon){
+        this.name = salon.getName();
+        this.information = salon.getInformation();
+        this.providedServices = salon.getProvidedServices();
+        this.contact = salon.getContact();
+        this.status = salon.getStatus();
+    }
 
     public String getName() {
         return name;
@@ -72,43 +80,35 @@ public class Salon extends BaseEntity {
         this.status = status;
     }
 
-    public String getAddress() {
-        return address;
+    public String getProvidedServices() {
+        return providedServices;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setProvidedServices(String providedServices) {
+        this.providedServices = providedServices;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public Contact getContact() {
+        return contact;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 
-    public String getMobilePhoneNumber() {
-        return mobilePhoneNumber;
+    public MultipartFile[] getFiles() {
+        return files;
     }
 
-    public void setMobilePhoneNumber(String mobilePhoneNumber) {
-        this.mobilePhoneNumber = mobilePhoneNumber;
+    public void setFiles(MultipartFile[] files) {
+        this.files = files;
     }
 
-    public String getEmail() {
-        return email;
+    public List<Long> getOldImages() {
+        return oldImages;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSkype() {
-        return skype;
-    }
-
-    public void setSkype(String skype) {
-        this.skype = skype;
+    public void setOldImages(List<Long> oldImages) {
+        this.oldImages = oldImages;
     }
 }

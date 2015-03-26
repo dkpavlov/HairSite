@@ -82,5 +82,4 @@ public class AdminServiceController {
     public Status[] getStatuses(){
         return Status.values();
     }
-
 }

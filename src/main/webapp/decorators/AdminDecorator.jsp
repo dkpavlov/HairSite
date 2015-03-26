@@ -35,6 +35,9 @@
                     <a class="pure-menu-heading" href="#">CMS</a>
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/salon" class="pure-menu-link">Салони</a>
+                        </li>
+                        <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/gallery" class="pure-menu-link">Галерия</a>
                         </li>
                         <li class="pure-menu-item">
