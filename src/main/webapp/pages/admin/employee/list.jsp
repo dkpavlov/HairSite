@@ -23,7 +23,7 @@
             <tr>
                 <td>${employee.name}</td>
                 <td>${employee.status}</td>
-                <td><a class="pure-button" href="#">Преглед</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/employee/preview/${employee.id}">Преглед</a></td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/employee/${employee.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${employee.id}">Изтрий</button></td>
             </tr>

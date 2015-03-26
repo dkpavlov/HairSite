@@ -2,10 +2,10 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <div class="header">
     <h1>Екип</h1>
-    <c:if test="${not empty news.id}">
-        <h2>Редактиране на ${news.title}</h2>
+    <c:if test="${not empty employee.id}">
+        <h2>Редактиране на ${employee.name}</h2>
     </c:if>
-    <c:if test="${empty news.id}">
+    <c:if test="${empty employee.id}">
         <h2>Нов служител</h2>
     </c:if>
 </div>
