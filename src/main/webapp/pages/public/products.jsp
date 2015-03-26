@@ -19,11 +19,10 @@
                 <article class="news">
                     <header>${product.name}</header>
                     <p class="price"><custom:doubleFormat number="${product.price}" part="i"/>.<sup><custom:doubleFormat number="${product.price}" part="f"/></sup> <small>лева</small></p>
-                    <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
+                    <p class="news-description"><custom:shortText text="${product.description}" charecters="116"/></p>
                     <div class="whole-news hide">
-                        <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                        <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                        <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                        <%-- TODO open and hide this --%>
+                        <p>${product.description}</p>
                         <p class="close">
                             <a class="link" href="">Затвори</a>
                         </p>

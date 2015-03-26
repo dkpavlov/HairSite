@@ -20,4 +20,19 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>shortText</name>
+        <tag-class>com.site.utils.tags.ShortenText</tag-class>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>charecters</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 </taglib>

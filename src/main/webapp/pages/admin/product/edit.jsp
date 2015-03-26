@@ -18,19 +18,23 @@
                 <form:input path="name" id="name" type="text" placeholder="Име"/>
             </div>
 
-            <c:if test="${empty news.id}">
+            <c:if test="${empty product.id}">
                 <div class="pure-control-group">
                     <label for="image">Изображение</label>
                     <input type="file" name="file" id="image" placeholder="Изображение"/>
                 </div>
             </c:if>
 
-            <c:if test="${not empty news.id}">
-                <c:if test="${not empty news.image}">
+            <c:if test="${not empty product.id}">
+                <c:if test="${not empty product.image}">
                     <div class="pure-control-group">
                             <%-- TODO fix lable position--%>
                         <label for="old-image">Изображение</label>
-                        <img src="${pageContext.request.contextPath}/storage/${news.image.fileName}" height="200" width="200" id="old-image">
+                        <div class="image-container">
+                            <div class="image-div">
+                                <img src="${pageContext.request.contextPath}/storage/${product.image.fileName}" class="base">
+                            </div>
+                        </div>
                     </div>
                 </c:if>
                 <div class="pure-control-group">

@@ -8,25 +8,23 @@ import java.io.IOException;
 /**
  * Created with IntelliJ IDEA.
  * User: dpavlov
- * Date: 15-3-25
- * Time: 16:29
+ * Date: 15-3-26
+ * Time: 8:33
  */
 
-public class DoubleFormat extends TagSupport {
+public class ShortenText extends TagSupport {
 
-    private Double number;
-    private String part;
+    private Integer charecters;
+    private String text;
 
     @Override
     public int doStartTag() throws JspException {
         JspWriter out = pageContext.getOut();
         try {
-            String str = number.toString();
-            String[] arr = str.split("\\.");
-            if(part.equals("i")){
-                out.print(arr[0]);
+            if(text.length() > charecters){
+                out.print(text.substring(0, charecters) + " ...");
             } else {
-                out.print(arr[1]);
+                out.print(text);
             }
         } catch (IOException e) {
             System.err.println(e);
@@ -35,11 +33,11 @@ public class DoubleFormat extends TagSupport {
         return SKIP_BODY;
     }
 
-    public void setNumber(Double number) {
-        this.number = number;
+    public void setCharecters(Integer charecters) {
+        this.charecters = charecters;
     }
 
-    public void setPart(String part) {
-        this.part = part;
+    public void setText(String text) {
+        this.text = text;
     }
 }
