@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="inner-page">
     <div class="row first-row">
         <div class="columns twelve content">
@@ -5,18 +6,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="columns three gallery">
-            <a href="">
-                <div class="gallery-image">
-                    <img src="../../assets/img/news-image.jpg" width="100%"/>
-                    <div class="gallery-hover"></div>
-                </div>
-                <h2>Заглавие на първата галерия</h2>
-            </a>
-            <label class="gallery-content">
-                18 снимки
-            </label>
-        </div>
+
+        <c:forEach items="${list}" var="gallery">
+            <div class="columns three gallery">
+                <a href="">
+                    <div class="gallery-image">
+                        <img src="${pageContext.request.contextPath}/storage/${gallery.mainImage.fileName}" width="100%"/>
+                        <div class="gallery-hover"></div>
+                    </div>
+                    <h2>${gallery.name}</h2>
+                </a>
+                <label class="gallery-content">
+                    ${gallery.gallerySize} снимки
+                </label>
+            </div>
+        </c:forEach>
 
     </div>
 </div>

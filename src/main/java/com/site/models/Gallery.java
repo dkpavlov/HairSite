@@ -45,6 +45,10 @@ public class Gallery extends BaseEntity {
         this.status = gallery.getStatus();
     }
 
+    public Integer getGallerySize(){
+        return images.size() + (mainImage != null ? 1 : 0);
+    }
+
     public MultipartFile[] getFiles() {
         return files;
     }
