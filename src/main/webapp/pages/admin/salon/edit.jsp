@@ -17,7 +17,20 @@
                 <label for="title">Име</label>
                 <form:input path="name" id="title" type="text" placeholder="Име"/>
             </div>
-
+            <c:if test="${not empty salon.images}">
+                <div class="pure-control-group">
+                    <label>Изображения</label>
+                    <div class="image-container">
+                        <c:forEach items="${salon.images}" var="image">
+                            <div class="image-div">
+                                <img src="${pageContext.request.contextPath}/storage/${image.fileName}" class="base">
+                                <img src="${pageContext.request.contextPath}/assets/img/remove.png" class="remove">
+                                <input type="hidden" value="${image.id}" name="oldImages"/>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+            </c:if>
             <div class="pure-control-group">
                 <label for="image">Изображение</label>
                 <input type="file" name="files" class="image" id="image" placeholder="Изображение"/>
@@ -36,6 +49,15 @@
             <div class="pure-control-group">
                 <label for="text">Предлагани услуги</label>
                 <form:textarea path="providedServices" id="text" type="text" rows="7" cols="70" placeholder="Предлагани услуги"/>
+            </div>
+
+            <div class="pure-control-group">
+                <label for="text">Контакти</label>
+                <form:select path="contact.id">
+                    <c:forEach items="${contacts}" var="contact">
+                        <form:option value="${contact.id}">${contact.name}</form:option>
+                    </c:forEach>
+                </form:select>
             </div>
 
             <div class="pure-control-group">

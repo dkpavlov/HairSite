@@ -18,6 +18,7 @@ public interface ContactRepository extends PagingAndSortingRepository<Contact, L
 
     public List<Contact> findByStatus(Status status);
     public Page<Contact> findByStatusNot(Status status, Pageable pageable);
+    public List<Contact> findByStatusNot(Status status);
     public List<Contact> findById(Long id);
 
 }

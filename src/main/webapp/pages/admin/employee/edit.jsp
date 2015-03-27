@@ -50,6 +50,16 @@
             </div>
 
             <div class="pure-control-group">
+                <label for="text">Салон</label>
+                <form:select path="salon.id">
+                    <option></option>
+                    <c:forEach items="${salons}" var="salon">
+                        <form:option value="${salon.id}">${salon.name}</form:option>
+                    </c:forEach>
+                </form:select>
+            </div>
+
+            <div class="pure-control-group">
                 <label for="text">Дейност</label>
                 <form:textarea path="activity" id="text" type="text" rows="7" cols="70" placeholder="Дейност"/>
             </div>

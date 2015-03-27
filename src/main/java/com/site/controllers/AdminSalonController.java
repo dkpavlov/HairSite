@@ -3,6 +3,7 @@ package com.site.controllers;
 import com.site.models.Image;
 import com.site.models.Salon;
 import com.site.models.Status;
+import com.site.repositories.ContactRepository;
 import com.site.repositories.SalonRepository;
 import com.site.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class AdminSalonController {
     @Autowired
     SalonRepository salonRepository;
 
+    @Autowired
+    ContactRepository contactRepository;
+
     /* LIST */
     @RequestMapping(value = "/admin/salon", method = RequestMethod.GET)
     public String list(@PageableDefault Pageable pageable, ModelMap model){
@@ -40,6 +44,7 @@ public class AdminSalonController {
     @RequestMapping(value = "/admin/salon/new", method = RequestMethod.GET)
     public ModelAndView create(){
         ModelAndView mv = new ModelAndView("admin/salon/edit", "salon", new Salon());
+        mv.getModel().put("contacts", contactRepository.findByStatusNot(Status.ARCHIVED));
         return mv;
     }
 
@@ -57,6 +62,7 @@ public class AdminSalonController {
     public ModelAndView edit(@PathVariable("id") Long id){
         Salon salon = salonRepository.findOne(id);
         ModelAndView mv = new ModelAndView("admin/salon/edit", "salon", salon);
+        mv.getModel().put("contacts", contactRepository.findByStatusNot(Status.ARCHIVED));
         return mv;
     }
 

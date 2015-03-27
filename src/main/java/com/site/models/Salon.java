@@ -1,5 +1,7 @@
 package com.site.models;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -25,7 +27,8 @@ public class Salon extends BaseEntity {
     @Column
     private String providedServices;
 
-    @ManyToOne(targetEntity = Image.class)
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Image> images = new ArrayList<>();
 
     @ManyToOne
@@ -39,6 +42,7 @@ public class Salon extends BaseEntity {
 
     @Transient
     private List<Long> oldImages;
+
 
     public void copy(Salon salon){
         this.name = salon.getName();

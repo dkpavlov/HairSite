@@ -3,6 +3,7 @@ package com.site.controllers;
 import com.site.models.Employee;
 import com.site.models.Status;
 import com.site.repositories.EmployeeRepository;
+import com.site.repositories.SalonRepository;
 import com.site.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,9 @@ public class AdminEmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
 
+    @Autowired
+    SalonRepository salonRepository;
+
     /* LIST */
     @RequestMapping(value = "/admin/employee", method = RequestMethod.GET)
     public String getAllEmployees(@PageableDefault Pageable pageable, ModelMap model){
@@ -37,6 +41,7 @@ public class AdminEmployeeController {
     @RequestMapping(value = "/admin/employee/new", method = RequestMethod.GET)
     public ModelAndView newEmployee(){
         ModelAndView mv = new ModelAndView("admin/employee/edit", "employee", new Employee());
+        mv.getModel().put("salons", salonRepository.findByStatusNot(Status.ARCHIVED));
         return mv;
     }
 
@@ -53,6 +58,7 @@ public class AdminEmployeeController {
     public ModelAndView editEmployee(@PathVariable("id") Long id){
         Employee employee = employeeRepository.findOne(id);
         ModelAndView mv = new ModelAndView("admin/employee/edit", "employee", employee);
+        mv.getModel().put("salons", salonRepository.findByStatusNot(Status.ARCHIVED));
         return mv;
     }
 

@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: dpavlov
@@ -15,4 +17,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface SalonRepository extends PagingAndSortingRepository<Salon, Long> {
     public Page<Salon> findByStatusNot(Status status, Pageable pageable);
+    public List<Salon> findByStatusNot(Status status);
 }
