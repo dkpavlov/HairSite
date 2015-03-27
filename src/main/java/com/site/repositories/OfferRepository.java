@@ -1,6 +1,6 @@
 package com.site.repositories;
 
-import com.site.models.Offering;
+import com.site.models.Offer;
 import com.site.models.Status;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +13,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * Time: 13:39
  */
 
-public interface OfferingRepository extends PagingAndSortingRepository<Offering, Long> {
-    public Page<Offering> findByStatusNot(Status status, Pageable pageable);
+public interface OfferRepository extends PagingAndSortingRepository<Offer, Long> {
+    public Page<Offer> findByStatusNot(Status status, Pageable pageable);
 }

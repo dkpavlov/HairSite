@@ -1,36 +1,40 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <div class="header">
-    <h1>Продукти</h1>
-    <h2>Всички продукти</h2>
+    <h1>Оферти</h1>
+    <h2>Всички оферти</h2>
 </div>
 
 <div class="content">
-    <br/><br/>
-    <a class="pure-button pure-button-primary" href="${pageContext.request.contextPath}/admin/product/new">Нов продукт</a>
     <br/><br/>
     <table class="pure-table pure-table-bordered">
         <thead>
         <tr>
             <th>Дата</th>
-            <th>Име</th>
+            <th>Тип</th>
+            <th>За</th>
             <th>Статус</th>
-            <th></th>
             <th></th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${page.content}" var="product">
+        <c:forEach items="${page.content}" var="offer">
             <tr>
-                <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${product.dateCreated}"/></td>
-                <td>${product.name}</td>
-                <td>${product.status.name}</td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/offers/product/${product.id}">Нова оферта</a></td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/products/preview/${product.id}">Преглед</a></td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/product/${product.id}/edit">Редактирай</a></td>
-                <td><button class="pure-button delete" var="${product.id}">Изтрий</button></td>
+                <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${offer.dateCreated}"/></td>
+                <c:if test="${not empty offer.product}">
+                    <td>Продукт</td>
+                    <td>${offer.product.name}</td>
+                </c:if>
+                <c:if test="${empty offer.product}">
+                    <td>Услуга</td>
+                    <td>${offer.service.name}</td>
+                </c:if>
+                <td>${offer.status.name}</td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/offer/preview/${offer.id}">Преглед</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/offer/${offer.id}/edit">Редактирай</a></td>
+                <td><button class="pure-button delete" var="${offer.id}">Изтрий</button></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -53,7 +57,7 @@
             $('.delete').click(function(){
                 var contactId = $(this).attr('var');
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/admin/product/'+contactId+'/status',
+                    url: '${pageContext.request.contextPath}/admin/offer/'+contactId+'/status',
                     type: 'PUT',
                     data: "status=ARCHIVED",
                     success: function(data) {

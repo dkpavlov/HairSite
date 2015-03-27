@@ -85,7 +85,6 @@
             });
 
             $('.remove').click(function(){
-                /*TODO add confirm*/
                 $(this).parent().remove();
             });
         });

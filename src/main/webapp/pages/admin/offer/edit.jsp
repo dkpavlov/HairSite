@@ -11,7 +11,7 @@
 </div>
 <br/>
 <div class="content">
-    <form:form modelAttribute="offering" class="pure-form pure-form-aligned" enctype="multipart/form-data">
+    <form:form modelAttribute="offer" class="pure-form pure-form-aligned" enctype="multipart/form-data">
         <fieldset>
 
             <%-- TODO display review of product/service --%>

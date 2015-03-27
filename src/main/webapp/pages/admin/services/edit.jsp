@@ -28,7 +28,6 @@
             <c:if test="${not empty service.id}">
                 <c:if test="${not empty service.mainImage}">
                     <div class="pure-control-group">
-                            <%-- TODO fix lable position--%>
                         <label for="old-image">Изображение</label>
                         <img src="${pageContext.request.contextPath}/storage/${service.mainImage.fileName}" height="200" width="200" id="old-image">
                     </div>

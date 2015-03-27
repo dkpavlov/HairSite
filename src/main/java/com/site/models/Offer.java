@@ -14,17 +14,17 @@ import java.util.Date;
  */
 
 @Entity
-public class Offering extends BaseEntity {
+public class Offer extends BaseEntity {
 
     private static DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
     @Column
     private Double price;
 
-    @Column
+    @Column(name = "date_from")
     private Date from;
 
-    @Column
+    @Column(name = "date_to")
     private Date to;
 
     @ManyToOne
@@ -36,11 +36,11 @@ public class Offering extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
-    public void copy(Offering offering){
-        this.price = offering.getPrice();
-        this.from = offering.getFrom();
-        this.to = offering.getTo();
-        this.status = offering.getStatus();
+    public void copy(Offer offer){
+        this.price = offer.getPrice();
+        this.from = offer.getFrom();
+        this.to = offer.getTo();
+        this.status = offer.getStatus();
     }
 
     public String getToAsString(){

@@ -35,7 +35,6 @@ public class Service extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image mainImage;
 
-    /* TODO add promotions */
     @Transient
     private MultipartFile file;
 

@@ -1,8 +1,8 @@
 package com.site.controllers;
 
-import com.site.models.Offering;
+import com.site.models.Offer;
 import com.site.models.Status;
-import com.site.repositories.OfferingRepository;
+import com.site.repositories.OfferRepository;
 import com.site.repositories.ProductRepository;
 import com.site.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdminOffersController {
 
     @Autowired
-    OfferingRepository offeringRepository;
+    OfferRepository offerRepository;
 
     @Autowired
     ProductRepository productRepository;
@@ -35,65 +35,67 @@ public class AdminOffersController {
     /* LIST */
     @RequestMapping(value = "/admin/offers", method = RequestMethod.GET)
     public String getList(@PageableDefault Pageable pageable, ModelMap model){
-        model.put("page", offeringRepository.findByStatusNot(Status.ARCHIVED, pageable));
-        return "admin/offering/list";
+        model.put("page", offerRepository.findByStatusNot(Status.ARCHIVED, pageable));
+        return "admin/offer/list";
     }
 
     /* CREATE - PRODUCT */
     @RequestMapping(value = "/admin/offers/product/{pId}", method = RequestMethod.GET)
     public ModelAndView createWithProduct(@PathVariable("pId") Long pId){
-        Offering offering = new Offering();
-        offering.setProduct( productRepository.findOne(pId));
-        ModelAndView mv = new ModelAndView("admin/offering/edit", "offering", offering);
+        Offer offer = new Offer();
+        offer.setProduct( productRepository.findOne(pId));
+        ModelAndView mv = new ModelAndView("admin/offer/edit", "offer", offer);
         return mv;
     }
 
     @RequestMapping(value = "/admin/offers/product/{pId}", method = RequestMethod.POST)
-    public String postCreateWithProduct(@ModelAttribute("offering") Offering offering,
+    public String postCreateWithProduct(@ModelAttribute("offer") Offer offer,
                                         @PathVariable("pId") Long pId){
-        offering.setProduct(productRepository.findOne(pId));
+        offer.setProduct(productRepository.findOne(pId));
+        offerRepository.save(offer);
         return "redirect:/admin/offers";
     }
 
     /* CREATE - SERVICE */
     @RequestMapping(value = "/admin/offers/service/{sId}", method = RequestMethod.GET)
     public ModelAndView createWithService(@PathVariable("sId") Long sId){
-        Offering offering = new Offering();
-        offering.setService(serviceRepository.findOne(sId));
-        ModelAndView mv = new ModelAndView("admin/offering/edit", "offering", offering);
+        Offer offer = new Offer();
+        offer.setService(serviceRepository.findOne(sId));
+        ModelAndView mv = new ModelAndView("admin/offer/edit", "offer", offer);
         return mv;
     }
 
     @RequestMapping(value = "/admin/offers/service/{sId}", method = RequestMethod.POST)
-    public String postCreateWithService(@ModelAttribute("offering") Offering offering,
+    public String postCreateWithService(@ModelAttribute("offer") Offer offer,
                                         @PathVariable("sId") Long sId){
-        offering.setService(serviceRepository.findOne(sId));
+        offer.setService(serviceRepository.findOne(sId));
+        offerRepository.save(offer);
         return "redirect:/admin/offers";
     }
 
     /* EDIT */
-    @RequestMapping(value = "/admin/offers/{id}/edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/offer/{id}/edit", method = RequestMethod.GET)
     public ModelAndView edit(@PathVariable("id") Long id){
-        Offering offering = offeringRepository.findOne(id);
-        ModelAndView mv = new ModelAndView("admin/offering/edit", "offering", offering);
+        Offer offer = offerRepository.findOne(id);
+        ModelAndView mv = new ModelAndView("admin/offer/edit", "offer", offer);
         return mv;
     }
 
-    @RequestMapping(value = "/admin/offers/{id}/edit", method = RequestMethod.POST)
-    public String postEdit(@ModelAttribute("offering") Offering offering,
+    @RequestMapping(value = "/admin/offer/{id}/edit", method = RequestMethod.POST)
+    public String postEdit(@ModelAttribute("offer") Offer offer,
                            @PathVariable("id") Long id){
-        Offering old = offeringRepository.findOne(id);
-        old.copy(offering);
-        offeringRepository.save(offering);
+        Offer old = offerRepository.findOne(id);
+        old.copy(offer);
+        offerRepository.save(offer);
         return "redirect:/admin/offers";
     }
 
     @RequestMapping(value = "/admin/offers/{id}/status", method = RequestMethod.PUT)
     @ResponseBody
     public String changeStatus(@PathVariable("id") Long id, Status status){
-        Offering offering = offeringRepository.findOne(id);
-        offering.setStatus(status);
-        offeringRepository.save(offering);
+        Offer offer = offerRepository.findOne(id);
+        offer.setStatus(status);
+        offerRepository.save(offer);
         return "SUCCESS";
     }
 
