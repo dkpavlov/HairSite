@@ -21,10 +21,10 @@ public class Salon extends BaseEntity {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2048)
     private String information;
 
-    @Column
+    @Column(length = 2048)
     private String providedServices;
 
     @OneToMany(cascade = CascadeType.ALL)

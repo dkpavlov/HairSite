@@ -14,4 +14,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface NewsRepository extends PagingAndSortingRepository<News, Long> {
     public Page<News> findByStatusNot(Status status, Pageable pageable);
+    public Page<News> findByStatus(Status status, Pageable pageable);
+    public Page<News> findById(Long id, Pageable pageable);
 }

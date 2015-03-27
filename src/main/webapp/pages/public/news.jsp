@@ -1,22 +1,27 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
+
 <div class="inner-page">
     <div class="row first-row">
         <div class="columns twelve content">
             <h1>новини</h1>
         </div>
     </div>
-    <div class="row single-news">
+
+    <c:forEach items="${page.content}" var="news">
+        <div class="row single-news">
         <div class="columns three">
-            <a href="" class="news-image"><img src="../../assets/img/news-image.jpg" width="100%"/></a>
+            <a href="" class="news-image"><img src="${pageContext.request.contextPath}/storage/${news.image.fileName}" width="100%"/></a>
         </div>
         <div class="columns nine news-container">
             <article class="news">
-                <header>заглавие на първата новина</header>
-                <p class="date">10.05.2014</p>
-                <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
+                <header>${news.title}</header>
+                <p class="date"><fmt:formatDate pattern="dd.MM.yyyy" value="${news.dateCreated}"/></p>
+                <p class="news-description"><custom:shortText text="${news.text}" charecters="116"/></p>
                 <div class="whole-news hide">
-                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
+                    <p>${news.text}</p>
                     <p class="close">
                         <a class="link" href="">Затвори</a>
                     </p>
@@ -24,41 +29,22 @@
             </article>
         </div>
     </div>
-    <div class="row single-news">
-        <div class="columns three">
-            <a href="" class="news-image"><img src="../../assets/img/news-image.jpg" width="100%"/></a>
-        </div>
-        <div class="columns nine news-container">
-            <article class="news">
-                <header>заглавие на първата новина</header>
-                <p class="date">10.05.2014</p>
-                <p class="news-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
-                <div class="whole-news hide">
-                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                    <p>Donec porta porttitor est vitae aliquam. In elit neque, tempus placerat ligula a, aliquet pulvinar enim. Aliquam erat volutpat. Etiam molestie enim ac turpis accumsan molestie. Aliquam eros metus, cursus ac nunc non, faucibus congue ligula. Sed scelerisque tempus ultrices. Donec malesuada eget velit in malesuada. Sed sit amet pulvinar urna, maximus convallis dolor. Ut ultrices ultricies purus a tristique. Proin quis elit ultricies, fringilla purus ac, laoreet diam. Pellentesque sed pellentesque odio, ut rutrum risus. Cras bibendum ornare facilisis. Curabitur aliquam fermentum tristique.</p>
-                    <p class="close">
-                        <a class="link" href="">Затвори</a>
-                    </p>
-                </div>
-            </article>
-        </div>
-    </div>
-    <div class="row pagination">
-        <div class="columns twelve">
-            <a href="">
-                <img src="../../assets/img/pagination-prev.png" />
-            </a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="" class="active">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">
-                <img src="../../assets/img/pagination-next.png"/>
-            </a>
-        </div>
-    </div>
+    </c:forEach>
+
+    <%
+        String url = "";
+        if (request.getQueryString() != null) {
+            url = "?" + request.getQueryString().split("page")[0];
+
+            if (url.endsWith("&")) {
+                url = url.substring(0, url.length() - 1);
+            }
+        }
+    %>
+    <c:set var="current" value="<%=url%>" />
+    <c:set var="base" value="<%= request.getContextPath().toString().substring(0)%>"/>
+    <util:pagination maxPages="${page.totalPages}" page="${page.number}" size="${page.size}" url="${current}" base="${base}"/>
+
 </div>
 
 <script>
