@@ -22,7 +22,7 @@
         <c:forEach items="${page.content}" var="salon">
             <tr>
                 <td>${salon.name}</td>
-                <td>${salon.status}</td>
+                <td>${salon.status.name}</td>
                 <td><a class="pure-button" href="#">Преглед</a></td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/salon/${salon.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${salon.id}">Изтрий</button></td>

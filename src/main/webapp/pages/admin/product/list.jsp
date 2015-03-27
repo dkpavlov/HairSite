@@ -26,7 +26,7 @@
             <tr>
                 <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${product.dateCreated}"/></td>
                 <td>${product.name}</td>
-                <td>${product.status}</td>
+                <td>${product.status.name}</td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/offers/product/${product.id}">Нова оферта</a></td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/products/preview/${product.id}">Преглед</a></td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/product/${product.id}/edit">Редактирай</a></td>

@@ -25,7 +25,7 @@
                 <tr>
                     <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${news.dateCreated}"/></td>
                     <td>${news.title}</td>
-                    <td>${news.status}</td>
+                    <td>${news.status.name}</td>
                     <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/news/preview/${news.id}">Преглед</a></td>
                     <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/news/${news.id}/edit">Редактирай</a></td>
                     <td><button class="pure-button delete" var="${news.id}">Изтрий</button></td>
@@ -55,7 +55,6 @@
                     type: 'PUT',
                     data: "status=ARCHIVED",
                     success: function(data) {
-                        /*TODO check if it works*/
                         location.reload();
                     }
                 });

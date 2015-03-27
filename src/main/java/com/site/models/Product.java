@@ -17,11 +17,17 @@ public class Product extends BaseEntity {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2048)
     private String description;
 
     @Column
     private Double price;
+
+    @Column
+    private Boolean promoted = false;
+
+    @Column
+    private Double newPrice;
 
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
@@ -32,13 +38,29 @@ public class Product extends BaseEntity {
     @Transient
     private MultipartFile file;
 
-    /* TODO add promotions */
-
     public void copy(Product product){
         this.name = product.getName();
         this.description = product.getDescription();
         this.price = product.getPrice();
         this.status = product.getStatus();
+        this.promoted = product.getPromoted();
+        this.newPrice = product.getNewPrice();
+    }
+
+    public Boolean getPromoted() {
+        return promoted;
+    }
+
+    public void setPromoted(Boolean promoted) {
+        this.promoted = promoted;
+    }
+
+    public Double getNewPrice() {
+        return newPrice;
+    }
+
+    public void setNewPrice(Double newPrice) {
+        this.newPrice = newPrice;
     }
 
     public MultipartFile getFile() {

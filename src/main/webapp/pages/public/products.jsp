@@ -17,7 +17,12 @@
             <div class="columns nine news-container">
                 <article class="news">
                     <header>${product.name}</header>
-                    <p class="price"><custom:doubleFormat number="${product.price}" part="i"/>.<sup><custom:doubleFormat number="${product.price}" part="f"/></sup> <small>лева</small></p>
+                    <c:if test="${product.promoted}">
+                        <p class="price promo"><custom:doubleFormat number="${product.newPrice}" part="i"/>.<sup><custom:doubleFormat number="${product.newPrice}" part="f"/></sup> <small>лева | <span>досега ${product.price} лева</span></small></p>
+                    </c:if>
+                    <c:if test="${not product.promoted}">
+                        <p class="price"><custom:doubleFormat number="${product.price}" part="i"/>.<sup><custom:doubleFormat number="${product.price}" part="f"/></sup> <small>лева</small></p>
+                    </c:if>
                     <p class="news-description"><custom:shortText text="${product.description}" charecters="116"/></p>
                     <div class="whole-news hide">
                         <%-- TODO open and hide this --%>

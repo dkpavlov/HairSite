@@ -22,7 +22,7 @@
         <c:forEach items="${page.content}" var="employee">
             <tr>
                 <td>${employee.name}</td>
-                <td>${employee.status}</td>
+                <td>${employee.status.name}</td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/preview/gallery/${employee.id}">Преглед</a></td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/gallery/${employee.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${employee.id}">Изтрий</button></td>
@@ -52,7 +52,6 @@
                     type: 'PUT',
                     data: "status=ARCHIVED",
                     success: function(data) {
-                        /*TODO check if it works*/
                         location.reload();
                     }
                 });

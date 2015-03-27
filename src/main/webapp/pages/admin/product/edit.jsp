@@ -49,6 +49,16 @@
             </div>
 
             <div class="pure-control-group">
+                <label for="cb">Промоция</label>
+                <form:checkbox path="promoted" id="cb" />
+            </div>
+
+            <div class="pure-control-group">
+                <label for="new-price">Нова цена</label>
+                <form:input path="newPrice" disabled="true" id="new-price" type="text" placeholder="Цена(12.99)"/>
+            </div>
+
+            <div class="pure-control-group">
                 <label for="text">Описание</label>
                 <form:textarea path="description" id="text" type="text" rows="7" cols="70" placeholder="Описание"/>
             </div>
@@ -65,6 +75,23 @@
             <div class="pure-controls">
                 <button type="submit" class="pure-button pure-button-primary">Запис</button>
             </div>
+
+            <script>
+                $(document).ready(function() {
+                    $("#cb").change(function() {
+                        if(this.checked) {
+                            $("#new-price").prop('disabled', false);
+                        } else {
+                            $("#new-price").prop('disabled', true);
+                        }
+                    });
+
+                    <c:if test="${not empty product.id and product.promoted}">
+                        $("#new-price").prop('disabled', false);
+                    </c:if>
+                });
+            </script>
+
         </fieldset>
     </form:form>
 </div>

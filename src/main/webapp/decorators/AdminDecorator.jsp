@@ -7,8 +7,7 @@
         <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
         <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
 
-        <%-- TODO downloade css --%>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/pure-min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/images.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery-ui.min.css">
         <!--[if lte IE 8]>

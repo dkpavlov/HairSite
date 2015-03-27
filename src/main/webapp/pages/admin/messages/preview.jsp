@@ -1,5 +1,6 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
 
 <div class="header">
     <h1>Съобщения</h1>
@@ -24,8 +25,7 @@
             </div>
             <div class="pure-control-group">
                 <label for="text">Текст</label>
-                <label id="text">${message.text}</label>
-                <%-- TODO check with long text--%>
+                <label id="text"><custom:shortText text="${message.text}" charecters="36"/></label>
             </div>
         </fieldset>
     </div>

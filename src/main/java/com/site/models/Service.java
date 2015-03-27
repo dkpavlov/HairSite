@@ -21,10 +21,12 @@ public class Service extends BaseEntity {
     private Double price;
 
     @Column
-    @Deprecated
-    private String summary;
+    private Boolean promoted = false;
 
     @Column
+    private Double newPrice;
+
+    @Column(length = 2048)
     private String description;
 
     @Enumerated(EnumType.STRING)
@@ -42,6 +44,24 @@ public class Service extends BaseEntity {
         this.description = service.getDescription();
         this.price = service.getPrice();
         this.status = service.getStatus();
+        this.promoted = service.getPromoted();
+        this.newPrice = service.getNewPrice();
+    }
+
+    public Boolean getPromoted() {
+        return promoted;
+    }
+
+    public void setPromoted(Boolean promoted) {
+        this.promoted = promoted;
+    }
+
+    public Double getNewPrice() {
+        return newPrice;
+    }
+
+    public void setNewPrice(Double newPrice) {
+        this.newPrice = newPrice;
     }
 
     public MultipartFile getFile() {
@@ -82,16 +102,6 @@ public class Service extends BaseEntity {
 
     public void setMainImage(Image mainImage) {
         this.mainImage = mainImage;
-    }
-
-    /* TODO add promotions */
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
     }
 
     public String getDescription() {

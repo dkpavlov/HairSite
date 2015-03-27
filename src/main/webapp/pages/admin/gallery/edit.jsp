@@ -71,7 +71,7 @@
                 <label for="status">Статус</label>
                 <form:select path="status" id="status">
                     <c:forEach items="${statuses}" var="status">
-                        <form:option value="${status}"/>
+                        <form:option value="${status}">${status.name}</form:option>
                     </c:forEach>
                 </form:select>
             </div>

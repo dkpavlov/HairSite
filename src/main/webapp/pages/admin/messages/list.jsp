@@ -51,7 +51,6 @@
                     type: 'PUT',
                     data: "status=ARCHIVED",
                     success: function(data) {
-                        /*TODO check if it works*/
                         location.reload();
                     }
                 });
