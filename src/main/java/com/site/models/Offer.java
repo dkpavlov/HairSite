@@ -19,6 +19,9 @@ public class Offer extends BaseEntity {
     private static DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
     @Column
+    private String name;
+
+    @Column
     private Double price;
 
     @Column(name = "date_from")
@@ -36,7 +39,11 @@ public class Offer extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
+    @Transient
+    String toAsString, fromAsString;
+
     public void copy(Offer offer){
+        this.name = offer.getName();
         this.price = offer.getPrice();
         this.from = offer.getFrom();
         this.to = offer.getTo();
@@ -44,7 +51,7 @@ public class Offer extends BaseEntity {
     }
 
     public String getToAsString(){
-        return to != null ? df.format(from) : null;
+        return to != null ? df.format(to) : null;
 
     }
 
@@ -55,13 +62,21 @@ public class Offer extends BaseEntity {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getFromAsString(){
         return from != null ? df.format(from) : null;
     }
 
     public void setFromAsString(String from){
         try {
-            this.to = df.parse(from);
+            this.from = df.parse(from);
         } catch (ParseException e) {
         }
     }

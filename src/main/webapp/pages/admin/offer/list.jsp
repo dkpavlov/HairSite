@@ -32,7 +32,7 @@
                     <td>${offer.service.name}</td>
                 </c:if>
                 <td>${offer.status.name}</td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/offer/preview/${offer.id}">Преглед</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}//cms/preview/offers/${offer.id}">Преглед</a></td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/offer/${offer.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${offer.id}">Изтрий</button></td>
             </tr>
@@ -57,7 +57,7 @@
             $('.delete').click(function(){
                 var contactId = $(this).attr('var');
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/admin/offer/'+contactId+'/status',
+                    url: '${pageContext.request.contextPath}/admin/offers/'+contactId+'/status',
                     type: 'PUT',
                     data: "status=ARCHIVED",
                     success: function(data) {

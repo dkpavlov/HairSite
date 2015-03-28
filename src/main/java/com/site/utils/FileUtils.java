@@ -21,6 +21,7 @@ public class FileUtils {
     public static String BASE_DIR;
     public static String TEST_DIR_WIN = "D:\\WorkSpace\\HairSite\\src\\main\\webapp\\storage";
     public static String TEST_DIR_OSX = "/Users/dkpavlov/Desktop/WorkSpace/HairSite/src/main/webapp/storage";
+    public static String TEST_DIR_LINUX = "/Users/dkpavlov/Desktop/WorkSpace/HairSite/src/main/webapp/storage";
 
     static {
         String catalinaBase = System.getProperty("catalina.base");
@@ -30,8 +31,10 @@ public class FileUtils {
             String osName = System.getProperty("os.name");
             if(osName.startsWith("Windows")){
                 BASE_DIR = TEST_DIR_WIN;
-            } else {
+            } else if(osName.startsWith("Mac OS X")){
                 BASE_DIR = TEST_DIR_OSX;
+            } else {
+                BASE_DIR = TEST_DIR_LINUX;
             }
         }
 

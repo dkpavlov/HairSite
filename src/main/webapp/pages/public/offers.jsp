@@ -1,68 +1,52 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <div class="inner-page">
     <div class="row first-row">
         <div class="columns twelve content">
             <h1>оферти</h1>
         </div>
     </div>
-    <div class="row single-news">
-        <div class="columns three">
-            <img src="../../assets/img/news-image.jpg" width="100%"/>
-        </div>
-        <div class="columns nine news-container">
-            <article class="news offers">
-                <header>оферта номер едно</header>
-                <p class="price">75.<sup>00</sup> <small>лева</small></p>
-                <p>
-                    <label>Валидна до: </label> 15.03.2015
-                </p>
-                <p>
-                    <label>Включени услуги: </label> Donec dapibus, efficitur, semper
-                </p>
-                <p>
-                    <label>Включени продукти: </label> Donec dapibus, efficitur, semper
-                </p>
-                <p>
-                    <label>Описание: </label> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In suscipit a tortor at euismod. Quisque rhoncus nibh turpis, a pretium nisl tincidunt sit amet. Aenean consequat eleifend libero. Quisque eget nisl quis urna porta luctus eget et libero. Proin nec imperdiet felis. Donec sed euismod augue, eu lacinia libero. Proin nec ex nulla. Donec et pharetra ipsum. Suspendisse vel dui nisl. Vestibulum et metus vel orci volutpat commodo. Nullam arcu diam, ornare sed mollis ut, rutrum ac elit. Donec dictum leo risus, at efficitur diam vehicula eget.
-                </p>
-            </article>
-        </div>
-    </div>
-    <div class="row single-news">
-        <div class="columns three">
-            <img src="../../assets/img/news-image.jpg" width="100%"/>
-        </div>
-        <div class="columns nine news-container">
-            <article class="news offers">
-                <header>оферта номер две</header>
-                <p class="price">75.<sup>00</sup> <small>лева</small></p>
-                <p>
-                    <label>Валидна до: </label> 15.03.2015
-                </p>
-                <p>
-                    <label>Включени услуги: </label> Donec dapibus, efficitur, semper
-                </p>
-                <p>
-                    <label>Включени продукти: </label> Donec dapibus, efficitur, semper
-                </p>
-                <p>
-                    <label>Описание: </label> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In suscipit a tortor at euismod. Quisque rhoncus nibh turpis, a pretium nisl tincidunt sit amet. Aenean consequat eleifend libero. Quisque eget nisl quis urna porta luctus eget et libero. Proin nec imperdiet felis. Donec sed euismod augue, eu lacinia libero. Proin nec ex nulla. Donec et pharetra ipsum. Suspendisse vel dui nisl. Vestibulum et metus vel orci volutpat commodo. Nullam arcu diam, ornare sed mollis ut, rutrum ac elit. Donec dictum leo risus, at efficitur diam vehicula eget.
-                </p>
-            </article>
-        </div>
-    </div>
-    <div class="row pagination">
-        <div class="columns twelve">
-            <a href="">
-                <img src="../../assets/img/pagination-prev.png" />
-            </a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="" class="active">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">
-                <img src="../../assets/img/pagination-next.png"/>
-            </a>
-        </div>
-    </div>
+
+    <c:forEach items="${page.content}" var="offer">
+        <c:if test="${not empty offer.product}">
+            <div class="row single-news">
+                <div class="columns three">
+                    <img src="${pageContext.request.contextPath}/storage/${offer.product.image.fileName}" width="100%"/>
+                </div>
+                <div class="columns nine news-container">
+                    <article class="news offers">
+                        <header>${offer.name}</header>
+                        <p class="price"><custom:doubleFormat number="${offer.price}" part="i"/>.<sup><custom:doubleFormat number="${offer.price}" part="f"/></sup><small>лева</small></p>
+                        <p>
+                            <label>Валидна до: </label> <fmt:formatDate pattern="dd.MM.yyyy" value="${offer.to}"/>
+                        </p>
+                        <p>
+                            <label>Включени продукти: </label> ${offer.product.name}
+                        </p>
+                        <p>
+                            <label>Описание: </label>  ${offer.product.description}
+
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </c:if>
+    </c:forEach>
+
+    <%
+        String url = "";
+        if (request.getQueryString() != null) {
+            url = "?" + request.getQueryString().split("page")[0];
+
+            if (url.endsWith("&")) {
+                url = url.substring(0, url.length() - 1);
+            }
+        }
+    %>
+    <c:set var="current" value="<%=url%>" />
+    <c:set var="base" value="<%= request.getContextPath().toString().substring(0)%>"/>
+    <util:pagination maxPages="${page.totalPages}" page="${page.number}" size="${page.size}" url="${current}" base="${base}"/>
 </div>
