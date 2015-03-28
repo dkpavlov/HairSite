@@ -5,9 +5,26 @@
         </div>
     </div>
     <div class="row">
-
+        <div id="gallery">
+            <ul>
+                <li><img src="../assets/images/1.jpg" /></li>
+                <li><img src="../assets/images/2.jpg" /></li>
+                <li><img src="../assets/images/3.jpg" /></li>
+                <li><img src="../assets/images/4.jpg" /></li>
+                <li><img src="../assets/images/1.jpg" /></li>
+                <li><img src="../assets/images/2.jpg" /></li>
+                <li><img src="../assets/images/3.jpg" /></li>
+                <li><img src="../assets/images/4.jpg" /></li>
+                <li><img src="../assets/images/1.jpg" /></li>
+                <li><img src="../assets/images/2.jpg" /></li>
+                <li><img src="../assets/images/3.jpg" /></li>
+                <li><img src="../assets/images/4.jpg" /></li>
+            </ul>
+        </div>
     </div>
 </div>
 <script language="javascript">
-    //TODO da se nameri pravilniq karusel
+    $(document).ready(function(){
+        $("#gallery").tiksluscarousel({nav:'thumbnails', autoplayInterval:20000});  //called with all default values
+    });
 </script>
