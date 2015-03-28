@@ -11,8 +11,6 @@
     <jsp:directive.attribute name="base" type="java.lang.String" required="false" description="BaseUrl" />
     <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
 
-    <!-- TODO needs some fixing -->
-
     <c:if test="${empty render or render}">
         <div class="row pagination">
             <div class="columns twelve">
@@ -46,7 +44,7 @@
                 </c:if>-->
                 <c:if test="${page gt 1}">
                     <spring:url value="${url}" var="previous" context="">
-                        <spring:param name="page" value="${page - 1}" />
+                        <spring:param name="page" value="${page - 2}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a href="${previous}">
@@ -56,7 +54,7 @@
 
                 <c:if test="${page eq maxPages and page gt 4}">
                     <spring:url value="${url}" var="link" context="">
-                        <spring:param name="page" value="${page - 4}" />
+                        <spring:param name="page" value="${page - 5}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a href="${link}">${page - 4}</a>
@@ -64,7 +62,7 @@
 
                 <c:if test="${page gt (maxPages - 2) and page gt 3}">
                     <spring:url value="${url}" var="next" context="">
-                        <spring:param name="page" value="${page - 3}" />
+                        <spring:param name="page" value="${page - 4}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a href="${link}">${page - 3}</a>
@@ -72,7 +70,7 @@
 
                 <c:if test="${page gt 2}">
                     <spring:url value="${url}" var="twoLess" context="">
-                        <spring:param name="page" value="${page - 2}" />
+                        <spring:param name="page" value="${page - 3}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a href="${twoLess}">${page - 2}</a>
@@ -80,7 +78,7 @@
 
                 <c:if test="${page gt 1}">
                     <spring:url value="${url}" var="oneLess" context="">
-                        <spring:param name="page" value="${page - 1}" />
+                        <spring:param name="page" value="${page - 2}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a class="" href="${oneLess}">${page - 1}</a>
@@ -94,7 +92,7 @@
 
                 <c:if test="${page lt maxPages}">
                     <spring:url value="${url}" var="oneMore" context="">
-                        <spring:param name="page" value="${page + 1}" />
+                        <spring:param name="page" value="${page}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a class="" href="${oneMore}">${page + 1}</a>
@@ -102,7 +100,7 @@
 
                 <c:if test="${page lt (maxPages - 1)}">
                     <spring:url value="${url}" var="twoMore" context="">
-                        <spring:param name="page" value="${page + 2}" />
+                        <spring:param name="page" value="${page + 1}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a class="" href="${twoMore}">${page + 2}</a>
@@ -110,7 +108,7 @@
 
                 <c:if test="${page lt (maxPages - 2) and page lt 3}">
                     <spring:url value="${url}" var="link" context="">
-                        <spring:param name="page" value="${page + 3}" />
+                        <spring:param name="page" value="${page + 2}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a class="" href="${link}">${page + 3}</a>
@@ -118,7 +116,7 @@
 
                 <c:if test="${page lt (maxPages - 3) and page lt 2}">
                     <spring:url value="${url}" var="next" context="">
-                        <spring:param name="page" value="${page + 4}" />
+                        <spring:param name="page" value="${page + 3}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a class="" href="${link}">${page + 4}</a>
@@ -127,7 +125,7 @@
 
                 <c:if test="${page lt maxPages}">
                     <spring:url value="${url}" var="next" context="">
-                        <spring:param name="page" value="${page + 1}" />
+                        <spring:param name="page" value="${page}" />
                         <spring:param name="size" value="${size}" />
                     </spring:url>
                     <a href="${next}">

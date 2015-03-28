@@ -25,7 +25,7 @@ public class ServicesController {
     ServiceRepository serviceRepository;
 
     @RequestMapping(value = "/service", method = RequestMethod.GET)
-    public String index(@PageableDefault Pageable pageable, ModelMap model){
+    public String index(@PageableDefault(page = 1, size = 5) Pageable pageable, ModelMap model){
         model.put("page", serviceRepository.findByStatus(Status.ACTIVE, pageable));
         return "public/services";
     }
