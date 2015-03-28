@@ -86,7 +86,7 @@ public class AdminOffersController {
                            @PathVariable("id") Long id){
         Offer old = offerRepository.findOne(id);
         old.copy(offer);
-        offerRepository.save(offer);
+        offerRepository.save(old);
         return "redirect:/admin/offers";
     }
 

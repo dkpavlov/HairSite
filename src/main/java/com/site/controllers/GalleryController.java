@@ -30,7 +30,7 @@ public class GalleryController {
 
     @RequestMapping(value = "/gallery/{id}", method = RequestMethod.GET)
     public String preview(@PathVariable("id") Long id, ModelMap model){
-        model.put("gallery", galleryRepository.findById(id));
+        model.put("gallery", galleryRepository.findOne(id));
         return "public/single_gallery";
     }
 

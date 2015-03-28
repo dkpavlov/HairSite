@@ -17,5 +17,7 @@ import java.util.List;
 
 public interface SalonRepository extends PagingAndSortingRepository<Salon, Long> {
     public Page<Salon> findByStatusNot(Status status, Pageable pageable);
+    public Page<Salon> findByStatus(Status status, Pageable pageable);
+    public Page<Salon> findById(Long id, Pageable pageable);
     public List<Salon> findByStatusNot(Status status);
 }

@@ -1,7 +1,13 @@
 package com.site.controllers;
 
+import com.site.models.Status;
+import com.site.repositories.SalonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,10 +23,25 @@ import java.io.IOException;
 @Controller
 public class SalonsController {
 
-    @RequestMapping(value = "/salons", method = RequestMethod.GET)
-    public String index(ModelMap model) throws IOException {
-        return "public/salons";
+    @Autowired
+    SalonRepository salonRepository;
 
+    @RequestMapping(value = "/salons", method = RequestMethod.GET)
+    public String index(@PageableDefault(page = 1, size = 5) Pageable pageable, ModelMap model){
+        model.put("page", salonRepository.findByStatus(Status.ACTIVE, pageable));
+        return "public/salons";
+    }
+
+    @RequestMapping(value = "/salons/{id}", method = RequestMethod.GET)
+    public String preview(@PathVariable("id") Long id, ModelMap model){
+        model.put("salon", salonRepository.findOne(id));
+        return "public/salons_preview";
+    }
+
+    @RequestMapping(value = "/cms/salons/preview/{id}", method = RequestMethod.GET)
+    public String adminPreview(@PageableDefault Pageable pageable, @PathVariable("id") Long id, ModelMap model){
+        model.put("page", salonRepository.findById(id, pageable));
+        return "public/salons";
     }
 
 }

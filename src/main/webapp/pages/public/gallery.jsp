@@ -9,7 +9,7 @@
 
         <c:forEach items="${list}" var="gallery">
             <div class="columns three gallery">
-                <a href="">
+                <a href="${pageContext.request.contextPath}/gallery/${gallery.id}">
                     <div class="gallery-image">
                         <img src="${pageContext.request.contextPath}/storage/${gallery.mainImage.fileName}" width="100%"/>
                         <div class="gallery-hover"></div>
