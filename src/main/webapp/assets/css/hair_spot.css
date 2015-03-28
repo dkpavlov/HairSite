@@ -531,13 +531,17 @@ textarea.message {
     margin-bottom: 2%;
 }
 
-.news-container article.news div.whole-news, .news-container article.news.offers  {
+.news-container article.news div.whole-news, .news-container article.news.offers, .horizontal-separator  {
     padding-bottom: 10%;
     background-image: url('../img/news-separator.png');
     background-repeat: no-repeat;
     background-position: 50% 92%;
     line-height: 1.3;
     text-align: justify;
+}
+
+.horizontal-separator {
+    padding-bottom: 15%;
 }
 
 p.close {
@@ -664,6 +668,10 @@ div.portrait {
     margin: 0 auto 5% auto;
 }
 
+div.portrait.columns.two {
+    border:4px solid #d8d7d5;
+}
+
 article.team a {
     color:#9e7c3d;
     text-decoration: none;
@@ -716,6 +724,31 @@ article.news.offers p{
 }
 article.news.offers p label {
     color:#a19d99;
+}
+/*------------------------------- SALOON ------------------------------------------*/
+h2.saloon {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 2%;
+}
+h2.saloon ~ p {
+    line-height: 1.5;
+    margin-bottom: 2%;
+    text-align: justify;
+}
+
+header.saloon-personal-name {
+    font-size: 12px!important;
+    vertical-align: middle;
+    line-height: 5.5;
+    padding-left: 1%;
+}
+
+article.team.saloon {
+    margin-top: 2%;
+}
+.saloon-contacts.no-separator > article {
+    background: none;
 }
 /*------------------------------- RESPONSIVE ---------------------------------------*/
 @media screen and (max-width: 980px) {
@@ -793,7 +826,18 @@ article.news.offers p label {
         height:110px;
     }
 }
-
+@media screen and (min-width:481px) and (max-width: 860px){
+    div.portrait.columns.two {
+        width:70%;
+    }
+    header.columns.nine.saloon-personal-name{
+        text-align: center;
+        line-height: 1.5;
+    }
+    .horizontal-separator {
+        background-position: 50% 100%;
+    }
+}
 @media screen and (max-width: 480px) {
     .w468 {
         display: none;
@@ -835,6 +879,18 @@ article.news.offers p label {
     article.team {
         border-bottom: 1px solid #C2BDBD;
         box-shadow: 0px 1px 0px #FFF;
+    }
+    header.saloon-personal-name {
+        text-align: center;
+    }
+    h2.saloon {
+        margin: 10% 0;
+    }
+    div.portrait.columns.two {
+        border:8px solid #d8d7d5;
+    }
+    .horizontal-separator:nth-child(3){
+        background: none;
     }
 }
 @media screen and (min-width:482px) and (max-width: 1015px) {
