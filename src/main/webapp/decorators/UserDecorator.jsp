@@ -74,7 +74,11 @@
                         </div>
                     </nav>
                 </div>
-                <div class="columns four logo"></div>
+                <div class="columns four logo">
+                    <a href="#">
+                        <img src="../assets/img/logo.png">
+                    </a>
+                </div>
                 <div class="columns four w468">
                     <nav class="main-menu  normal-nav">
                         <div class="columns three">

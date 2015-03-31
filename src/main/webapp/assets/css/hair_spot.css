@@ -177,12 +177,17 @@ body > header {
 .logo {
     text-align: center;
     margin-top: -20px;
-    background: url("../img/logo.png") no-repeat;
-    height: 150px;
-    background-size: 50%;
     position: relative;
     z-index: 5;
-    background-position: 50% 10%;
+    /* background: url("../img/logo.png") no-repeat;
+     height: 150px;
+     background-size: 50%;
+
+     background-position: 50% 10%; */
+}
+
+.logo a img {
+    height:99.0%;
 }
 
 nav.main-menu {
@@ -778,9 +783,9 @@ article.team.saloon {
     }
 
     .logo {
-        margin-top: -59px;
+        /*margin-top: -59px;
         background-size: 50%;
-        height: 80px;
+        height: 80px; */
     }
 }
 @media screen and (min-width: 480px) and (max-width: 979px) {
@@ -789,11 +794,22 @@ article.team.saloon {
         margin: 8px 0 0 2.12766%;
     }
     .normal-menu {
-        display:none;
+       /* display:none;  */
 
     }
 }
 
+@media screen and (min-width:480px) and (max-width:560px){
+    .normal-menu .w468 {
+        display:none;
+    }
+    .normal-menu .logo {
+        width:100.00%;
+    }
+    .upper-header {
+        position: static;
+    }
+}
 
 @media screen and (max-width: 560px) {
     .upper-header {
@@ -811,19 +827,20 @@ article.team.saloon {
         display: none;
     }
     .logo {
-        margin-top:-8px;
+       /*margin-top:-8px;    */
+       margin-top:-21px;
     }
 }
 @media screen and (min-width:1200px) and (max-width: 1350px) {
     .logo {
         margin-top: -18px;
-        height:120px;
+        /*height:120px;  */
     }
 }
 @media screen and (min-width:980px) and (max-width: 1199px) {
     .logo {
         margin-top: -17px;
-        height:110px;
+        /*height:110px;  */
     }
 }
 @media screen and (min-width:481px) and (max-width: 860px){
@@ -839,6 +856,9 @@ article.team.saloon {
     }
 }
 @media screen and (max-width: 480px) {
+    .upper-header {
+        position: static;
+    }
     .w468 {
         display: none;
     }
@@ -902,9 +922,9 @@ article.team.saloon {
 
 @media screen and (min-width: 481px) and (max-width:563px){
     .logo {
-        margin-top: -46px;
-        height: 78px;
-        background-size: 80%;
+        /*margin-top: -46px;
+         height: 78px;
+         background-size: 80%; */
     }
     .summary section header {
         font-size: 18px;
