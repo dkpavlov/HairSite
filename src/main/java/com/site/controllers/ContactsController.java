@@ -2,9 +2,11 @@ package com.site.controllers;
 
 
 import com.site.models.Message;
+import com.site.models.Salon;
 import com.site.models.Status;
 import com.site.repositories.ContactRepository;
 import com.site.repositories.MessageRepository;
+import com.site.repositories.SalonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,6 +33,9 @@ public class ContactsController {
 
     @Autowired
     ContactRepository contactRepository;
+
+    @Autowired
+    SalonRepository salonRepository;
 
     @RequestMapping(value = "/contacts", method = RequestMethod.GET)
     public ModelAndView index() {
@@ -51,4 +58,9 @@ public class ContactsController {
         return mv;
     }
 
+    /* SALONS */
+    @ModelAttribute("salons")
+    public List<Salon> getSalons(){
+        return salonRepository.findByStatus(Status.ACTIVE);
+    }
 }
