@@ -1,13 +1,18 @@
 package com.site.controllers;
 
+import com.site.models.Salon;
 import com.site.models.Status;
 import com.site.repositories.GalleryRepository;
+import com.site.repositories.SalonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,6 +26,9 @@ public class GalleryController {
 
     @Autowired
     GalleryRepository galleryRepository;
+
+    @Autowired
+    SalonRepository salonRepository;
 
     @RequestMapping(value = "/gallery", method = RequestMethod.GET)
     public String index(ModelMap model){
@@ -40,4 +48,9 @@ public class GalleryController {
         return "public/gallery";
     }
 
+    /* SALONS */
+    @ModelAttribute("salons")
+    public List<Salon> getSalons(){
+        return salonRepository.findByStatus(Status.ACTIVE);
+    }
 }

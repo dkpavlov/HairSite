@@ -1,9 +1,11 @@
 package com.site.controllers;
 
 import com.site.models.News;
+import com.site.models.Salon;
 import com.site.models.Status;
 import com.site.models.User;
 import com.site.repositories.NewsRepository;
+import com.site.repositories.SalonRepository;
 import com.site.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +16,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,6 +42,9 @@ public class HomeController {
     @Autowired
     NewsRepository newsRepository;
 
+    @Autowired
+    SalonRepository salonRepository;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello(ModelMap model) throws IOException {
 
@@ -46,6 +53,8 @@ public class HomeController {
         if(page.hasContent()){
             model.put("latestNews", page.getContent().get(0));
         }
+        model.put("salonOne", salonRepository.findOne(2L));
+        model.put("salonTwo", salonRepository.findOne(3L));
         return "helloWorld";
 
     }
@@ -66,5 +75,11 @@ public class HomeController {
             userRepository.save(user);
         }
         return "redirect:/";
+    }
+
+    /* SALONS */
+    @ModelAttribute("salons")
+    public List<Salon> getSalons(){
+        return salonRepository.findByStatus(Status.ACTIVE);
     }
 }

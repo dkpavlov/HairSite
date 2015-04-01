@@ -45,7 +45,7 @@ public class Salon extends BaseEntity {
     private MultipartFile[] files;
 
     @Transient
-    private List<Long> oldImages;
+    private List<Long> oldImages = new ArrayList<>();
 
 
     public void copy(Salon salon){

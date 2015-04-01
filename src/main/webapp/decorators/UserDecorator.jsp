@@ -1,4 +1,5 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -95,8 +96,9 @@
                 <ul>
                     <li><a class="sub rmm-closed">Салони</a>
                         <ul>
-                            <li><a href="${pageContext.request.contextPath}/salons">Салон 1</a></li>
-                            <li><a href="${pageContext.request.contextPath}/salons">Салон 2</a></li>
+                            <c:forEach items="${salons}" var="salon">
+                                <li><a href="${pageContext.request.contextPath}/salons/${salon.id}">${salon.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </li>
                     <li><a href='${pageContext.request.contextPath}/gallery'>Галерия</a></li>
@@ -115,8 +117,6 @@
         <div class="container">
             <div class="row">
                 <div class="columns eleven mt8 lower-menu">
-                    <!-- <div class="columns two offset-two"> -->
-                    <a href="${pageContext.request.contextPath}/salons">салони</a>
                     <!--  </div>
                       <div class="columns two"> -->
                     <a href="${pageContext.request.contextPath}/team">персонал</a>

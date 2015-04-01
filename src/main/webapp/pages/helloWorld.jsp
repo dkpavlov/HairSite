@@ -56,14 +56,14 @@
                 <div class="row">
                     <div class="columns twelve">
                         <div class="columns four saloon">
-                            <a href="#">The Mall</a>
+                            <a href="${pageContext.request.contextPath}/salons/${salonOne.id}">${salonOne.name}</a>
                                 <span class="sub-saloon">салон 1</span>
                         </div>
                         <div class="columns four pointer">
                             <img src="../assets/img/pointer_saloons.png" alt="Указател на местоположение"/>
                         </div>
                         <div class="columns four saloon">
-                            <a href="#">Стрелбище</a>
+                            <a href="${pageContext.request.contextPath}/salons/${salonTwo.id}">${salonTwo.name}</a>
                                 <span class="sub-saloon">салон 2</span>
 
                         </div>
