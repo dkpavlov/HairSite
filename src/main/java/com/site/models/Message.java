@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @Entity
 public class Message extends BaseEntity {
 
-    @Column
+    @Column(length = 2048)
     private String text;
 
     @Column

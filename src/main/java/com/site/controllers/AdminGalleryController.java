@@ -4,6 +4,7 @@ import com.site.models.Gallery;
 import com.site.models.Image;
 import com.site.models.Status;
 import com.site.repositories.GalleryRepository;
+import com.site.repositories.ImageRepository;
 import com.site.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +32,9 @@ public class AdminGalleryController {
     @Autowired
     GalleryRepository galleryRepository;
 
+    @Autowired
+    ImageRepository imageRepository;
+
     /* LIST */
     @RequestMapping(value = "/admin/gallery", method = RequestMethod.GET)
     public String list(@PageableDefault Pageable pageable,
@@ -51,7 +55,7 @@ public class AdminGalleryController {
         for(MultipartFile f: gallery.getFiles()){
             gallery.getImages().add(FileUtils.createImage(f));
         }
-        gallery.setMainImage(FileUtils.createImage(gallery.getFile()));
+        gallery.setMainImage(FileUtils.createThumbnail(gallery.getFile()));
         galleryRepository.save(gallery);
         return "redirect:/admin/gallery";
     }
@@ -69,7 +73,7 @@ public class AdminGalleryController {
                            @PathVariable("id") Long id){
         Gallery old = galleryRepository.findOne(id);
         if(!gallery.getFile().isEmpty()){
-            old.setMainImage(FileUtils.createImage(gallery.getFile()));
+            old.setMainImage(FileUtils.createThumbnail(gallery.getFile()));
         }
         List<Image> toRemove = new ArrayList<>();
         for(Image i: old.getImages()){
@@ -94,6 +98,15 @@ public class AdminGalleryController {
         gallery.setStatus(status);
         galleryRepository.save(gallery);
         return "SUCCESS";
+    }
+
+    /*UPLOAD IMAGE FOR THUMBNAIL*/
+    @RequestMapping(value = "/admin/gallery/thumbnail", method = RequestMethod.POST)
+    @ResponseBody
+    public String createTempFile(@RequestParam("file") MultipartFile file){
+        Image image = FileUtils.createImage(file);
+        imageRepository.save(image);
+        return image.getFileName();
     }
 
     /* STATUSES */

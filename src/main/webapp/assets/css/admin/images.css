@@ -3,6 +3,12 @@ div.image-container{
     max-width: 65%
 }
 
+.preview-thumbnail-container{
+    width: 350px;
+    height: 200;
+    overflow: hidden;
+}
+
 div.image-div{
     height: 200px;
     width: 200px;
@@ -24,4 +30,9 @@ img.base{
     position: relative;
     top: 0;
     left: 0;
+}
+
+.custom-link{
+    margin: 20px;
+    color: #0078e7;
 }

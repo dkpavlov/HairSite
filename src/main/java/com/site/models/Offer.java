@@ -128,6 +128,4 @@ public class Offer extends BaseEntity {
     public void setTo(Date to) {
         this.to = to;
     }
-
-
 }

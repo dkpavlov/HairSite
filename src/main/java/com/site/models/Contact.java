@@ -18,7 +18,7 @@ public class Contact extends BaseEntity{
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2048)
     private String address;
 
     @Column

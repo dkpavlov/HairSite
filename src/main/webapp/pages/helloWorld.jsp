@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
 
 <main>
     <!-- carousel -->
@@ -71,9 +75,11 @@
                 <div class="row">
                     <div class="columns twelve">
                         <article class="news">
-                            <header><a href="#">заглавие на първата новина</a></header>
-                            <p class="date">10.05.2014</p>
-                            <p class="news">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam porttitor ex tempus, quis cursus diam ...</p>
+                            <c:if test="${not empty latestNews}">
+                                <header><a href="#">${latestNews.title}</a></header>
+                                <p class="date"><fmt:formatDate pattern="dd.MM.yyyy" value="${latestNews.dateCreated}"/></p>
+                                <p class="news"><custom:shortText text="${latestNews.text}" charecters="116"/></p>
+                            </c:if>
                         </article>
                     </div>
                 </div>

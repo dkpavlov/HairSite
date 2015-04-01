@@ -86,9 +86,9 @@
             $('#add-file').click(function(){
                 $(this).parent().before(
                         '<div class="pure-control-group">' +
-                            '<label for="image">Изображение</label>' +
-                            '<input type="file" name="files" class="image" placeholder="Снимка"/>' +
-                        '</div>');
+                                '<label for="image">Изображение</label>' +
+                                '<input type="file" name="files" class="image" placeholder="Снимка"/>' +
+                                '</div>');
             });
 
             $('.remove').click(function(){

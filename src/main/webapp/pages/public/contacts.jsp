@@ -74,15 +74,15 @@
     <form:form modelAttribute="message">
         <div class="row form">
             <div class="columns six">
-                <form:input path="name" type="text" placeholder="Име" class="name error"/>
+                <form:input path="name" type="text" placeholder="Име" class="name error" maxlength="225"/>
             </div>
             <div class="columns six">
-                <form:input path="email" type="email" placeholder="Email" class="email"/>
+                <form:input path="email" type="email" placeholder="Email" class="email" maxlength="225"/>
             </div>
         </div>
         <div class="row form">
             <div class="columns twelve">
-                <form:textarea path="text" class="message" placeholder="Съобщение"/>
+                <form:textarea path="text" class="message" placeholder="Съобщение" maxlength="2048"/>
             </div>
         </div>
         <div class="row">
@@ -101,6 +101,8 @@
         /* TODO use custom marker */
         var baseIconDir = '${pageContext.request.contextPath}/assets/img/';
 
+        var color = "#291400";
+
         var mapOptions = {
             center: mapCenter,
             zoom: 12,
@@ -111,9 +113,22 @@
         <c:forEach items="${contacts}" var="contact">
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(${contact.latitude}, ${contact.longitude}),
-                map: map
+                map: map,
+                icon: baseIconDir + 'pointer_saloons.png'
             });
         </c:forEach>
+
+        var bounds = new google.maps.LatLngBounds(
+                new google.maps.LatLng(-84.999999, -179.999999),
+                new google.maps.LatLng(84.999999, 179.999999));
+
+        var rect = new google.maps.Rectangle({
+            bounds: bounds,
+            fillColor: color,
+            fillOpacity: 0.5,
+            strokeWeight: 0,
+            map: map
+        });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>

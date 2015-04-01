@@ -15,7 +15,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Заглавие</label>
-                <form:input path="title" id="title" type="text" placeholder="Заглавие"/>
+                <form:input path="title" id="title" type="text" placeholder="Заглавие" maxlength="225"/>
             </div>
 
             <c:if test="${empty news.id}">
@@ -41,7 +41,7 @@
 
             <div class="pure-control-group">
                 <label for="text">Текст</label>
-                <form:textarea path="text" id="text" type="text" rows="7" cols="70" placeholder="Текст"/>
+                <form:textarea path="text" id="text" type="text" rows="7" cols="70" placeholder="Текст" maxlength="2048"/>
             </div>
 
             <div class="pure-control-group">

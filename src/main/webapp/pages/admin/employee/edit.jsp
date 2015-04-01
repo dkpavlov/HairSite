@@ -15,7 +15,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Име</label>
-                <form:input path="name" id="title" type="text" placeholder="Име"/>
+                <form:input path="name" id="title" type="text" placeholder="Име" maxlength="225"/>
             </div>
 
             <c:if test="${empty employee.id}">
@@ -41,12 +41,12 @@
 
             <div class="pure-control-group">
                 <label for="title">Длъжност</label>
-                <form:input path="description" id="title" type="text" placeholder="Длъжност"/>
+                <form:input path="description" id="title" type="text" placeholder="Длъжност" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="title">Опит</label>
-                <form:input path="experience" id="title" type="text" placeholder="Опит"/>
+                <form:input path="experience" id="title" type="text" placeholder="Опит" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
@@ -61,17 +61,17 @@
 
             <div class="pure-control-group">
                 <label for="text">Дейност</label>
-                <form:textarea path="activity" id="text" type="text" rows="7" cols="70" placeholder="Дейност"/>
+                <form:textarea path="activity" id="text" type="text" rows="7" cols="70" placeholder="Дейност" maxlength="2048"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="title">E-Mail</label>
-                <form:input path="email" id="title" type="text" placeholder="E-Mail"/>
+                <form:input path="email" id="title" type="text" placeholder="E-Mail" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="title">Телефон</label>
-                <form:input path="phoneNumber" id="title" type="text" placeholder="Телефон"/>
+                <form:input path="phoneNumber" id="title" type="text" placeholder="Телефон" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.io.IOException;
-
 /**
  * Created with IntelliJ IDEA.
  * User: dkpavlov
@@ -40,7 +38,7 @@ public class SalonsController {
 
     @RequestMapping(value = "/cms/salons/preview/{id}", method = RequestMethod.GET)
     public String adminPreview(@PageableDefault Pageable pageable, @PathVariable("id") Long id, ModelMap model){
-        model.put("page", salonRepository.findById(id, pageable));
+        model.put("salon", salonRepository.findOne(id));
         return "public/salons";
     }
 
