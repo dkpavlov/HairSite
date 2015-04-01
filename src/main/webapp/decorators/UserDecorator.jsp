@@ -98,7 +98,12 @@
             </div>
             <div class="row rmm">
                 <ul>
-                    <li><a href='${pageContext.request.contextPath}/salons'>Салони</a></li>
+                    <li><a class="sub rmm-closed">Салони</a>
+                        <ul>
+                            <li><a href="${pageContext.request.contextPath}/salons">Салон 1</a></li>
+                            <li><a href="${pageContext.request.contextPath}/salons">Салон 2</a></li>
+                        </ul>
+                    </li>
                     <li><a href='${pageContext.request.contextPath}/gallery'>Галерия</a></li>
                     <li><a href='${pageContext.request.contextPath}/news'>Новини</a></li>
                     <li><a href='${pageContext.request.contextPath}/team'>Екип</a></li>

@@ -90,20 +90,33 @@ $(function() {
 	 responsiveMobileMenu();
 	 getMobileMenu();
 	 adaptMenu();
-	 
+	 var sub_opened = false;
 	 /* slide down mobile menu on click */
 	 
 	 $('.rmm-toggled, .rmm-toggled .rmm-button').click(function(){
 	 	if ( $(this).is(".rmm-closed")) {
-		 	 $(this).find('ul').stop().show(300);
+		 	 $(this).find('ul').first().stop().show(300);
 		 	 $(this).removeClass("rmm-closed");
 	 	}
 	 	else {
 		 	$(this).find('ul').stop().hide(300);
 		 	 $(this).addClass("rmm-closed");
+            sub_opened = false;
 	 	}
-		
-	});	
+         $('.rmm li').click( function(e) {
+             e.stopPropagation();
+         });
+	});
+    $('a.sub').click(function(){
+        if (!sub_opened) {
+            $(this).next('ul').stop().show(300);
+            sub_opened = true;
+        }
+        else {
+            $(this).next('ul').first().stop().hide(300);
+            sub_opened = false;
+        }
+    });
 
 });
 	/* 	hide mobile menu on resize */

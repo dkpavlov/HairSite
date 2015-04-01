@@ -42,16 +42,21 @@ License: CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
 
 /* sublevel menu - in construction */
 .rmm ul li ul, .rmm ul li ul li, .rmm ul li ul li a {
-	display:none !important;
-	height:0px !important;
-	width:0px !important;
+	display:none;
+	/*height:0px !important;
+	width:0px !important;  */
 }
 /* */
-
-
+a.sub + ul li a {
+    background: url("../img/upper-header-bg.png");
+}
+a.sub + ul li a:active {
+    background: #1B1612!important;
+    border-top: none!important;
+}
 .rmm .rmm-main-list li {
 	display:inline;
-	padding:padding:0px;
+	padding:0px;
 	margin:0px !important;
 }
 .rmm-toggled {
