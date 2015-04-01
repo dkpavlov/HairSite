@@ -31,3 +31,8 @@ img.base{
     top: 0;
     left: 0;
 }
+
+.custom-link{
+    margin: 20px;
+    color: #0078e7;
+}

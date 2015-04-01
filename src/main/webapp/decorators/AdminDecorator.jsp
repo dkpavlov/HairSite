@@ -63,12 +63,12 @@
                             <a href="${pageContext.request.contextPath}/admin/messages" class="pure-menu-link">Съобщения</a>
                         </li>
                     </ul>
-                    <a class="pure-menu-heading" href="${pageContext.request.contextPath}/">Публична част</a>
                 </div>
             </div>
 
             <div id="main">
                 <decorator:body/>
+                <a class="custom-link" href="${pageContext.request.contextPath}/">Публична част</a>
             </div>
             <script src="/assets/js/ui.js"></script>
         </div>

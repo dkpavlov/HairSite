@@ -31,6 +31,10 @@ public class Salon extends BaseEntity {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Image> images = new ArrayList<>();
 
+    @OneToMany(mappedBy = "salon")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    private List<Employee> employees;
+
     @ManyToOne
     private Contact contact;
 
@@ -50,6 +54,14 @@ public class Salon extends BaseEntity {
         this.providedServices = salon.getProvidedServices();
         this.contact = salon.getContact();
         this.status = salon.getStatus();
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public String getName() {
