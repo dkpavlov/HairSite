@@ -212,9 +212,25 @@ nav.main-menu a, .lower-menu a {
     padding:2%;
     display:inline-block;
 }
-nav.main-menu a:hover {
+nav.main-menu a:hover, .normal-menu .normal-nav ul li.has-sub:active {
     background: url("../img/main-nav-bg-hover.png");
     border-radius: 2px;
+}
+.normal-menu .normal-nav ul li.has-sub a {
+    cursor:pointer;
+}
+.normal-menu .normal-nav ul li.has-sub ul {
+    display:none;
+    position:relative;
+    top:0;
+    left:22%;
+    z-index: 10;
+    padding:2%;
+    text-align: left;
+}
+.normal-menu .normal-nav ul li.has-sub ul li a:hover:before {
+     content:">  ";
+    background:none;
 }
 span.scissors {
     margin-left: -17%;

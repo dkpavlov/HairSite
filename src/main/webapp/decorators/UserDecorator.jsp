@@ -45,26 +45,28 @@
             <div class="row normal-menu">
                 <div class="columns four w468">
                     <nav class="main-menu normal-nav">
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/salons">Салони</a>
-                        <span class="scissors">
-                        </span>
-                        </div>
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/gallery">Галерия</a>
-                        <span class="scissors">
-                        </span>
-                        </div>
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/news">Новини</a>
-                        <span class="scissors">
-                        </span>
-                        </div>
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/team">Екип</a>
-                        <span class="scissors">
-                        </span>
-                        </div>
+                        <ul>
+                            <li class="columns three has-sub">
+                                <a class="sub">Салони</a>
+                                <ul>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/salons">THE MALL</a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/salons">СТРЕЛБИЩЕ</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="columns three">
+                                 <a href="${pageContext.request.contextPath}/gallery">Галерия</a>
+                            </li>
+                            <li class="columns three">
+                                <a href="${pageContext.request.contextPath}/news">Новини</a>
+                            </li>
+                            <li  class="columns three">
+                                <a href="${pageContext.request.contextPath}/team">Екип</a>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
                 <div class="columns four logo">
@@ -147,5 +149,22 @@
             Hair Spot Valentin Tsvetkov - 2014
         </div>
     </div>
+    <script>
+        $(function(){
+            var normal_menu_sub_open = false;
+            $('li.has-sub a.sub').click(function(){
+                if (!normal_menu_sub_open) {
+                    $(this).next('ul').stop().show(300);
+                    $(this).css("background", 'url("../img/main-nav-bg-hover.png")');
+                    $(this).css("border-radius", 2 +'px');
+                    normal_menu_sub_open = true;
+                }
+                else {
+                    $(this).next('ul').first().stop().hide(300);
+                    normal_menu_sub_open = false;
+                }
+            });
+        })
+    </script>
     </body>
 </html>

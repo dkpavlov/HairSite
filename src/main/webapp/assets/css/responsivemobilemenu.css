@@ -47,10 +47,10 @@ License: CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
 	width:0px !important;  */
 }
 /* */
-a.sub + ul li a {
+.rmm a.sub + ul li a {
     background: url("../img/upper-header-bg.png");
 }
-a.sub + ul li a:active {
+.rmm a.sub + ul li a:active {
     background: #1B1612!important;
     border-top: none!important;
 }
