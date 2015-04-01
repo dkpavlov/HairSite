@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/pure-min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/images.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery-ui.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.Jcrop.css">
         <!--[if lte IE 8]>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/side-menu-old-ie.css">
         <![endif]-->
@@ -19,6 +20,7 @@
 
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.Jcrop.js"></script>
 
     </head>
     <body>
@@ -61,6 +63,7 @@
                             <a href="${pageContext.request.contextPath}/admin/messages" class="pure-menu-link">Съобщения</a>
                         </li>
                     </ul>
+                    <a class="pure-menu-heading" href="${pageContext.request.contextPath}/">Публична част</a>
                 </div>
             </div>
 

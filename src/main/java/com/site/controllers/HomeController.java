@@ -1,15 +1,20 @@
 package com.site.controllers;
 
+import com.site.models.News;
 import com.site.models.User;
+import com.site.repositories.NewsRepository;
 import com.site.repositories.UserRepository;
+import org.pegdown.PegDownProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import org.pegdown.PegDownProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,6 +37,9 @@ public class HomeController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    NewsRepository newsRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello(ModelMap model) throws IOException {
@@ -73,5 +81,16 @@ public class HomeController {
             userRepository.save(user);
         }
         return "redirect:/";
+    }
+
+    /* STATUSES */
+    @ModelAttribute("latestNews")
+    public News getStatuses(){
+        PageRequest request = new PageRequest(1, 1, Sort.Direction.DESC, "id");
+        Page<News> page = newsRepository.findAll(request);
+        if(page.hasContent()){
+            return page.getContent().get(0);
+        }
+        return null;
     }
 }

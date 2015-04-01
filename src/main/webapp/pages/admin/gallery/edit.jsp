@@ -15,7 +15,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Име</label>
-                <form:input path="name" id="title" type="text" placeholder="Име" maxlength="225"/>
+                <form:input path="name" id="title" type="text" placeholder="Име"/>
             </div>
 
             <c:if test="${empty gallery.id}">
@@ -86,9 +86,9 @@
             $('#add-file').click(function(){
                 $(this).parent().before(
                         '<div class="pure-control-group">' +
-                            '<label for="image">Изображение</label>' +
-                            '<input type="file" name="files" class="image" placeholder="Снимка"/>' +
-                        '</div>');
+                                '<label for="image">Изображение</label>' +
+                                '<input type="file" name="files" class="image" placeholder="Снимка"/>' +
+                                '</div>');
             });
 
             $('.remove').click(function(){

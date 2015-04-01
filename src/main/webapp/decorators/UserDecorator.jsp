@@ -38,13 +38,6 @@
                         <a href="#" class="columns six social-links you-tube">
                         </a>
                     </div>
-                    <div class="columns three offset-five mt8">
-                        <form>
-                            <input type="text" placeholder="Търси" class="global-search"/>
-                            <a class="global-search" href="#">
-                            </a>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -75,8 +68,8 @@
                     </nav>
                 </div>
                 <div class="columns four logo">
-                    <a href="#">
-                        <img src="../assets/img/logo.png">
+                    <a href="${pageContext.request.contextPath}/">
+                        <img src="${pageContext.request.contextPath}/assets/img/logo.png">
                     </a>
                 </div>
                 <div class="columns four w468">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="inner-page">
     <div class="row first-row">
         <div class="columns twelve content">
@@ -7,18 +8,9 @@
     <div class="row">
         <div id="gallery">
             <ul>
-                <li><img src="../assets/images/1.jpg" /></li>
-                <li><img src="../assets/images/2.jpg" /></li>
-                <li><img src="../assets/images/3.jpg" /></li>
-                <li><img src="../assets/images/4.jpg" /></li>
-                <li><img src="../assets/images/1.jpg" /></li>
-                <li><img src="../assets/images/2.jpg" /></li>
-                <li><img src="../assets/images/3.jpg" /></li>
-                <li><img src="../assets/images/4.jpg" /></li>
-                <li><img src="../assets/images/1.jpg" /></li>
-                <li><img src="../assets/images/2.jpg" /></li>
-                <li><img src="../assets/images/3.jpg" /></li>
-                <li><img src="../assets/images/4.jpg" /></li>
+                <c:forEach items="${gallery.images}" var="image">
+                    <li><img src="${pageContext.request.contextPath}/storage/${image.fileName}" /></li>
+                </c:forEach>
             </ul>
         </div>
     </div>
