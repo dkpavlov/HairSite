@@ -15,7 +15,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Име</label>
-                <form:input path="name" id="title" type="text" placeholder="Име"/>
+                <form:input path="name" id="title" type="text" placeholder="Име" maxlength="225"/>
             </div>
             <c:if test="${not empty salon.images}">
                 <div class="pure-control-group">
@@ -43,12 +43,12 @@
 
             <div class="pure-control-group">
                 <label for="text">Описание</label>
-                <form:textarea path="information" id="text" type="text" rows="7" cols="70" placeholder="Описание"/>
+                <form:textarea path="information" id="text" type="text" rows="7" cols="70" placeholder="Описание" maxlength="2048"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="text">Предлагани услуги</label>
-                <form:textarea path="providedServices" id="text" type="text" rows="7" cols="70" placeholder="Предлагани услуги"/>
+                <form:textarea path="providedServices" id="text" type="text" rows="7" cols="70" placeholder="Предлагани услуги" maxlength="2048"/>
             </div>
 
             <div class="pure-control-group">

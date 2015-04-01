@@ -58,19 +58,19 @@
 
             <div class="pure-control-group">
                 <label for="name">Име</label>
-                <form:input path="name" id="name" type="text" placeholder="Име"/>
+                <form:input path="name" id="name" type="text" placeholder="Име" maxlength="225"/>
             </div>
             <div class="pure-control-group">
                 <label for="price">Цена</label>
-                <form:input path="price" id="price" type="text" placeholder="Цена(12.99)"/>
+                <form:input path="price" id="price" type="text" placeholder="Цена(12.99)" maxlength="225"/>
             </div>
             <div class="pure-control-group">
                 <label for="from">Валидност от</label>
-                <form:input path="fromAsString" id="from" type="text" placeholder="Валидност от"/>
+                <form:input path="fromAsString" id="from" type="text" placeholder="Валидност от" maxlength="225"/>
             </div>
             <div class="pure-control-group">
                 <label for="to">Валидност до</label>
-                <form:input path="toAsString" id="to" type="text" placeholder="Валидност до"/>
+                <form:input path="toAsString" id="to" type="text" placeholder="Валидност до" maxlength="225"/>
             </div>
             <div class="pure-control-group">
                 <label for="status">Статус</label>

@@ -15,7 +15,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Име</label>
-                <form:input path="name" id="title" type="text" placeholder="Име"/>
+                <form:input path="name" id="title" type="text" placeholder="Име" maxlength="225"/>
             </div>
 
             <c:if test="${empty gallery.id}">

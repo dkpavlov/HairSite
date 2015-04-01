@@ -15,38 +15,38 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="name">Име</label>
-                <form:input path="name" id="name" type="text" placeholder="Име"/>
+                <form:input path="name" id="name" type="text" placeholder="Име" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="address">Адрес</label>
-                <form:textarea path="address" id="address" type="text" rows="4" cols="50" placeholder="Адрес"/>
+                <form:textarea path="address" id="address" type="text" rows="4" cols="50" placeholder="Адрес" maxlength="2048"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="phoneNumber">Телефон</label>
-                <form:input path="phoneNumber" id="phoneNumber" type="tel" placeholder="Телефон"/>
+                <form:input path="phoneNumber" id="phoneNumber" type="tel" placeholder="Телефон" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="mobileNumber">Мобилен</label>
-                <form:input path="mobileNumber" id="mobileNumber" type="tel" placeholder="Мобилен"/>
+                <form:input path="mobileNumber" id="mobileNumber" type="tel" placeholder="Мобилен" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="email">E-Mail</label>
-                <form:input path="email" id="email" type="email" placeholder="E-Mail"/>
+                <form:input path="email" id="email" type="email" placeholder="E-Mail" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="skype">Skype</label>
-                <form:input path="skype" id="skype" type="text" placeholder="Skype"/>
+                <form:input path="skype" id="skype" type="text" placeholder="Skype" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label>Координати</label>
-                <form:input path="latitude" placeholder="Latitude"/>
-                <form:input path="longitude" placeholder="Longitude"/>
+                <form:input path="latitude" placeholder="Latitude" maxlength="225"/>
+                <form:input path="longitude" placeholder="Longitude" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">

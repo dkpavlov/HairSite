@@ -15,7 +15,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="title">Име</label>
-                <form:input path="name" id="name" type="text" placeholder="Име"/>
+                <form:input path="name" id="name" type="text" placeholder="Име" maxlength="225"/>
             </div>
 
             <c:if test="${empty product.id}">
@@ -45,7 +45,7 @@
 
             <div class="pure-control-group">
                 <label for="title">Цена</label>
-                <form:input path="price" id="title" type="text" placeholder="Цена(12.99)"/>
+                <form:input path="price" id="title" type="text" placeholder="Цена(12.99)" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
@@ -55,12 +55,12 @@
 
             <div class="pure-control-group">
                 <label for="new-price">Нова цена</label>
-                <form:input path="newPrice" disabled="true" id="new-price" type="text" placeholder="Цена(12.99)"/>
+                <form:input path="newPrice" disabled="true" id="new-price" type="text" placeholder="Цена(12.99)" maxlength="225"/>
             </div>
 
             <div class="pure-control-group">
                 <label for="text">Описание</label>
-                <form:textarea path="description" id="text" type="text" rows="7" cols="70" placeholder="Описание"/>
+                <form:textarea path="description" id="text" type="text" rows="7" cols="70" placeholder="Описание" maxlength="2048"/>
             </div>
 
             <div class="pure-control-group">

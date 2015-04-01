@@ -21,7 +21,7 @@ public class Employee extends BaseEntity {
     @Column
     private String description;
 
-    @Column
+    @Column(length = 2048)
     private String activity;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
