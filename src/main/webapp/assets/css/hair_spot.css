@@ -212,11 +212,13 @@ nav.main-menu a, .lower-menu a {
     padding:2%;
     display:inline-block;
 }
-nav.main-menu a:hover, .normal-menu .normal-nav ul li.has-sub {
+nav.main-menu > ul > li > a:hover {
+    background: url("../img/main-nav-bg-hover.png");
+}
+ .normal-menu .normal-nav ul li.has-sub {
     position: relative;
 }
 nav.main-menu a:hover, .normal-menu .normal-nav ul li.has-sub:active {
-   /* background: url("../img/main-nav-bg-hover.png");*/
     border-radius: 2px;
 }
 .normal-menu .normal-nav ul li.has-sub a {
@@ -226,11 +228,13 @@ nav.main-menu a:hover, .normal-menu .normal-nav ul li.has-sub:active {
     display:none;
     position:absolute;
     top:100%;
-    left:22%;
+    left:0%;
+    padding-left: 22%!important;
     z-index: 10;
     padding:2%;
     text-align: left;
     width:120px!important;
+    background: url("../img/main-nav-bg-hover.png");
 }
 .normal-menu .normal-nav ul li.has-sub ul li a:hover:before {
      content:">";
