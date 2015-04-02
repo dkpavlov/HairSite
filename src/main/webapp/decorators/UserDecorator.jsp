@@ -25,93 +25,95 @@
     </head>
 
     <body>
-    <header class="columns twelve">
-        <div class="container upper-header columns twelve">
-            <div class="row">
-                <div class="columns twelve">
-                    <div class="columns two offset-two mt8">
-                        <a href="#" class="columns two social-links facebook">
-                        </a>
-                        <a href="#" class="columns two social-links google-plus">
-                        </a>
-                        <a href="#" class="columns two social-links linkedin">
-                        </a>
-                        <a href="#" class="columns six social-links you-tube">
-                        </a>
+    <div>
+        <header class="columns twelve">
+            <div class="container upper-header columns twelve">
+                <div class="row">
+                    <div class="columns twelve">
+                        <div class="columns two offset-two mt8">
+                            <a href="#" class="columns two social-links facebook">
+                            </a>
+                            <a href="#" class="columns two social-links google-plus">
+                            </a>
+                            <a href="#" class="columns two social-links linkedin">
+                            </a>
+                            <a href="#" class="columns six social-links you-tube">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container lower-header">
-            <div class="row normal-menu">
-                <div class="columns four w468">
-                    <nav class="main-menu normal-nav">
-                        <ul>
-                            <li class="columns three has-sub">
-                                <a class="sub">Салони</a>
-                                <ul>
-                                    <li>
-                                        <a href="${pageContext.request.contextPath}/salons">THE MALL</a>
-                                    </li>
-                                    <li>
-                                        <a href="${pageContext.request.contextPath}/salons">СТРЕЛБИЩЕ</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="columns three">
-                                 <a href="${pageContext.request.contextPath}/gallery">Галерия</a>
-                            </li>
-                            <li class="columns three">
-                                <a href="${pageContext.request.contextPath}/news">Новини</a>
-                            </li>
-                            <li  class="columns three">
-                                <a href="${pageContext.request.contextPath}/team">Екип</a>
-                            </li>
-                        </ul>
-                    </nav>
+            <div class="container lower-header">
+                <div class="row normal-menu">
+                    <div class="columns four w468">
+                        <nav class="main-menu normal-nav">
+                            <ul>
+                                <li class="columns three has-sub">
+                                    <a class="sub">Салони</a>
+                                    <ul>
+                                        <li>
+                                            <a href="${pageContext.request.contextPath}/salons">THE MALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="${pageContext.request.contextPath}/salons">СТРЕЛБИЩЕ</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="columns three">
+                                     <a href="${pageContext.request.contextPath}/gallery">Галерия</a>
+                                </li>
+                                <li class="columns three">
+                                    <a href="${pageContext.request.contextPath}/news">Новини</a>
+                                </li>
+                                <li  class="columns three">
+                                    <a href="${pageContext.request.contextPath}/team">Екип</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="columns four logo">
+                        <a href="${pageContext.request.contextPath}/">
+                            <img src="${pageContext.request.contextPath}/assets/img/logo.png">
+                        </a>
+                    </div>
+                    <div class="columns four w468">
+                        <nav class="main-menu  normal-nav">
+                            <div class="columns three">
+                                <a href="${pageContext.request.contextPath}/service">Услуги</a>
+                            </div>
+                            <div class="columns three">
+                                <a href="${pageContext.request.contextPath}/product">Продукти</a>
+                            </div>
+                            <div class="columns three">
+                                <a href="${pageContext.request.contextPath}/offers">Оферти</a>
+                            </div>
+                            <div class="columns three">
+                                <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
-                <div class="columns four logo">
-                    <a href="${pageContext.request.contextPath}/">
-                        <img src="${pageContext.request.contextPath}/assets/img/logo.png">
-                    </a>
-                </div>
-                <div class="columns four w468">
-                    <nav class="main-menu  normal-nav">
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/service">Услуги</a>
-                        </div>
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/product">Продукти</a>
-                        </div>
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/offers">Оферти</a>
-                        </div>
-                        <div class="columns three">
-                            <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
-                        </div>
-                    </nav>
+                <div class="row rmm">
+                    <ul>
+                        <li><a class="sub rmm-closed">Салони</a>
+                            <ul>
+                                <c:forEach items="${salons}" var="salon">
+                                    <li><a href="${pageContext.request.contextPath}/salons/${salon.id}">${salon.name}</a></li>
+                                </c:forEach>
+                            </ul>
+                        </li>
+                        <li><a href='${pageContext.request.contextPath}/gallery'>Галерия</a></li>
+                        <li><a href='${pageContext.request.contextPath}/news'>Новини</a></li>
+                        <li><a href='${pageContext.request.contextPath}/team'>Екип</a></li>
+                        <li><a href='${pageContext.request.contextPath}/service'>Услуги</a></li>
+                        <li><a href='${pageContext.request.contextPath}/product'>Продукти</a></li>
+                        <li><a href='${pageContext.request.contextPath}/offers'>Оферти</a></li>
+                        <li><a href='${pageContext.request.contextPath}/contacts'>Контакти</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="row rmm">
-                <ul>
-                    <li><a class="sub rmm-closed">Салони</a>
-                        <ul>
-                            <c:forEach items="${salons}" var="salon">
-                                <li><a href="${pageContext.request.contextPath}/salons/${salon.id}">${salon.name}</a></li>
-                            </c:forEach>
-                        </ul>
-                    </li>
-                    <li><a href='${pageContext.request.contextPath}/gallery'>Галерия</a></li>
-                    <li><a href='${pageContext.request.contextPath}/news'>Новини</a></li>
-                    <li><a href='${pageContext.request.contextPath}/team'>Екип</a></li>
-                    <li><a href='${pageContext.request.contextPath}/service'>Услуги</a></li>
-                    <li><a href='${pageContext.request.contextPath}/product'>Продукти</a></li>
-                    <li><a href='${pageContext.request.contextPath}/offers'>Оферти</a></li>
-                    <li><a href='${pageContext.request.contextPath}/contacts'>Контакти</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+        </header>
+    </div>
         <decorator:body/>
     <footer>
         <div class="container">
@@ -155,7 +157,7 @@
             $('li.has-sub a.sub').click(function(){
                 if (!normal_menu_sub_open) {
                     $(this).next('ul').stop().show(300);
-                    $(this).css("background", 'url("../img/main-nav-bg-hover.png")');
+                    $(this).css("background", 'url("assets/img/main-nav-bg-hover.png")');
                     $(this).css("border-radius", 2 +'px');
                     normal_menu_sub_open = true;
                 }
