@@ -78,18 +78,20 @@
                     </div>
                     <div class="columns four w468">
                         <nav class="main-menu  normal-nav">
-                            <div class="columns three">
-                                <a href="${pageContext.request.contextPath}/service">Услуги</a>
-                            </div>
-                            <div class="columns three">
-                                <a href="${pageContext.request.contextPath}/product">Продукти</a>
-                            </div>
-                            <div class="columns three">
-                                <a href="${pageContext.request.contextPath}/offers">Оферти</a>
-                            </div>
-                            <div class="columns three">
-                                <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
-                            </div>
+                            <ul>
+                                <li class="columns three">
+                                    <a href="${pageContext.request.contextPath}/service">Услуги</a>
+                                </li>
+                                <li class="columns three">
+                                    <a href="${pageContext.request.contextPath}/product">Продукти</a>
+                                </li>
+                                <li class="columns three">
+                                    <a href="${pageContext.request.contextPath}/offers">Оферти</a>
+                                </li>
+                                <li class="columns three">
+                                    <a href="${pageContext.request.contextPath}/contacts">Контакти</a>
+                                </li>
+                            </ul>
                         </nav>
                     </div>
                 </div>
