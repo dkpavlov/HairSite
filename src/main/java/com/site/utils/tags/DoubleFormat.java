@@ -26,7 +26,12 @@ public class DoubleFormat extends TagSupport {
             if(part.equals("i")){
                 out.print(arr[0]);
             } else {
-                out.print(arr[1]);
+                if(arr[1].length() > 1){
+                    out.print(arr[1]);
+                } else {
+                    out.print(arr[1] + "0");
+                }
+
             }
         } catch (IOException e) {
             System.err.println(e);

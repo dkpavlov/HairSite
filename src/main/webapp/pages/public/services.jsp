@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="custom" uri="/jsps/custom.tld" %>
 <%@ taglib prefix="util" tagdir="/WEB-INF/tags" %>
 
@@ -17,7 +18,7 @@
                 <article class="news">
                     <header>${service.name}</header>
                     <c:if test="${service.promoted}">
-                        <p class="price promo"><custom:doubleFormat number="${service.newPrice}" part="i"/>.<sup><custom:doubleFormat number="${service.newPrice}" part="f"/></sup> <small>лева | <span>досега ${service.price} лева</span></small></p>
+                        <p class="price promo"><custom:doubleFormat number="${service.newPrice}" part="i"/>.<sup><custom:doubleFormat number="${service.newPrice}" part="f"/></sup> <small>лева | <span>досега <fmt:formatNumber value="${product.price}" pattern="#.00"/> лева</span></small></p>
                     </c:if>
                     <c:if test="${not service.promoted}">
                         <p class="price"><custom:doubleFormat number="${service.price}" part="i"/>.<sup><custom:doubleFormat number="${service.price}" part="f"/></sup> <small>лева</small></p>
