@@ -26,7 +26,7 @@ public class AdminMessagesController {
 
     /* LIST */
     @RequestMapping(value = "/admin/messages", method = RequestMethod.GET)
-    public String list(@PageableDefault(page = 0, size = 25) Pageable pageable, ModelMap model){
+    public String list(@PageableDefault(page = 0, size = 500) Pageable pageable, ModelMap model){
         model.put("page", messageRepository.findAll(pageable));
         return "admin/messages/list";
     }

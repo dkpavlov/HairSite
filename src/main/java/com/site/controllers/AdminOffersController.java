@@ -34,7 +34,7 @@ public class AdminOffersController {
 
     /* LIST */
     @RequestMapping(value = "/admin/offers", method = RequestMethod.GET)
-    public String getList(@PageableDefault Pageable pageable, ModelMap model){
+    public String getList(@PageableDefault(size = 150) Pageable pageable, ModelMap model){
         model.put("page", offerRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/offer/list";
     }

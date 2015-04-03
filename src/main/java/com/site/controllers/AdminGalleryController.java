@@ -37,7 +37,7 @@ public class AdminGalleryController {
 
     /* LIST */
     @RequestMapping(value = "/admin/gallery", method = RequestMethod.GET)
-    public String list(@PageableDefault Pageable pageable,
+    public String list(@PageableDefault(size = 150) Pageable pageable,
                        ModelMap model){
         model.put("page", galleryRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/gallery/list";

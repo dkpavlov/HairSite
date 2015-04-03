@@ -51,12 +51,11 @@
                                 <li class="columns three has-sub">
                                     <a class="sub">Салони</a>
                                     <ul>
-                                        <li>
-                                            <a href="${pageContext.request.contextPath}/salons">THE MALL</a>
-                                        </li>
-                                        <li>
-                                            <a href="${pageContext.request.contextPath}/salons">СТРЕЛБИЩЕ</a>
-                                        </li>
+                                        <c:forEach items="${salons}" var="salon">
+                                            <li>
+                                                <a href="${pageContext.request.contextPath}/salons/${salon.id}">${salon.name}</a>
+                                            </li>
+                                        </c:forEach>
                                     </ul>
                                 </li>
                                 <li class="columns three">
@@ -126,7 +125,7 @@
                     <a href="${pageContext.request.contextPath}/team">персонал</a>
                     <!--  </div>
                       <div class="columns two"> -->
-                    <a href="${pageContext.request.contextPath}/news">блог</a>
+                    <a href="${pageContext.request.contextPath}/news">Новини</a>
                     <!--  </div>
                       <div class="columns two"> -->
                     <a href="#">карта на сайта</a>

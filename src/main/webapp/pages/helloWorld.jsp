@@ -10,10 +10,11 @@
             <div class="row box sides-hz-1">
                <ul class="bxslider">
                    <!-- изображенията трябва да са в съотношение 4:3 (1600 х 1200 препоръчителна резолюция) -->
-                    <li><a href="#"><img src="../assets/images/1.jpg" /></a></li>
-                    <li><a href="#"><img src="../assets/images/2.jpg" /></a></li>
-                    <li><a href="#"><img src="../assets/images/3.jpg" /></a></li>
-                    <li><a href="#"><img src="../assets/images/4.jpg" /></a></li>
+                   <c:forEach items="${carousel}" var="image">
+                       <c:if test="${not empty image.image}">
+                            <li><a href="#"><img src="${pageContext.request.contextPath}/storage/${image.image.fileName}" /></a></li>
+                       </c:if>
+                   </c:forEach>
                 </ul>
             </div>
         </div>

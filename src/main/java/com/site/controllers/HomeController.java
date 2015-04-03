@@ -4,6 +4,7 @@ import com.site.models.News;
 import com.site.models.Salon;
 import com.site.models.Status;
 import com.site.models.User;
+import com.site.repositories.CarouselRepository;
 import com.site.repositories.NewsRepository;
 import com.site.repositories.SalonRepository;
 import com.site.repositories.UserRepository;
@@ -17,6 +18,7 @@ import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -45,6 +47,9 @@ public class HomeController {
     @Autowired
     SalonRepository salonRepository;
 
+    @Autowired
+    CarouselRepository carouselRepository;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello(ModelMap model) throws IOException {
 
@@ -55,8 +60,15 @@ public class HomeController {
         }
         model.put("salonOne", salonRepository.findOne(2L));
         model.put("salonTwo", salonRepository.findOne(3L));
+        model.put("carousel", carouselRepository.findByStatus(Status.ACTIVE));
         return "helloWorld";
 
+    }
+
+    @RequestMapping(value = "/cms/preview/carousel/{id}", method = RequestMethod.GET)
+    public String preview(@PathVariable("id") Long id, ModelMap model){
+        model.put("carousel", carouselRepository.findById(id));
+        return "helloWorld";
     }
 
     @RequestMapping(value = "/favicon.ico", method = RequestMethod.GET)

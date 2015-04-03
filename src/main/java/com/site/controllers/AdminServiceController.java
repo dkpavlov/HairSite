@@ -28,7 +28,7 @@ public class AdminServiceController {
 
     /* LIST */
     @RequestMapping(value = "/admin/service", method = RequestMethod.GET)
-    public String adminIndex(@PageableDefault Pageable pageable, ModelMap model) throws IOException {
+    public String adminIndex(@PageableDefault(size = 150) Pageable pageable, ModelMap model) throws IOException {
         model.put("page", serviceRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/services/list";
     }

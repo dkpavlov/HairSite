@@ -32,7 +32,7 @@ public class AdminEmployeeController {
 
     /* LIST */
     @RequestMapping(value = "/admin/employee", method = RequestMethod.GET)
-    public String getAllEmployees(@PageableDefault Pageable pageable, ModelMap model){
+    public String getAllEmployees(@PageableDefault(size = 150) Pageable pageable, ModelMap model){
         model.put("page", employeeRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/employee/list";
     }

@@ -26,7 +26,7 @@ public class AdminContactsController {
 
     /* LIST */
     @RequestMapping(value = "/admin/contact", method = RequestMethod.GET)
-    public String getAll(@PageableDefault Pageable pageable, ModelMap model){
+    public String getAll(@PageableDefault(size = 150) Pageable pageable, ModelMap model){
         model.put("page", contactRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/contact/list";
     }

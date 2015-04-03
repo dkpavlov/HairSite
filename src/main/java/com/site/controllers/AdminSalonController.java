@@ -35,7 +35,7 @@ public class AdminSalonController {
 
     /* LIST */
     @RequestMapping(value = "/admin/salon", method = RequestMethod.GET)
-    public String list(@PageableDefault Pageable pageable, ModelMap model){
+    public String list(@PageableDefault(size = 150) Pageable pageable, ModelMap model){
         model.put("page", salonRepository.findByStatusNot(Status.ARCHIVED, pageable));
         return "admin/salon/list";
     }
