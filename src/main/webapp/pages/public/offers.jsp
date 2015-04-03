@@ -19,7 +19,9 @@
                 <div class="columns nine news-container">
                     <article class="news offers">
                         <header>${offer.name}</header>
-                        <p class="price"><custom:doubleFormat number="${offer.price}" part="i"/>.<sup><custom:doubleFormat number="${offer.price}" part="f"/></sup><small>лева</small></p>
+                        <p class="price">
+                            <custom:doubleFormat number="${offer.price}" part="i"/>.<sup><custom:doubleFormat number="${offer.price}" part="f"/></sup><small>лева</small>
+                        </p>
                         <p>
                             <label>Валидна до: </label> <fmt:formatDate pattern="dd.MM.yyyy" value="${offer.to}"/>
                         </p>
