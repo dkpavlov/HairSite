@@ -166,6 +166,7 @@
                 else {
                     $(this).next('ul').first().stop().hide(300);
                     normal_menu_sub_open = false;
+                    $(this).removeAttr( 'style' );
                 }
             });
         })
