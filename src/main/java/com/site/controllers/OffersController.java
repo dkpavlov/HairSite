@@ -34,7 +34,7 @@ public class OffersController {
     SalonRepository salonRepository;
 
     @RequestMapping(value = "/offers", method = RequestMethod.GET)
-    public String index(@PageableDefault(page = 1, size = 5) Pageable pageable, ModelMap model){
+    public String index(@PageableDefault(size = 5) Pageable pageable, ModelMap model){
         model.put("page", offerRepository.findByStatus(Status.ACTIVE, pageable));
         return "public/offers";
     }
