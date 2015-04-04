@@ -20,7 +20,7 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.touchwipe.min.js"></script>
         <link href="${pageContext.request.contextPath}/assets/css/tiksluscarousel.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/assets/js/tiksluscarousel.js"></script>
-        <title>Hair Spot - Valentin Tsvetkov</title>
+        <title>Hair Spot - Валентин Цветков | Valentin Tsvetkov</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </head>
 
