@@ -112,7 +112,12 @@
     function initialize() {
         var mapCanvas = document.getElementById('map-canvas');
         /* TODO set good center */
-        var mapCenter = new google.maps.LatLng(42.660573,23.383137);
+        <c:if test="${not empty salon.contact}">
+            var mapCenter = new google.maps.LatLng(${salon.contact.latitude}, ${salon.contact.longitude});
+        </c:if>
+        <c:if test="${empty salon.contact}">
+            var mapCenter = new google.maps.LatLng(42.660573,23.383137);
+        </c:if>
         /* TODO use custom marker */
         var baseIconDir = '${pageContext.request.contextPath}/assets/img/';
 

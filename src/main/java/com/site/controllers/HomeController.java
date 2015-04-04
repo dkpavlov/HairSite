@@ -8,6 +8,7 @@ import com.site.repositories.CarouselRepository;
 import com.site.repositories.NewsRepository;
 import com.site.repositories.SalonRepository;
 import com.site.repositories.UserRepository;
+import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -83,7 +86,18 @@ public class HomeController {
             user = new User();
             user.setUsername("admin");
             //TODO find problem with pass encryption and use username property as salt
-            user.setPassword(new ShaPasswordEncoder(256).encodePassword("admin", ""));
+            try {
+                user.setPassword(sha256("admin"));
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            userRepository.save(user);
+        } else {
+            try {
+                user.setPassword(sha256("admin"));
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
             userRepository.save(user);
         }
         return "redirect:/";
@@ -93,5 +107,12 @@ public class HomeController {
     @ModelAttribute("salons")
     public List<Salon> getSalons(){
         return salonRepository.findByStatus(Status.ACTIVE);
+    }
+
+    private String sha256(String original) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+        md.update(original.getBytes());
+        byte[] digest = md.digest();
+        return new String(Hex.encodeHexString(digest));
     }
 }

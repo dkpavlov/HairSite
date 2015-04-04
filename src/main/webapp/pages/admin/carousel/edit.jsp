@@ -38,6 +38,10 @@
                     </div>
                 </c:if>
                 <div class="pure-control-group">
+                    <label for="image">Нов снимка</label>
+                    <input type="file" name="file" id="image" placeholder="Нов снимка"/>
+                </div>
+                <div class="pure-control-group">
                     <label for="image-hint"></label>
                     <label id="image-hint">(1600 х 1200)</label>
                 </div>

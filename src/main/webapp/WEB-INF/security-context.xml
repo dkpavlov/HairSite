@@ -21,12 +21,10 @@
 
     <security:authentication-manager>
         <security:authentication-provider>
-            <security:password-encoder hash="sha-256">
-                <!--<security:salt-source user-property="username"/>-->
-            </security:password-encoder>
+            <security:password-encoder hash="sha-256"/>
             <security:jdbc-user-service data-source-ref="dataSource"
-                                        users-by-username-query="select username, password, true from user where username = ?"
-                                        authorities-by-username-query="select u.username, u.role as authorities from user u where u.username = ?" />
+                                        users-by-username-query="select username, password, true from User where username = ?"
+                                        authorities-by-username-query="select u.username, u.role as authorities from User u where u.username = ?" />
         </security:authentication-provider>
     </security:authentication-manager>
 
@@ -44,11 +42,12 @@
                    security="none" />
 
     <security:http use-expressions="true">
-        <security:intercept-url pattern="/admin*"
-                                access="permitAll" />
 
         <security:intercept-url pattern="/admin/**"
-                                access="permitAll" />
+                                access="hasRole('ADMINISTRATOR')" />
+
+        <security:intercept-url pattern="/cms/**"
+                                access="hasRole('ADMINISTRATOR')" />
 
         <!--<security:intercept-url pattern="/admin/**"
                                 access="hasRole('ADMINISTRATOR')" />-->
@@ -56,8 +55,8 @@
         <security:intercept-url pattern="/**"
                                 access="permitAll" />
 
-        <security:form-login login-page="/admin"
-                             default-target-url="/admin"
+        <security:form-login login-page="/login"
+                             default-target-url="/login"
                              username-parameter="username"
                              password-parameter="password"
                              authentication-failure-url="/admin?loginError=1" />
