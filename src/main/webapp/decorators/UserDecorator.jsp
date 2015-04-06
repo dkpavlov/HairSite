@@ -31,10 +31,9 @@
                 <div class="row">
                     <div class="columns twelve">
                         <div class="columns two offset-two mt8">
-                            <a href="https://www.facebook.com/hairspotbg" class="columns two social-links facebook">
-                            </a>
-                            <%--<a href="#" class="columns two social-links google-plus">
-                            </a>
+                            <a href="https://www.facebook.com/hairspotbg" class="columns two social-links facebook"></a>
+                            <a href="https://plus.google.com/101032493829951206934/about" class="columns two social-links google-plus"></a>
+                            <%--
                             <a href="#" class="columns two social-links linkedin">
                             </a>
                             <a href="#" class="columns six social-links you-tube">
@@ -139,6 +138,7 @@
                 <div class="columns twelve">
                     <div class="columns eleven mt8 lower-social-links">
                         <a href="https://www.facebook.com/hairspotbg" class="columns two social-links facebook"></a>
+                        <a href="https://plus.google.com/101032493829951206934/about" class="columns two social-links google-plus"></a>
                         <%--<a href="#" class="columns two social-links google-plus"></a>
                         <a href="#" class="columns two social-links linkedin"></a>
                         <a href="#" class="columns six social-links you-tube"></a>--%>
