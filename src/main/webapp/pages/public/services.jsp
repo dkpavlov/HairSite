@@ -18,10 +18,10 @@
                 <article class="news">
                     <header>${service.name}</header>
                     <c:if test="${service.promoted}">
-                        <p class="price promo"><custom:doubleFormat number="${service.newPrice}" part="i"/>.<sup><custom:doubleFormat number="${service.newPrice}" part="f"/></sup> <small>лева | <span>досега <fmt:formatNumber value="${product.price}" pattern="#.00"/> лева</span></small></p>
+                        <p class="price promo">От <custom:doubleFormat number="${service.newPrice}" part="i"/>.<sup><custom:doubleFormat number="${service.newPrice}" part="f"/></sup> <small>лева | <span>досега <fmt:formatNumber value="${product.price}" pattern="#.00"/> лева</span></small></p>
                     </c:if>
                     <c:if test="${not service.promoted}">
-                        <p class="price"><custom:doubleFormat number="${service.price}" part="i"/>.<sup><custom:doubleFormat number="${service.price}" part="f"/></sup> <small>лева</small></p>
+                        <p class="price">От <custom:doubleFormat number="${service.price}" part="i"/>.<sup><custom:doubleFormat number="${service.price}" part="f"/></sup> <small>лева</small></p>
                     </c:if>
                     <p class="news-description"><custom:shortText text="${service.description}" charecters="116"/></p>
                     <div class="whole-news hide">

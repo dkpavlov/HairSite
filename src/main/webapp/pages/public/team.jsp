@@ -16,14 +16,14 @@
                     </div>
                     <header class="centered-text">${employee.name}</header>
                     <p class="centered-text primary-info">
-                        <a href="mailto:">${employee.email}</a>
-                            ${employee.phoneNumber}
+                        <%--<a href="mailto:">${employee.email}</a>
+                            ${employee.phoneNumber}--%>
                     </p>
                     <p class="secondary-info">
                         <label>Длъжност: </label>${employee.description}
                     </p>
                     <p class="secondary-info">
-                        <label>Салон: </label><c:if test="${not empty employee.salon}">${employee.salon.name}</c:if>
+                        <label>Салон: </label><c:if test="${not empty employee.salon}"><a href="${pageContext.request.contextPath}/salons/${employee.salon.id}">${employee.salon.name}</a></c:if>
                     </p>
                     <p class="secondary-info">
                         <label>Опит: </label>${employee.experience}

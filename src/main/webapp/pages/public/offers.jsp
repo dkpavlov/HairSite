@@ -19,6 +19,7 @@
                 <div class="columns nine news-container">
                     <article class="news offers">
                         <header>${offer.name}</header>
+                        <%-- TODO check and fix add "От" to service price --%>
                         <p class="price">
                             <custom:doubleFormat number="${offer.price}" part="i"/>.<sup><custom:doubleFormat number="${offer.price}" part="f"/></sup><small>лева</small>
                         </p>
