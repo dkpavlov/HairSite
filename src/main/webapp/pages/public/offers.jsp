@@ -19,7 +19,6 @@
                 <div class="columns nine news-container">
                     <article class="news offers">
                         <header>${offer.name}</header>
-                        <%-- TODO check and fix add "От" to service price --%>
                         <p class="price">
                             <custom:doubleFormat number="${offer.price}" part="i"/>.<sup><custom:doubleFormat number="${offer.price}" part="f"/></sup><small>лева</small>
                         </p>
@@ -31,6 +30,31 @@
                         </p>
                         <p>
                             <label>Описание: </label>  ${offer.product.description}
+
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${not empty offer.service}">
+            <div class="row single-news">
+                <div class="columns three">
+                    <img src="${pageContext.request.contextPath}/storage/${offer.service.image.fileName}" width="100%"/>
+                </div>
+                <div class="columns nine news-container">
+                    <article class="news offers">
+                        <header>${offer.name}</header>
+                        <p class="price">
+                            От&nbsp;<custom:doubleFormat number="${offer.price}" part="i"/>.<sup><custom:doubleFormat number="${offer.price}" part="f"/></sup><small>лева</small>
+                        </p>
+                        <p>
+                            <label>Валидна до: </label> <fmt:formatDate pattern="dd.MM.yyyy" value="${offer.to}"/>
+                        </p>
+                        <p>
+                            <label>Включени услуги: </label> ${offer.service.name}
+                        </p>
+                        <p>
+                            <label>Описание: </label>  ${offer.service.description}
 
                         </p>
                     </article>
