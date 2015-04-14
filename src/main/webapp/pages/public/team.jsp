@@ -38,20 +38,23 @@
     </div>
 
 </div>
-<script>
+<script type="text/javascript">
     var setHeight = function (){
-        var maxHeight = Math.max.apply(null, $("article.team").map(function ()
-        {
-            return $(this).height();
-        }).get());
+        var max = -1;
+        $('article.team').each(function() {
+            $(this).height('auto');
+            var h = $(this).height();
+            max = h > max ? h : max;
+        });
 
         $('article.team').each(function(){
-            $(this).css('height', maxHeight);
+            $(this).height(max);
         });
     };
 
     $(function(){
         setHeight();
-        window.resize = setHeight();
     })
+
+    window.onresize = setHeight;
 </script>
