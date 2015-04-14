@@ -715,7 +715,7 @@ article.team a {
     color:#9e7c3d;
     text-decoration: none;
     margin-bottom: 1%;
-    display: block;
+    /*display: block;*/
 }
 
 article.team a:hover {

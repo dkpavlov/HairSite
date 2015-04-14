@@ -34,7 +34,7 @@
                             <div class="portrait columns two v-middle">
                                 <img src="${pageContext.request.contextPath}/storage/${employee.image.fileName}" width="100%"/>
                             </div>
-                            <header class=" columns nine saloon-personal-name">${employee.name}</header>
+                            <header class=" columns nine saloon-personal-name"><a herf="${pageContext.request.contextPath}/team">${employee.name}</a></header>
                         </article>
                     </div>
                 </c:if>
