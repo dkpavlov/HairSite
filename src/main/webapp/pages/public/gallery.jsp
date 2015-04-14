@@ -27,18 +27,33 @@
 
 <script>
     var setHeight = function (){
-        var maxHeight = Math.max.apply(null, $("div.gallery").map(function ()
-        {
-            return $(this).height();
-        }).get());
+        var max = -1;
+        $('div.gallery').each(function() {
+            $(this).height('auto');
+            var h = $(this).height();
+            max = h > max ? h : max;
+        });
 
         $('div.gallery').each(function(){
-            $(this).css('height', maxHeight);
+            $(this).height(max);
         });
+    };
+
+    var setHoverHeight = function(){
+        $('gallery-hover').each(function(){
+            $(this).height('auto');
+            var hover_h = $(this).parent().find('img').height();
+            $(this).height(hover_h);
+        })
     };
 
     $(function(){
         setHeight();
-        window.resize = setHeight();
+        setHoverHeight()
     })
+
+    window.onresize = function (){
+        setHeight();
+        setHoverHeight();
+    }
 </script>

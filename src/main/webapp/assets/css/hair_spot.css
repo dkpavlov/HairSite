@@ -641,7 +641,7 @@ div.gallery-hover {
     left:0;
     z-index: 2;
     display:none;
-    height:159px;
+    /*height:159px;*/
 }
 
 .gallery a {
