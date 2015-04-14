@@ -18,6 +18,11 @@
                 <form:input path="name" id="title" type="text" placeholder="Име" maxlength="225"/>
             </div>
 
+            <div class="pure-control-group">
+                <label for="link">Линк</label>
+                <form:input path="href" id="link" type="text" placeholder="Линк" maxlength="225"/>
+            </div>
+
             <c:if test="${empty carousel.id}">
                 <div class="pure-control-group">
                     <label for="image">Снимка</label>

@@ -19,6 +19,9 @@ public class Carousel extends BaseEntity{
     private String name;
 
     @Column
+    private String href;
+
+    @Column
     @Enumerated(EnumType.STRING)
     private Status status = Status.INACTIVE;
 
@@ -50,5 +53,13 @@ public class Carousel extends BaseEntity{
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
     }
 }

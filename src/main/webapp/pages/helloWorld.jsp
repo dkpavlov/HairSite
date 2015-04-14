@@ -12,7 +12,12 @@
                    <!-- изображенията трябва да са в съотношение 4:3 (1600 х 1200 препоръчителна резолюция) -->
                    <c:forEach items="${carousel}" var="image">
                        <c:if test="${not empty image.image}">
-                            <li><a href="#"><img src="${pageContext.request.contextPath}/storage/${image.image.fileName}" /></a></li>
+                           <c:if test="${not empty image.href}">
+                               <li><a href="${image.href}" target="_blank"><img src="${pageContext.request.contextPath}/storage/${image.image.fileName}" /></a></li>
+                           </c:if>
+                           <c:if test="${empty image.href}">
+                               <li><a href="#"><img src="${pageContext.request.contextPath}/storage/${image.image.fileName}" /></a></li>
+                           </c:if>
                        </c:if>
                    </c:forEach>
                 </ul>

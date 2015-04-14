@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StreamUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,6 +48,7 @@ public class AdminCarouselController {
     public String postNewContact(@ModelAttribute("carousel") Carousel carousel,
                                  MultipartFile file){
         carousel.setImage(FileUtils.createImage(file));
+        carousel.setHref(StringUtils.isEmpty(carousel.getHref()) ? null : carousel.getHref());
         carouselRepository.save(carousel);
         return "redirect:/admin/carousel";
     }
@@ -67,6 +70,7 @@ public class AdminCarouselController {
         if(!file.isEmpty()){
             old.setImage(FileUtils.createImage(file));
         }
+        old.setHref(StringUtils.isEmpty(carousel.getHref()) ? null : carousel.getHref());
         carouselRepository.save(old);
         return "redirect:/admin/carousel";
     }
