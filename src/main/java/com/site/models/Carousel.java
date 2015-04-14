@@ -26,7 +26,6 @@ public class Carousel extends BaseEntity{
     private Status status = Status.INACTIVE;
 
     public void copy(Carousel carousel){
-        this.image = carousel.getImage();
         this.name = carousel.getName();
         this.status = carousel.getStatus();
     }
