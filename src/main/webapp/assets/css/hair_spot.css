@@ -757,6 +757,11 @@ div.inner-page.team .columns.four:nth-child(3n+1){
 .news-container article.news p.price.promo span {
     color:#a09c98;
 }
+
+.services p {
+    font-size: 13px;
+    line-height: 1.5em;
+}
 /*------------------------------- OFFERS -------------------------------------------*/
 article.news.offers p{
     margin:2% 0;

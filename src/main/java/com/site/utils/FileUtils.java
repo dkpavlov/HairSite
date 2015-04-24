@@ -21,7 +21,7 @@ import java.util.Date;
 public class FileUtils {
 
     public static String BASE_DIR;
-    public static String TEST_DIR_WIN = "D:\\WorkSpace\\HairSite\\src\\main\\webapp\\storage";
+    public static String TEST_DIR_WIN = "D:\\Work\\HairSite\\src\\main\\webapp\\storage";
     public static String TEST_DIR_OSX = "/Users/dkpavlov/Desktop/WorkSpace/HairSite/src/main/webapp/storage";
     public static String TEST_DIR_LINUX = "/Users/dkpavlov/Desktop/WorkSpace/HairSite/src/main/webapp/storage";
     private static Path baseDir, tempDir;
