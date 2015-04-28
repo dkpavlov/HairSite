@@ -16,7 +16,7 @@
                 <a href="" class="news-image"><img src="${pageContext.request.contextPath}/storage/${product.image.fileName}" width="100%"/></a>
             </div>
             <div class="columns nine news-container">
-                <article class="news">
+                <article class="news services">
                     <header>${product.name}</header>
                     <c:if test="${product.promoted}">
                         <p class="price promo"><custom:doubleFormat number="${product.newPrice}" part="i"/>.<sup><custom:doubleFormat number="${product.newPrice}" part="f"/></sup> <small>лева | <span>досега <fmt:formatNumber value="${product.price}" pattern="#.00"/> лева</span></small></p>
