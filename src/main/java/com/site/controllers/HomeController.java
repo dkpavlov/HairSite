@@ -85,7 +85,6 @@ public class HomeController {
         if(user == null){
             user = new User();
             user.setUsername("admin");
-            //TODO find problem with pass encryption and use username property as salt
             try {
                 user.setPassword(sha256("admin"));
             } catch (NoSuchAlgorithmException e) {
@@ -94,7 +93,7 @@ public class HomeController {
             userRepository.save(user);
         } else {
             try {
-                user.setPassword(sha256("admin"));
+                user.setPassword(sha256("admin@hairspot"));
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }

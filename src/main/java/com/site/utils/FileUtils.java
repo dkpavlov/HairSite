@@ -5,6 +5,7 @@ import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.name.Rename;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,7 +30,17 @@ public class FileUtils {
     static {
         String catalinaBase = System.getProperty("catalina.base");
         if(catalinaBase != null){
-            /* TODO */
+            BASE_DIR = catalinaBase + File.separator + "webapps" + File.separator + "HairSite" + File.separator + "storage";
+            System.err.println("BASE:   " + BASE_DIR);
+
+            baseDir = Paths.get(BASE_DIR);
+            if(!Files.exists(baseDir)){
+                try {
+                    Files.createDirectories(baseDir);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         } else {
             String osName = System.getProperty("os.name");
             if(osName.startsWith("Windows")){

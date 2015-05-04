@@ -21,6 +21,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/tiksluscarousel.css" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/assets/js/tiksluscarousel.js"></script>
         <title>Hair Spot - Валентин Цветков | Valentin Tsvetkov</title>
+        <meta name="keywords" content="Hair Spot, HairSpot, hair spot, hairspot, Валентин Цветков, Valentin Tsvetkov">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </head>
 

@@ -32,7 +32,7 @@ dependencies {
 
     compile 'net.coobird:thumbnailator:0.4.8'
 
-    compile 'javax.servlet:jsp-api:2.0'
+    providedCompile 'javax.servlet:jsp-api:2.0'
 
     runtime 'javax.servlet:jstl:1.2'
     runtime 'mysql:mysql-connector-java:5.1.6'
@@ -53,9 +53,5 @@ jettyRun{
 
 [jettyRun, jettyRunWar,jettyStop]*.stopPort = 8081
 [jettyRun, jettyRunWar,jettyStop]*.stopKey = 'stopKey'
-
-task hello << {
-    println 'hello, world'
-}
 
 
