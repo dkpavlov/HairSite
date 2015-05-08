@@ -30,7 +30,7 @@ public class FileUtils {
     static {
         String catalinaBase = System.getProperty("catalina.base");
         if(catalinaBase != null){
-            BASE_DIR = catalinaBase + File.separator + "webapps" + File.separator + "HairSite" + File.separator + "storage";
+            BASE_DIR = catalinaBase + File.separator + "webapps" +  File.separator + "storage";
             System.err.println("BASE:   " + BASE_DIR);
 
             baseDir = Paths.get(BASE_DIR);

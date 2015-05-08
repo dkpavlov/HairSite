@@ -32,27 +32,27 @@
                 <div class="row">
                     <div class="columns two offset-two">
                         <a href="#">
-                            <img src="../assets/img/gal_1.jpg" width="73%" alt="Прическа 1"/>
+                            <img src="${pageContext.request.contextPath}/assets/img/gal_1.jpg" width="73%" alt="Прическа 1"/>
                         </a>
                     </div>
                     <div class="columns two">
                         <a href="#">
-                            <img src="../assets/img/gal_2.jpg" width="68%" alt="Прическа 2"/>
+                            <img src="${pageContext.request.contextPath}/assets/img/gal_2.jpg" width="68%" alt="Прическа 2"/>
                         </a>
                     </div>
                     <div class="columns two">
                         <a href="#">
-                            <img src="../assets/img/gal_3.jpg" width="65%" alt="Прическа 3"/>
+                            <img src="${pageContext.request.contextPath}/assets/img/gal_3.jpg" width="65%" alt="Прическа 3"/>
                         </a>
                     </div>
                     <div class="columns two">
                         <a href="#">
-                            <img src="../assets/img/gal_4.jpg" width="73%" alt="Прическа 4"/>
+                            <img src="${pageContext.request.contextPath}/assets/img/gal_4.jpg" width="73%" alt="Прическа 4"/>
                         </a>
                     </div>
                     <div class="columns two">
                         <a href="#">
-                            <img src="../assets/img/gal_5.jpg" width="65%" alt="Прическа 5"/>
+                            <img src="${pageContext.request.contextPath}/assets/img/gal_5.jpg" width="65%" alt="Прическа 5"/>
                         </a>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                                 <span class="sub-saloon">салон 1</span>
                         </div>
                         <div class="columns four pointer">
-                            <img src="../assets/img/pointer_saloons.png" alt="Указател на местоположение"/>
+                            <img src="${pageContext.request.contextPath}/assets/img/pointer_saloons.png" alt="Указател на местоположение"/>
                         </div>
                         <div class="columns four saloon">
                             <a href="${pageContext.request.contextPath}/salons/${salonTwo.id}">${salonTwo.name}</a>
