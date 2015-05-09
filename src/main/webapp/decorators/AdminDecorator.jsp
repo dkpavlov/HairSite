@@ -72,6 +72,8 @@
             <div id="main">
                 <decorator:body/>
                 <a class="custom-link" href="${pageContext.request.contextPath}/">Публична част</a>
+                <a class="custom-link" href="${pageContext.request.contextPath}/admin/settings">Настройки</a>
+                <a class="custom-link" href="${pageContext.request.contextPath}/admin/logout">Излез</a>
             </div>
             <script src="/assets/js/ui.js"></script>
         </div>

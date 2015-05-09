@@ -108,7 +108,7 @@ public class HomeController {
         return salonRepository.findByStatus(Status.ACTIVE);
     }
 
-    private String sha256(String original) throws NoSuchAlgorithmException {
+    public static String sha256(String original) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("SHA-256");
         md.update(original.getBytes());
         byte[] digest = md.digest();

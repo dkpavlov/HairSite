@@ -6,11 +6,11 @@
 <div class="content" style="max-width: 500px">
     <form name="login" class="pure-form pure-form-aligned" action="<c:url value='/j_spring_security_check' />" method="POST">
         <div class="pure-control-group">
-            <label>Password</label>
+            <label>Username</label>
             <input type="text" name="username"/>
         </div>
         <div class="pure-control-group">
-            <label>Username</label>
+            <label>Password</label>
             <input type="password" name="password"/>
         </div>
         <c:if test="${not empty error}">

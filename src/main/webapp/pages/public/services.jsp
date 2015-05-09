@@ -23,7 +23,7 @@
                     <c:if test="${not service.promoted}">
                         <p class="price">От&nbsp;<custom:doubleFormat number="${service.price}" part="i"/>.<sup><custom:doubleFormat number="${service.price}" part="f"/></sup> <small>лева</small></p>
                     </c:if>
-                    <p class="news-description"><custom:shortText text="${service.description}" charecters="116"/></p>
+                    <p class="news-description"><custom:shortText text="${service.description}" charecters="256"/></p>
                     <div class="whole-news hide">
                         <p>${service.description}</p>
                         <p class="close">
