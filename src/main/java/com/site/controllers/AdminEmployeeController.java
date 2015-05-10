@@ -49,6 +49,9 @@ public class AdminEmployeeController {
     public String postNewEmployee(@ModelAttribute("employee") Employee employee,
                                   MultipartFile file){
         employee.setImage(FileUtils.createImage(file));
+        if(employee.getSalon() == null || employee.getSalon().getId() == null){
+            employee.setSalon(null);
+        }
         employeeRepository.save(employee);
         return "redirect:/admin/employee";
     }
@@ -70,6 +73,9 @@ public class AdminEmployeeController {
         old.copy(employee);
         if(!file.isEmpty()){
             old.setImage(FileUtils.createImage(file));
+        }
+        if(old.getSalon() == null || old.getSalon().getId() == null){
+            old.setSalon(null);
         }
         employeeRepository.save(old);
         return "redirect:/admin/employee";
