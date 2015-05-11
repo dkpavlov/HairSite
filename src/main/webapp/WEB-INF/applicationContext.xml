@@ -26,13 +26,32 @@
     <tx:annotation-driven />
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
-    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/site"/>
+    <!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/site"/>-->
+
+    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+        <property name="poolName" value="springHikariCP" />
+        <property name="connectionTestQuery" value="SELECT 1" />
+        <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="url">jdbc:mysql://site.cgeravtrrjt4.us-west-2.rds.amazonaws.com:3306/mydb?useUnicode=yes&amp;characterEncoding=UTF-8</prop>
+                <prop key="user">tomcat</prop>
+                <prop key="password">tomcat123</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfig" />
+    </bean>
+
 
     <bean class="org.springframework.data.web.config.SpringDataWebConfiguration" />
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="com.site.hairspot"/>
         <property name="packagesToScan" value="com.site.models" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -52,9 +71,7 @@
         </property>
     </bean>
 
-    <util:map id="jpaPropertyMap">
-
-    </util:map>
+    <util:map id="jpaPropertyMap" />
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 
