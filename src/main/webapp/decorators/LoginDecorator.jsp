@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
-    <title>Responsive Side Menu &ndash; Layout Examples &ndash; Pure</title>
+    <title>Hair Spot CMS</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/pure-min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/images.css">
