@@ -30,12 +30,19 @@
             <section class="columns four">
                 <header>галерия</header>
                 <div class="row">
-                    <div class="columns two offset-two">
+                    <c:forEach items="${galleryLinks}" var="link">
+                        <div class="columns two">
+                            <a href="${link.href}">
+                                <img src="${pageContext.request.contextPath}/storage/${link.image.fileName}" width="73%" alt="Прическа 2"/>
+                            </a>
+                        </div>
+                    </c:forEach>
+                    <%--<div class="columns two offset-two">
                         <a href="#">
-                            <img src="${pageContext.request.contextPath}/assets/img/gal_1.jpg" width="73%" alt="Прическа 1"/>
+                            <img src="${pageContext.request.contextPath}/storage/${link.image.fileName}"  alt="Прическа 1"/>
                         </a>
-                    </div>
-                    <div class="columns two">
+                    </div>--%>
+                    <%--<div class="columns two">
                         <a href="#">
                             <img src="${pageContext.request.contextPath}/assets/img/gal_2.jpg" width="68%" alt="Прическа 2"/>
                         </a>
@@ -54,7 +61,7 @@
                         <a href="#">
                             <img src="${pageContext.request.contextPath}/assets/img/gal_5.jpg" width="65%" alt="Прическа 5"/>
                         </a>
-                    </div>
+                    </div>--%>
                 </div>
             </section>
             <section class="columns four">

@@ -4,10 +4,7 @@ import com.site.models.News;
 import com.site.models.Salon;
 import com.site.models.Status;
 import com.site.models.User;
-import com.site.repositories.CarouselRepository;
-import com.site.repositories.NewsRepository;
-import com.site.repositories.SalonRepository;
-import com.site.repositories.UserRepository;
+import com.site.repositories.*;
 import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -53,7 +51,11 @@ public class HomeController {
     @Autowired
     CarouselRepository carouselRepository;
 
+    @Autowired
+    GalleryLinkRepository galleryLinkRepository;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
+    @Transactional
     public String hello(ModelMap model) throws IOException {
 
         PageRequest request = new PageRequest(0, 1, Sort.Direction.DESC, "id");
@@ -64,6 +66,7 @@ public class HomeController {
         model.put("salonOne", salonRepository.findOne(2L));
         model.put("salonTwo", salonRepository.findOne(3L));
         model.put("carousel", carouselRepository.findByStatus(Status.ACTIVE));
+        model.put("galleryLinks", galleryLinkRepository.findByStatus(Status.ACTIVE));
         return "helloWorld";
 
     }

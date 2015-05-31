@@ -45,6 +45,9 @@
                             <a href="${pageContext.request.contextPath}/admin/gallery" class="pure-menu-link">Галерия</a>
                         </li>
                         <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/galleryLink" class="pure-menu-link">Линк Галерия</a>
+                        </li>
+                        <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/news" class="pure-menu-link">Новини</a>
                         </li>
                         <li class="pure-menu-item">
