@@ -24,6 +24,10 @@ jdbc params can be changed in __./src/main/resources/jetty-env.xml__
 
 Testet on MySQL Server version 5.1.67
 
+**db init script**
+
+Run the 1.sql(12.08.2015) script located in the db/initDB folder.
+
 ##Start/stop jetty embedded server
 
 - **Run** -> gradle jettyRun
