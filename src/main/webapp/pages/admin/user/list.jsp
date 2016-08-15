@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <div class="header">
     <h1>Потребители</h1>
     <h2>Всички потребители</h2>
@@ -13,7 +14,6 @@
         <thead>
         <tr>
             <th>Потребителско име</th>
-            <th>Имена</th>
             <th>Роля</th>
             <th></th>
             <th></th>
@@ -22,14 +22,13 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${page.content}" var="service">
+        <c:forEach items="${page.content}" var="user">
             <tr>
-                <td><fmt:formatDate pattern="HH:mm dd-MM-yyyy" value="${service.dateCreated}"/></td>
-                <td>${service.name}</td>
-                <td>${service.status.name}</td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/service/preview/${service.id}">Смяна на парола</a></td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/service/${service.id}/edit">Редактирай</a></td>
-                <td><button class="pure-button delete" var="${service.id}">Изтрий</button></td>
+                <td>${user.username}</td>
+                <td>${user.role}</td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/service/preview/${user.id}">Смяна на парола</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/service/${user.id}/edit">Редактирай</a></td>
+                <td><button class="pure-button delete" var="${user.id}">Изтрий</button></td>
             </tr>
         </c:forEach>
         </tbody>

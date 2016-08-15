@@ -31,14 +31,14 @@ public class ServiceItem extends BaseEntity {
         this.name = name;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getSalonPrice() {
+        return salonPrice;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setSalonPrice(Double salonPrice) {
+        this.salonPrice = salonPrice;
     }
-    
+
     public Double getMaterialsCost() {
         return materialsCost;
     }
