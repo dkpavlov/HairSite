@@ -15,8 +15,21 @@ public class UserServiceItemPrice extends BaseEntity {
     @ManyToOne
     private ServiceItem serviceItem;
 
+    @ManyToOne
+    private User user;
+
     @Column
     private Double userPrice;
+
+    public UserServiceItemPrice(Long serviceItemId, User user, Double userPrice) {
+        this.serviceItem = new ServiceItem();
+        this.serviceItem.setId(serviceItemId);
+        this.user = user;
+        this.userPrice = userPrice;
+    }
+
+    public UserServiceItemPrice() {
+    }
 
     public ServiceItem getServiceItem() {
         return serviceItem;
@@ -31,6 +44,18 @@ public class UserServiceItemPrice extends BaseEntity {
     }
 
     public void setPrice(Double userPrice) {
+        this.userPrice = userPrice;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setUserPrice(Double userPrice) {
         this.userPrice = userPrice;
     }
 }

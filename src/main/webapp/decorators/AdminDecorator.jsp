@@ -68,6 +68,12 @@
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/messages" class="pure-menu-link">Съобщения</a>
                         </li>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/users" class="pure-menu-link">Потребители</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/serviceItems" class="pure-menu-link">Системни услуги</a>
+                        </li>
                     </ul>
                 </div>
             </div>

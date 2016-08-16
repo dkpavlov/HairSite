@@ -15,7 +15,7 @@ import javax.jws.soap.SOAPBinding;
  * http://howtodoinjava.com/spring/spring-mvc/spring-mvc-custom-validator-example/
  */
 
-@Component
+@Component("userValidator")
 public class UserValidator implements Validator {
 
     @Autowired
@@ -42,7 +42,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("password1", "error.username1", "Password must be at least 3 characters");
             errors.rejectValue("password2", "error.username2", "Password must be at least 3 characters");
         } else {
-            if(user.getPassword1().equals(user.getPassword2())){
+            if(!user.getPassword1().equals(user.getPassword2())){
                 errors.rejectValue("password2", "error.username2", "Passwords must match");
                 errors.rejectValue("password1", "error.username1", "Passwords must match");
             }

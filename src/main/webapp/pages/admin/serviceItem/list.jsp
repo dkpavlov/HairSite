@@ -2,30 +2,35 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div class="header">
-    <h1>Потребители</h1>
-    <h2>Всички потребители</h2>
+    <h1>Системни услуги</h1>
+    <h2>Всички системни услуги</h2>
 </div>
 
 <div class="content">
     <br/><br/>
-    <a class="pure-button pure-button-primary" href="${pageContext.request.contextPath}/admin/users/new">Нов потребител</a>
+    <a class="pure-button pure-button-primary" href="${pageContext.request.contextPath}/admin/serviceItems/new">Нова системни услуги</a>
     <br/><br/>
     <table class="pure-table pure-table-bordered">
         <thead>
         <tr>
-            <th>Потребителско име</th>
-            <th>Роля</th>
+            <th>Име</th>
+            <th>Цена</th>
+            <th>Цена материали</th>
+            <th></th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${page.content}" var="user">
+        <c:forEach items="${page.content}" var="serviceItem">
             <tr>
-                <td>${user.username}</td>
-                <td>${user.role}</td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/users/${user.id}/edit">Редактирай</a></td>
-                <td><button class="pure-button delete" var="${user.id}">Изтрий</button></td>
+                <td>${serviceItem.name}</td>
+                <td>${serviceItem.salonPrice}</td>
+                <td>${serviceItem.salonPrice}</td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/service/preview/${serviceItem.id}">Смяна на парола</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/service/${serviceItem.id}/edit">Редактирай</a></td>
+                <td><button class="pure-button delete" var="${serviceItem.id}">Изтрий</button></td>
             </tr>
         </c:forEach>
         </tbody>

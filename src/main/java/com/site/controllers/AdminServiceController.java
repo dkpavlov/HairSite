@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,6 +43,7 @@ public class AdminServiceController {
 
     @RequestMapping(value = "/admin/service/new", method = RequestMethod.POST)
     public String adminNewSave(@ModelAttribute("service") Service service){
+        Logger.getAnonymousLogger().info("test POST");
         service.setMainImage(FileUtils.createImage(service.getFile()));
         serviceRepository.save(service);
         return "redirect:/admin/service";

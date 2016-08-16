@@ -16,16 +16,19 @@
             <div class="pure-control-group">
                 <label for="username">Потребителско име</label>
                 <form:input path="username" id="username" type="text" placeholder="Потребителско име" maxlength="225"/>
+                <form:errors path="username" cssClass="error" />
             </div>
 
             <div class="pure-control-group">
                 <label for="password1">Парола</label>
                 <form:password path="password1" id="password1" maxlength="225"/>
+                <form:errors path="password1" cssClass="error" />
             </div>
 
             <div class="pure-control-group">
                 <label for="password2">Потвърди парола</label>
                 <form:password path="password2" id="password2" maxlength="225"/>
+                <form:errors path="password2" cssClass="error" />
             </div>
 
             <div class="pure-control-group">
@@ -35,7 +38,52 @@
                     <form:option value="EMPLOYEE">Служител</form:option>
                 </form:select>
             </div>
-
+            <c:if test="${empty user.id}">
+                <table class="pure-table pure-table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Услуга</th>
+                            <th>Цена</th>
+                            <th>Цена за служител</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${serviceItemList}" var="serviceItem" varStatus="status">
+                            <tr>
+                                <td>${serviceItem.name}</td>
+                                <td>${serviceItem.salonPrice}</td>
+                                <td>
+                                    <form:hidden path="prices[${status.index}].serviceItem.id" value="${serviceItem.id}"/>
+                                    <form:input path="prices[${status.index}].userPrice" type="text" value="0" maxlength="225"/>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+            <c:if test="${not empty user.id}">
+                            <table class="pure-table pure-table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Услуга</th>
+                                        <th>Цена</th>
+                                        <th>Цена за служител</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${user.prices}" var="serviceItem" varStatus="status">
+                                        <tr>
+                                            <td>${serviceItem.serviceItem.name}</td>
+                                            <td>${serviceItem.serviceItem.salonPrice}</td>
+                                            <td>
+                                                <form:hidden path="prices[${status.index}].serviceItem.id" value="${serviceItem.serviceItem.id}"/>
+                                                <form:input path="prices[${status.index}].userPrice" type="text" value="${serviceItem.userPrice}" maxlength="225"/>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
             <div class="pure-controls">
                 <button type="submit" class="pure-button pure-button-primary">Запис</button>
             </div>

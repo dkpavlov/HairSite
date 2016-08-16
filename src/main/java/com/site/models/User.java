@@ -2,11 +2,9 @@ package com.site.models;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,6 +26,9 @@ public class User extends BaseEntity {
 
     @Column
     private String role = "ADMINISTRATOR";
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    List<UserServiceItemPrice> prices;
 
     @Transient
     private String password1;
@@ -73,5 +74,13 @@ public class User extends BaseEntity {
 
     public void setPassword2(String password2) {
         this.password2 = password2;
+    }
+
+    public List<UserServiceItemPrice> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<UserServiceItemPrice> prices) {
+        this.prices = prices;
     }
 }
