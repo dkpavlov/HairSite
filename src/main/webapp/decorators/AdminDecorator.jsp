@@ -8,6 +8,8 @@
         <title>Hair Spot CMS</title>
 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/pure-min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/grids-responsive-min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/custom.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin/images.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery-ui.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jquery.Jcrop.css">
@@ -73,6 +75,9 @@
                         </li>
                         <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/serviceItems" class="pure-menu-link">Системни услуги</a>
+                        </li>
+                        <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/report" class="pure-menu-link">Отчет</a>
                         </li>
                     </ul>
                 </div>

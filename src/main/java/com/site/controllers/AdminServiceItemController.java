@@ -42,6 +42,7 @@ public class AdminServiceItemController {
     @RequestMapping(value = "/admin/serviceItems/new", method = RequestMethod.POST)
     public String adminNewSave(@ModelAttribute("serviceItem") ServiceItem serviceItem){
         serviceItemRepository.save(serviceItem);
+        //TODO save to all users
         return "redirect:/admin/serviceItems";
     }
 

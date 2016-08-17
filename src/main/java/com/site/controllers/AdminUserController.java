@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,6 +54,11 @@ public class AdminUserController {
         }
         /*List<UserServiceItemPriceForm> prices = user.getPrices();
         List<UserServiceItemPrice> priceDB = new ArrayList<>();*/
+        try{
+            user.setPassword(HomeController.sha256(user.getPassword1()));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
         user = userRepository.save(user);
         /*for(UserServiceItemPriceForm price: prices){
             priceDB.add(new UserServiceItemPrice());

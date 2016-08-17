@@ -2,6 +2,12 @@
     <excludes>
         <pattern>/assets/*</pattern>
     </excludes>
+    <decorator name="employee" page="EmployeeDecorator.jsp">
+        <excludes>
+            <pattern>/assets/*</pattern>
+        </excludes>
+        <pattern>/employee/*</pattern>
+    </decorator>
     <decorator name="admin" page="AdminDecorator.jsp">
         <excludes>
             <pattern>/assets/*</pattern>
