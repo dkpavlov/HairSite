@@ -43,11 +43,14 @@
 
     <security:http use-expressions="true">
 
-        <!--<security:intercept-url pattern="/admin/**"
+        <security:intercept-url pattern="/employee/**"
+                                access="hasAnyRole('ADMINISTRATOR', 'EMPLOYEE')" />
+
+        <security:intercept-url pattern="/admin/**"
                                 access="hasRole('ADMINISTRATOR')" />
 
         <security:intercept-url pattern="/cms/**"
-                                access="hasRole('ADMINISTRATOR')" />-->
+                                access="hasRole('ADMINISTRATOR')" />
 
         <security:intercept-url pattern="/**"
                                 access="permitAll" />

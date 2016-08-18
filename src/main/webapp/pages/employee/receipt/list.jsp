@@ -21,7 +21,7 @@
         <tbody>
         <c:forEach items="${page.content}" var="receipt">
             <tr>
-                <td>${receipt.createdAt}</td>
+                <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${receipt.createdAt}"/></td>
                 <td>${receipt.totalAmount}</td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/employee/receipts/${receipt.id}/preview">Преглед</a></td>
             </tr>

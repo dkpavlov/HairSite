@@ -7,7 +7,7 @@
 
 <div class="content">
 
-    <form class="pure-form pure-form-stacked">
+    <form class="pure-form pure-form-stacked" id="search-form">
         <fieldset>
             <legend>Филтър</legend>
             <div class="pure-g">
@@ -22,6 +22,7 @@
                 <div class="pure-u-1 pure-u-md-1-3">
                     <label for="employee">Служител</label>
                     <select id="employee" class="pure-input-1-2">
+                        <option></option>
                         <c:forEach items="${userList}" var="user">
                             <option value="${user.id}">${user.username}</option>
                         </c:forEach>
@@ -74,6 +75,16 @@
         $(function() {
             $("#from-date").datepicker({ dateFormat: 'yy-mm-dd' });
             $("#to-date").datepicker({ dateFormat: 'yy-mm-dd' });
+
+            $("#search-form").submit(function( event ){
+                event.preventDefault();
+                var newUrl = window.location.href + "?";
+                var employeeId = $("#employee").val();
+                newUrl += "&userId=" + employeeId;
+                if(employeeId){
+                    window.location.href = newUrl;
+                }
+            });
         });
     </script>
 

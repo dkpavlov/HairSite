@@ -5,6 +5,7 @@ import com.site.utils.DoubleUtils;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 /**
  * Created by dimitar.pavlov.mus on 17.08.2016.
@@ -37,9 +38,10 @@ public class ReceiptItem extends BaseEntity{
         this.quantity = quantity;
     }
 
+    @Transient
     public Double getTotalPrice(){
         Double totalPrice = 0.0;
-        if(item != null){
+        if(item != null && item.getSalonPrice() != null){
             totalPrice = item.getSalonPrice() * quantity;
         }
         return DoubleUtils.round(totalPrice, 2);

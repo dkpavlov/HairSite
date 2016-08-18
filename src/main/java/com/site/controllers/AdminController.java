@@ -1,6 +1,10 @@
 package com.site.controllers;
 
+import com.site.models.User;
+import com.site.repositories.UserRepository;
+import com.site.utils.Constants;
 import org.apache.commons.codec.binary.Hex;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +25,9 @@ import java.security.NoSuchAlgorithmException;
 @Controller
 public class AdminController {
 
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminRedirect(){
         if(SecurityContextHolder.getContext().getAuthentication() != null &&
@@ -35,7 +42,13 @@ public class AdminController {
     public String login(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth instanceof AnonymousAuthenticationToken)) {
-            return "redirect:/admin/home";
+            User user = userRepository.findByUsername(auth.getName());
+            if(user.getRole().equals(Constants.ROLE_ADMINISTRATOR)){
+                return "redirect:/admin/home";
+            } else {
+                return "redirect:/employee/receipts";
+            }
+
         }
         return "login";
     }

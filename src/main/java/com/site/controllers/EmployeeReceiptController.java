@@ -1,9 +1,6 @@
 package com.site.controllers;
 
-import com.site.models.Receipt;
-import com.site.models.ReceiptItem;
-import com.site.models.User;
-import com.site.models.UserServiceItemPrice;
+import com.site.models.*;
 import com.site.repositories.ReceiptRepository;
 import com.site.repositories.ServiceItemRepository;
 import com.site.repositories.UserRepository;
@@ -57,6 +54,7 @@ public class EmployeeReceiptController {
     public String saveNewReceipt(@ModelAttribute("receipt") Receipt receipt){
         User currentUser = getCurrentUser();
         HashMap<Long, Double> userPrices = getUserPrices(currentUser);
+        HashMap<Long, Double> salonPrices = getSalonPrices();
         List<ReceiptItem> itemsToRemove  = new ArrayList<>();
         Double userPart = 0.0;
         Double totalPrice = 0.0;
@@ -66,7 +64,7 @@ public class EmployeeReceiptController {
                     itemsToRemove.add(item);
                 } else {
                     userPart += item.getQuantity() * userPrices.get(item.getItem().getId());
-                    totalPrice += item.getTotalPrice();
+                    totalPrice += item.getQuantity() * salonPrices.get(item.getItem().getId());
                 }
             }
             receipt.getItems().removeAll(itemsToRemove);
@@ -75,6 +73,7 @@ public class EmployeeReceiptController {
         receipt.setTotalAmount(totalPrice);
         receipt.setSeller(currentUser);
         receipt.setCreatedAt(new Date());
+        System.err.println(receipt.getTotalAmount() + " " + receipt.getSellerAmount());
         receipt = receiptRepository.save(receipt);
         return "redirect:/employee/receipts/" + receipt.getId() + "/confirm";
     }
@@ -83,7 +82,6 @@ public class EmployeeReceiptController {
     @RequestMapping(value = "/employee/receipts/{id}/confirm", method = RequestMethod.GET)
     public String getConfirmReceipt(@PathVariable("id") Long id, ModelMap model){
         Receipt receipt = receiptRepository.findOne(id);
-        System.err.println(receipt.getItems().size());
         model.put("receipt", receipt);
         //model.put("receipt", receiptRepository.findByIdAndSellerUsername(id, getCurrentUserUsername()));
         return "employee/receipt/confirm";
@@ -100,7 +98,16 @@ public class EmployeeReceiptController {
     private HashMap<Long, Double> getUserPrices(User user){
         HashMap<Long, Double> returnMap = new HashMap<>();
         for(UserServiceItemPrice price: user.getPrices()){
-            returnMap.put(price.getId(), price.getUserPrice());
+            returnMap.put(price.getServiceItem().getId(), price.getUserPrice());
+        }
+        return returnMap;
+    }
+
+    private HashMap<Long, Double> getSalonPrices(){
+        HashMap<Long, Double> returnMap = new HashMap<>();
+        List<ServiceItem> serviceItemList = (List<ServiceItem>) serviceItemRepository.findAll();
+        for(ServiceItem si: serviceItemList){
+            returnMap.put(si.getId(), si.getSalonPrice());
         }
         return returnMap;
     }
