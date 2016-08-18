@@ -23,6 +23,9 @@ public class ServiceItem extends BaseEntity {
     @Column
     private Double materialsCost;
 
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.ACTIVE;
+
     public String getName() {
         return name;
     }
@@ -46,5 +49,12 @@ public class ServiceItem extends BaseEntity {
     public void setMaterialsCost(Double materialsCost) {
         this.materialsCost = materialsCost;
     }
-    
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }

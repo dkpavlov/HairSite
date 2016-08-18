@@ -56,7 +56,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.h2database:h2:$h2Version"
+        classpath "com.h2database:h2:1.3.161"
     }
 }
 
@@ -69,6 +69,7 @@ jettyRun.contextPath = ''
 
 jettyRun{
     jettyEnvXml = file('src/main/resources/jetty-env.xml')
+    reload = "automatic"
 }
 
 [jettyRun, jettyRunWar,jettyStop]*.stopPort = 8081

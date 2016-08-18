@@ -18,8 +18,6 @@
             <th>Цена материали</th>
             <th></th>
             <th></th>
-            <th></th>
-            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -27,9 +25,8 @@
             <tr>
                 <td>${serviceItem.name}</td>
                 <td>${serviceItem.salonPrice}</td>
-                <td>${serviceItem.salonPrice}</td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/cms/service/preview/${serviceItem.id}">Смяна на парола</a></td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/service/${serviceItem.id}/edit">Редактирай</a></td>
+                <td>${serviceItem.materialsCost}</td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/serviceItems/${serviceItem.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${serviceItem.id}">Изтрий</button></td>
             </tr>
         </c:forEach>
@@ -53,9 +50,8 @@
             $('.delete').click(function(){
                 var contactId = $(this).attr('var');
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/admin/service/'+contactId+'/status',
-                    type: 'PUT',
-                    data: "status=ARCHIVED",
+                    url: '${pageContext.request.contextPath}/admin/serviceItems/'+contactId,
+                    type: 'DELETE',
                     success: function(data) {
                         /*TODO check if it works*/
                         location.reload();
