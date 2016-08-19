@@ -25,6 +25,14 @@
                     <td>${item.totalPrice}</td>
                 </tr>
             </c:forEach>
+            <c:forEach items="${receipt.customItems}" var="item">
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.singlePrice}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.totalPrice}</td>
+                </tr>
+            </c:forEach>
         </tbody>
     </table>
 
