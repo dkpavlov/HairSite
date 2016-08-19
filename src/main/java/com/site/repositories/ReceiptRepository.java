@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by dimitar.pavlov.mus on 16.08.2016.
  */
@@ -14,6 +17,17 @@ public interface ReceiptRepository extends PagingAndSortingRepository<Receipt, L
     public Page<Receipt> findBySellerUsernameOrderByCreatedAtDesc(String username, Pageable pageable);
     public Receipt findByIdAndSellerUsername(Long id, String username);
 
-    @Query("select r from Receipt r where ((:uId is null) or (r.seller.id = :uId))")
-    public Page<Receipt> selectForReport(@Param("uId") Long uId, Pageable pageable);
+    @Query("select r from Receipt r where ((:uId is null) or (r.seller.id = :uId)) and " +
+            "((:fromDate is null) or (r.createdAt >= :fromDate)) and " +
+            "((:toDate is null) or (r.createdAt <= :toDate))")
+    public Page<Receipt> selectForReport(@Param("uId") Long uId,
+                                         @Param("fromDate") Date fromDate,
+                                         @Param("toDate") Date toDate, Pageable pageable);
+
+    @Query("select r from Receipt r where ((:uId is null) or (r.seller.id = :uId)) and " +
+            "((:fromDate is null) or (r.createdAt >= :fromDate)) and " +
+            "((:toDate is null) or (r.createdAt <= :toDate))")
+    public List<Receipt> selectForReport(@Param("uId") Long uId,
+                                         @Param("fromDate") Date fromDate,
+                                         @Param("toDate") Date toDate);
 }

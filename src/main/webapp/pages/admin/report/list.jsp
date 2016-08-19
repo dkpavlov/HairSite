@@ -78,12 +78,13 @@
 
             $("#search-form").submit(function( event ){
                 event.preventDefault();
-                var newUrl = window.location.href + "?";
                 var employeeId = $("#employee").val();
-                newUrl += "&userId=" + employeeId;
-                if(employeeId){
-                    window.location.href = newUrl;
-                }
+                var fromDate = $("#from-date").val();
+                var toDate = $("#to-date").val();
+                var newUrl = "/admin/report" +
+                    "?userId=" + employeeId +
+                    "&fromDate=" + fromDate +
+                    "&toDate=" + toDate;
             });
         });
     </script>

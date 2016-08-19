@@ -55,7 +55,8 @@ public class EmployeeReceiptController {
         User currentUser = getCurrentUser();
         HashMap<Long, Double> userPrices = getUserPrices(currentUser);
         HashMap<Long, Double> salonPrices = getSalonPrices();
-        List<ReceiptItem> itemsToRemove  = new ArrayList<>();
+        List<ReceiptItem> itemsToRemove = new ArrayList<>();
+        List<CustomReceiptItem> customItemsToRemove = new ArrayList<>();
         Double userPart = 0.0;
         Double totalPrice = 0.0;
         if(receipt != null && receipt.getItems() != null){
@@ -68,6 +69,17 @@ public class EmployeeReceiptController {
                 }
             }
             receipt.getItems().removeAll(itemsToRemove);
+            if(receipt.getCustomItems() != null){
+                for(CustomReceiptItem cItem: receipt.getCustomItems()){
+                    if(cItem.getQuantity().equals(0)){
+                        customItemsToRemove.add(cItem);
+                    } else {
+                        cItem.setTotalPrice(cItem.getQuantity() * cItem.getSinglePrice());
+                        totalPrice += cItem.getTotalPrice();
+                    }
+                }
+                receipt.getCustomItems().removeAll(customItemsToRemove);
+            }
         }
         receipt.setSellerAmount(userPart);
         receipt.setTotalAmount(totalPrice);

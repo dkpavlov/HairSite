@@ -8,7 +8,7 @@
 <div class="content">
     <form:form modelAttribute="receipt" class="pure-form pure-form-aligned">
         <fieldset>
-            <table class="pure-table pure-table-bordered">
+            <table class="pure-table pure-table-bordered" id="receipt-items-table">
                 <thead>
                     <tr>
                         <th>Услуга</th>
@@ -29,11 +29,25 @@
                             <td id="${serviceItem.id}-total-price" class="total-price">0.00</td>
                         </tr>
                     </c:forEach>
+                    <tr>
+                        <td><form:input path="customItems[0].name" type="text" maxlength="225"/></td>
+                        <td>
+                            <form:input path="customItems[0].singlePrice" value="0.0" type="text" maxlength="225" id="c0-salon-price"/>
+                        </td>
+                        <td>
+                            <form:input path="customItems[0].quantity" type="text" value="0" maxlength="225" rev="c0" class="quantity"/>
+                        </td>
+                        <td id="c0-total-price" class="total-price">0.00</td>
+                    </tr>
                 </tbody>
             </table>
 
+
+
             <br/><br/>
             <div class="pure-control-group total">
+                <input type="button" value="Добави услуга" class="pure-button pure-button-primary" id="add-custom-service"/>
+                <br/>
                 <label for="full-price">Общо</label>
                 <label id="full-price">0.0</label>
             </div>
@@ -44,10 +58,15 @@
 
             <script>
                 $(document).ready(function() {
+                    var customItemIndex = 1;
+
                     $(".quantity").keyup(function(){
                         var serviceItemId = $(this).attr("rev");
                         var quantity = $(this).val();
                         var singlePrice = $("#"+serviceItemId+"-salon-price").html();
+                        if(!singlePrice){
+                            singlePrice = $("#"+serviceItemId+"-salon-price").val();
+                        }
                         $("#"+serviceItemId+"-total-price").html((quantity * singlePrice).toFixed(2));
 
                         var fullPrice = 0.0;
@@ -58,6 +77,39 @@
 
                         $("#full-price").text(fullPrice.toFixed(2));
                     })
+
+                    $("#add-custom-service").click(function() {
+                        $("#receipt-items-table tr:last").after(
+                            '<tr>' +
+                                '<td><input name="customItems[' + customItemIndex + '].name" type="text" maxlength="225"/></td>' +
+                                '<td>' +
+                                    '<input name="customItems[' + customItemIndex + '].singlePrice" value="0.0" type="text" maxlength="225" id="c' + customItemIndex + '-salon-price"/>' +
+                                '</td>' +
+                                '<td>' +
+                                    '<input name="customItems[' + customItemIndex + '].quantity" type="text" value="0" maxlength="225" rev="c' + customItemIndex + '" class="quantity"/>' +
+                                '</td>' +
+                                '<td id="c' + customItemIndex + '-total-price" class="total-price">0.00</td>' +
+                            '</tr>');
+                        customItemIndex++;
+
+                        $(".quantity").keyup(function(){
+                            var serviceItemId = $(this).attr("rev");
+                            var quantity = $(this).val();
+                            var singlePrice = $("#"+serviceItemId+"-salon-price").html();
+                            if(!singlePrice){
+                                singlePrice = $("#"+serviceItemId+"-salon-price").val();
+                            }
+                            $("#"+serviceItemId+"-total-price").html((quantity * singlePrice).toFixed(2));
+
+                            var fullPrice = 0.0;
+                            var prices = $(".total-price")
+                            for(var i = 0; i < prices.length; i++){
+                                fullPrice += parseFloat(prices[i].innerHTML);
+                            }
+
+                            $("#full-price").text(fullPrice.toFixed(2));
+                        })
+                    });
                 });
             </script>
 

@@ -22,6 +22,9 @@ public class Receipt extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ReceiptItem> items;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<CustomReceiptItem> customItems;
+
     @Column
     private Date createdAt;
 
@@ -91,5 +94,13 @@ public class Receipt extends BaseEntity {
 
     public void setSellerAmount(Double sellerAmount) {
         this.sellerAmount = sellerAmount;
+    }
+
+    public List<CustomReceiptItem> getCustomItems() {
+        return customItems;
+    }
+
+    public void setCustomItems(List<CustomReceiptItem> customItems) {
+        this.customItems = customItems;
     }
 }

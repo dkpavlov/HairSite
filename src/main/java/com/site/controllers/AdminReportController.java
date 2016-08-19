@@ -1,7 +1,9 @@
 package com.site.controllers;
 
+import com.site.models.Receipt;
 import com.site.repositories.ReceiptRepository;
 import com.site.repositories.UserRepository;
+import com.site.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -12,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by dimitar.pavlov.mus on 17.08.2016.
@@ -36,18 +40,45 @@ public class AdminReportController {
                                  @RequestParam(value = "fromDate", required = false) String fromDate,
                                  @RequestParam(value = "toDate", required = false) String toDate,
                                  @PageableDefault(size = 150) Pageable pageable, ModelMap model){
-
-        Date from, to;
-        userId = userId == 0L ? null : userId;
+        Date from = null;
+        Date to = null;
         try {
             from = (fromDate != null && fromDate.trim().length() > 0) ? sdf.parse(fromDate) : null;
             to = (toDate != null && toDate.trim().length() > 0) ? sdf.parse(toDate) : null;
+            if(to != null){
+                to = new Date(to.getTime() + Constants.DAY_IN_MS);
+            }
         } catch (ParseException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
-        model.put("page", receiptRepository.selectForReport(userId, pageable));
+        model.put("page", receiptRepository.selectForReport(userId, from, to, pageable));
         model.put("userList", userRepository.findByRole("EMPLOYEE"));
         return "admin/report/list";
+    }
+
+    //TODO http://stackoverflow.com/questions/5673260/downloading-a-file-from-spring-controllers
+    //https://gist.github.com/madan712/3912272
+    @RequestMapping(value = "/admin/report/export", method = RequestMethod.GET)
+    private void exportReport(@RequestParam(value = "userId", required = false) Long userId,
+                              @RequestParam(value = "fromDate", required = false) String fromDate,
+                              @RequestParam(value = "toDate", required = false) String toDate,
+                              HttpServletResponse response){
+
+        Date from = null;
+        Date to = null;
+        try {
+            from = (fromDate != null && fromDate.trim().length() > 0) ? sdf.parse(fromDate) : null;
+            to = (toDate != null && toDate.trim().length() > 0) ? sdf.parse(toDate) : null;
+            if(to != null){
+                to = new Date(to.getTime() + Constants.DAY_IN_MS);
+            }
+        } catch (ParseException e) {
+            //e.printStackTrace();
+        }
+        List<Receipt> receipts = (List<Receipt>) receiptRepository.selectForReport(userId, from, to);
+
+        String sheetName = "Sheet1";//name of sheet
+
     }
 
     @RequestMapping(value = "/admin/receipt/{id}", method = RequestMethod.GET)
