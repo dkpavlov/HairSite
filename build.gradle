@@ -70,6 +70,7 @@ jettyRun.contextPath = ''
 jettyRun{
     jettyEnvXml = file('src/main/resources/jetty-env.xml')
     reload = "automatic"
+    httpPort = 8181
 }
 
 [jettyRun, jettyRunWar,jettyStop]*.stopPort = 8081

@@ -77,6 +77,9 @@
                             <a href="${pageContext.request.contextPath}/admin/serviceItems" class="pure-menu-link">Системни услуги</a>
                         </li>
                         <li class="pure-menu-item">
+                            <a href="${pageContext.request.contextPath}/admin/serviceProducts" class="pure-menu-link">Системни продукти</a>
+                        </li>
+                        <li class="pure-menu-item">
                             <a href="${pageContext.request.contextPath}/admin/report" class="pure-menu-link">Отчет</a>
                         </li>
                     </ul>

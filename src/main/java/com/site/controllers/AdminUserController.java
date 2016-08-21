@@ -21,8 +21,6 @@ import java.util.logging.Logger;
 @Controller
 public class AdminUserController {
 
-    private static final Logger logger = Logger.getLogger(AdminUserController.class.toGenericString());
-
     @Autowired
     UserRepository userRepository;
 
@@ -69,7 +67,6 @@ public class AdminUserController {
     @RequestMapping(value = "/admin/users/{id}/edit", method = RequestMethod.GET)
     public ModelAndView getEditUserPage(@PathVariable("id") Long id){
         User user = userRepository.findOne(id);
-        logger.log(Level.ALL, "{}Prices list" + user.getPrices().size());
         ModelAndView mv = new ModelAndView("admin/user/edit", "user", user);
         return mv;
     }

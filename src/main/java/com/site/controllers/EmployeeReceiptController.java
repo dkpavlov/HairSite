@@ -1,9 +1,7 @@
 package com.site.controllers;
 
 import com.site.models.*;
-import com.site.repositories.ReceiptRepository;
-import com.site.repositories.ServiceItemRepository;
-import com.site.repositories.UserRepository;
+import com.site.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -35,6 +33,12 @@ public class EmployeeReceiptController {
     ServiceItemRepository serviceItemRepository;
 
     @Autowired
+    ServiceProductRepository serviceProductRepository;
+
+    @Autowired
+    UserServiceItemPriceRepository userServiceItemPriceRepository;
+
+    @Autowired
     UserRepository userRepository;
 
     @RequestMapping(value = "/employee/receipts", method = RequestMethod.GET)
@@ -46,7 +50,10 @@ public class EmployeeReceiptController {
     @RequestMapping(value = "/employee/receipts/new", method = RequestMethod.GET)
     public ModelAndView newRecipt(ModelMap model){
         ModelAndView mv = new ModelAndView("employee/receipt/edit", "receipt", new Receipt());
+        System.out.println(getCurrentUserUsername() + "  " + userServiceItemPriceRepository.findByUserUsername(getCurrentUserUsername()).size());
+        mv.getModel().put("serviceItemPrice", getCurrentUser().getPrices());
         mv.getModel().put("serviceItemList", serviceItemRepository.findAll());
+        mv.getModel().put("serviceProductList", serviceProductRepository.findAll());
         return mv;
     }
 
@@ -55,8 +62,10 @@ public class EmployeeReceiptController {
         User currentUser = getCurrentUser();
         HashMap<Long, Double> userPrices = getUserPrices(currentUser);
         HashMap<Long, Double> salonPrices = getSalonPrices();
+        HashMap<Long, Double> salonPriceProducts = getSalonPricesProducts();
         List<ReceiptItem> itemsToRemove = new ArrayList<>();
         List<CustomReceiptItem> customItemsToRemove = new ArrayList<>();
+        List<ProductItem> serviceProductToRemove = new ArrayList<>();
         Double userPart = 0.0;
         Double totalPrice = 0.0;
         if(receipt != null && receipt.getItems() != null){
@@ -80,22 +89,30 @@ public class EmployeeReceiptController {
                 }
                 receipt.getCustomItems().removeAll(customItemsToRemove);
             }
+            if(receipt.getProducts() != null){
+                for(ProductItem product: receipt.getProducts()){
+                    if(product.getQuantity().equals(0)){
+                        serviceProductToRemove.add(product);
+                    } else {
+                        totalPrice += product.getQuantity() * salonPriceProducts.get(product.getItem().getId());
+                    }
+                }
+                receipt.getProducts().removeAll(serviceProductToRemove);
+            }
         }
         receipt.setSellerAmount(userPart);
         receipt.setTotalAmount(totalPrice);
         receipt.setSeller(currentUser);
         receipt.setCreatedAt(new Date());
-        System.err.println(receipt.getTotalAmount() + " " + receipt.getSellerAmount());
         receipt = receiptRepository.save(receipt);
         return "redirect:/employee/receipts/" + receipt.getId() + "/confirm";
     }
 
-    //TODO
     @RequestMapping(value = "/employee/receipts/{id}/confirm", method = RequestMethod.GET)
     public String getConfirmReceipt(@PathVariable("id") Long id, ModelMap model){
-        Receipt receipt = receiptRepository.findOne(id);
+        Receipt receipt = receiptRepository.findByIdAndSellerUsername(id, getCurrentUserUsername());
+        System.out.println(receipt.getItems().size());
         model.put("receipt", receipt);
-        //model.put("receipt", receiptRepository.findByIdAndSellerUsername(id, getCurrentUserUsername()));
         return "employee/receipt/confirm";
     }
 
@@ -124,6 +141,14 @@ public class EmployeeReceiptController {
         return returnMap;
     }
 
+    private HashMap<Long, Double> getSalonPricesProducts(){
+        HashMap<Long, Double> returnMap = new HashMap<>();
+        List<ServiceProduct> serviceProductList = (List<ServiceProduct>) serviceProductRepository.findAll();
+        for(ServiceProduct product: serviceProductList){
+            returnMap.put(product.getId(), product.getSalonPrice());
+        }
+        return returnMap;
+    }
 
     private String getCurrentUserUsername(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

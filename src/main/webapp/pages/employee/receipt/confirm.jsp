@@ -9,6 +9,8 @@
     <form class="pure-form pure-form-aligned" action="/employee/receipts/${receipt.id}/confirm" method="POST">
         <fieldset>
 
+            <label class="title">Услуги</label>
+            <br/><br/>
             <table class="pure-table pure-table-bordered">
                 <thead>
                     <tr>
@@ -37,6 +39,31 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <br/><br/>
+
+            <label class="title">Продукти</label>
+            <br/><br/>
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                <tr>
+                    <th>Продукти</th>
+                    <th>Единична цена</th>
+                    <th>Количество</th>
+                    <th>Цена</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${receipt.products}" var="item">
+                    <tr>
+                        <td>${item.item.name}</td>
+                        <td>${item.item.salonPrice}</td>
+                        <td>${item.quantity}</td>
+                        <td>${item.totalPrice}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
 
             <br/><br/>
             <div class="pure-control-group">
