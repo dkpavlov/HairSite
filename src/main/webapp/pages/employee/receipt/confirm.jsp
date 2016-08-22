@@ -46,6 +46,8 @@
                             <td>${item.name}</td>
                             <td>${item.singlePrice}</td>
                             <td>${item.quantity}</td>
+                            <td></td>
+                            <td></td>
                             <td>${item.totalPrice}</td>
                         </tr>
                     </c:forEach>
