@@ -17,6 +17,8 @@
                         <th>Услуга</th>
                         <th>Единична цена</th>
                         <th>Количество</th>
+                        <th>Матерял</th>
+                        <th>Количество</th>
                         <th>Цена</th>
                     </tr>
                 </thead>
@@ -26,6 +28,16 @@
                             <td>${item.item.name}</td>
                             <td>${item.item.salonPrice}</td>
                             <td>${item.quantity}</td>
+                            <td>
+                                <c:if test="${not empty item.material}">
+                                    ${item.material.name}
+                                </c:if>
+                            </td>
+                            <td>
+                                <c:if test="${not empty item.material}">
+                                    ${item.material.materialQuantity}
+                                </c:if>
+                            </td>
                             <td>${item.totalPrice}</td>
                         </tr>
                     </c:forEach>
