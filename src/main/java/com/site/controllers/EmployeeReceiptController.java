@@ -39,6 +39,9 @@ public class EmployeeReceiptController {
     UserServiceItemPriceRepository userServiceItemPriceRepository;
 
     @Autowired
+    ServiceMaterialRepository serviceMaterialRepository;
+
+    @Autowired
     UserRepository userRepository;
 
     @RequestMapping(value = "/employee/receipts", method = RequestMethod.GET)
@@ -54,6 +57,7 @@ public class EmployeeReceiptController {
         mv.getModel().put("serviceItemPrice", getCurrentUser().getPrices());
         mv.getModel().put("serviceItemList", serviceItemRepository.findAll());
         mv.getModel().put("serviceProductList", serviceProductRepository.findAll());
+        mv.getModel().put("materialList", serviceMaterialRepository.findAll());
         return mv;
     }
 

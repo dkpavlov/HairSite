@@ -19,6 +19,10 @@
                         <th>Количество</th>
                         <th></th>
                         <th></th>
+                        <th>Материал</th>
+                        <th>Количество материал</th>
+                        <th></th>
+                        <th></th>
                         <th>Цена</th>
                     </tr>
                 </thead>
@@ -36,6 +40,21 @@
                             </td>
                             <td>
                                 <button type="button" class="pure-button pure-button-active quantity-button quantity-subtract" rev="${price.serviceItem.id}">-</button>
+                            </td>
+                            <td>
+                                <form:select path="items[${status.index}].material.id" id="m-${status.index}" class="material-select">
+                                    <form:option value=""></form:option>
+                                    <c:forEach items="${materialList}" item="material">
+                                        <form:option value="${material.id}">${material.name}</form:option>
+                                    </c:forEach>
+                                </form:select>
+                            </td>
+                            <td><form:input path="items[${status.index}].materialQuantity" type="text" value="30" maxlength="225" id="m-${status.index}-quantity"/></td>
+                            <td>
+                                <button type="button" class="pure-button pure-button-active quantity-button quantity-add-material" rev="m-${status.index}">+</button>
+                            </td>
+                            <td>
+                                <button type="button" class="pure-button pure-button-active quantity-button quantity-subtract-material" rev="m-${status.index}">-</button>
                             </td>
                             <td id="${price.serviceItem.id}-total-price" class="total-price">0.00</td>
                         </tr>
@@ -115,6 +134,23 @@
             <script>
                 $(document).ready(function() {
                     var customItemIndex = 1;
+
+                    $(".quantity-add-material").click(function(){
+                        var itemId = $(this).attr("rev");
+                        var quantity = $("#"+itemId+"-quantity").val();
+                        quantity += 5;
+                        $("#"+itemId+"-quantity").val(quantity);
+
+                    });
+
+                    $(".quantity-subtract-material").click(function(){
+                        var itemId = $(this).attr("rev");
+                        var quantity = $("#"+itemId+"-quantity").val();
+                        if(quantity != 0){
+                            quantity -= 5;
+                            $("#"+itemId+"-quantity").val(quantity);
+                        }
+                    });
 
                     $(".quantity-add").click(function(){
                         var itemId = $(this).attr("rev");
