@@ -15,7 +15,6 @@
         <tr>
             <th>Име</th>
             <th>Цена</th>
-            <th>Цена материали</th>
             <th></th>
             <th></th>
         </tr>
@@ -25,7 +24,6 @@
             <tr>
                 <td>${serviceItem.name}</td>
                 <td>${serviceItem.salonPrice}</td>
-                <td>${serviceItem.materialsCost}</td>
                 <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/serviceItems/${serviceItem.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${serviceItem.id}">Изтрий</button></td>
             </tr>

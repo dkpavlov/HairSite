@@ -24,11 +24,6 @@
                 <form:input path="salonPrice" id="salonPrice" type="text" placeholder="Цена(12.99)" maxlength="225"/>
             </div>
 
-            <div class="pure-control-group">
-                <label for="materialsCost">Цена материали</label>
-                <form:input path="materialsCost" id="materialsCost" type="text" placeholder="Цена материали(12.99)" maxlength="225"/>
-            </div>
-
             <div class="pure-controls">
                 <button type="submit" class="pure-button pure-button-primary">Запис</button>
             </div>

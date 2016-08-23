@@ -57,14 +57,18 @@ public class AdminServiceItemController {
         serviceItem = serviceItemRepository.save(serviceItem);
         List<User> userList = (List<User>) userRepository.findAll();
         List<UserServiceItemPrice> prices = new ArrayList<>();
+        System.out.println("Id: " + serviceItem.getId());
         for(User user: userList){
             UserServiceItemPrice price = new UserServiceItemPrice();
             price.setUser(user);
             price.setPrice(0.0);
             price.setServiceItem(serviceItem);
-            prices.add(price);
+            if(user.getPrices() == null){
+                user.setPrices(new ArrayList<>());
+            }
+            user.getPrices().add(price);
         }
-        userServiceItemPriceRepository.save(prices);
+        userRepository.save(userList);
         return "redirect:/admin/serviceItems";
     }
 

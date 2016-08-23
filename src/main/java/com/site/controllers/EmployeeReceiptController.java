@@ -74,14 +74,27 @@ public class EmployeeReceiptController {
         Double totalPrice = 0.0;
         if(receipt != null && receipt.getItems() != null){
             for(ReceiptItem item: receipt.getItems()){
+                System.out.println("Item: " + item.getItem().getId());
                 if(item.getQuantity().equals(0)){
                     itemsToRemove.add(item);
                 } else {
+                    if(item.getMaterial() != null && (item.getMaterial().getId() == null || item.getMaterial().getId().equals(0L))){
+                        item.setMaterial(null);
+                    }
                     userPart += item.getQuantity() * userPrices.get(item.getItem().getId());
                     totalPrice += item.getQuantity() * salonPrices.get(item.getItem().getId());
                 }
             }
+            for(ReceiptItem i: itemsToRemove){
+                System.out.println("Removed: " + i.getItem().getId());
+            }
+
             receipt.getItems().removeAll(itemsToRemove);
+
+            for(ReceiptItem i: receipt.getItems()){
+                System.out.println("NotRemoved: " + i.getItem().getId());
+            }
+
             if(receipt.getCustomItems() != null){
                 for(CustomReceiptItem cItem: receipt.getCustomItems()){
                     if(cItem.getQuantity().equals(0)){
@@ -93,6 +106,7 @@ public class EmployeeReceiptController {
                 }
                 receipt.getCustomItems().removeAll(customItemsToRemove);
             }
+
             if(receipt.getProducts() != null){
                 for(ProductItem product: receipt.getProducts()){
                     if(product.getQuantity().equals(0)){
@@ -103,7 +117,9 @@ public class EmployeeReceiptController {
                 }
                 receipt.getProducts().removeAll(serviceProductToRemove);
             }
+
         }
+
         receipt.setSellerAmount(userPart);
         receipt.setTotalAmount(totalPrice);
         receipt.setSeller(currentUser);
@@ -115,7 +131,6 @@ public class EmployeeReceiptController {
     @RequestMapping(value = "/employee/receipts/{id}/confirm", method = RequestMethod.GET)
     public String getConfirmReceipt(@PathVariable("id") Long id, ModelMap model){
         Receipt receipt = receiptRepository.findByIdAndSellerUsername(id, getCurrentUserUsername());
-        System.out.println(receipt.getItems().size());
         model.put("receipt", receipt);
         return "employee/receipt/confirm";
     }
@@ -127,6 +142,13 @@ public class EmployeeReceiptController {
         receiptRepository.save(receipt);
         return "redirect:/employee/receipts";
     }
+
+    @RequestMapping(value = "/employee/receipts/{id}/preview", method = RequestMethod.GET)
+    public String previewReceipt(@PathVariable("id") Long id, ModelMap model){
+        model.put("receipt", receiptRepository.findByIdAndSellerUsername(id, getCurrentUserUsername()));
+        return "admin/report/preview";
+    }
+
 
     private HashMap<Long, Double> getUserPrices(User user){
         HashMap<Long, Double> returnMap = new HashMap<>();

@@ -5,3 +5,7 @@
 .title{
     font-size: 34px;
 }
+
+.quantity, .material-quantity, .custom-price {
+    width: 70px;
+}

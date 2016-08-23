@@ -31,7 +31,7 @@
                     </td>
                     <td>
                         <c:if test="${not empty item.material}">
-                            ${item.material.materialQuantity}
+                            ${item.materialQuantity}
                         </c:if>
                     </td>
                     <td>${item.totalPrice}</td>

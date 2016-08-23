@@ -62,6 +62,6 @@
                              authentication-failure-url="/admin?loginError=1" />
 
         <security:logout logout-url="/admin/logout"
-                         logout-success-url="/" />
+                         logout-success-url="/login" />
     </security:http>
 </beans:beans>

@@ -44,12 +44,12 @@
                             <td>
                                 <form:select path="items[${status.index}].material.id" id="m-${status.index}" class="material-select">
                                     <form:option value=""></form:option>
-                                    <c:forEach items="${materialList}" item="material">
+                                    <c:forEach items="${materialList}" var="material">
                                         <form:option value="${material.id}">${material.name}</form:option>
                                     </c:forEach>
                                 </form:select>
                             </td>
-                            <td><form:input path="items[${status.index}].materialQuantity" type="text" value="30" maxlength="225" id="m-${status.index}-quantity"/></td>
+                            <td><form:input path="items[${status.index}].materialQuantity" type="text" value="30" maxlength="225" id="m-${status.index}-quantity" class="material-quantity"/></td>
                             <td>
                                 <button type="button" class="pure-button pure-button-active quantity-button quantity-add-material" rev="m-${status.index}">+</button>
                             </td>
@@ -62,7 +62,7 @@
                     <tr>
                         <td><form:input path="customItems[0].name" type="text" maxlength="225"/></td>
                         <td>
-                            <form:input path="customItems[0].singlePrice" value="0.0" type="text" maxlength="225" id="c0-salon-price"/>
+                            <form:input path="customItems[0].singlePrice" value="0.0" type="text" maxlength="225" id="c0-salon-price" class="custom-price"/>
                         </td>
                         <td>
                             <form:input path="customItems[0].quantity" type="text" value="0" maxlength="225" rev="c0" class="quantity"/>
@@ -137,7 +137,7 @@
 
                     $(".quantity-add-material").click(function(){
                         var itemId = $(this).attr("rev");
-                        var quantity = $("#"+itemId+"-quantity").val();
+                        var quantity = parseFloat($("#"+itemId+"-quantity").val());
                         quantity += 5;
                         $("#"+itemId+"-quantity").val(quantity);
 
@@ -145,7 +145,7 @@
 
                     $(".quantity-subtract-material").click(function(){
                         var itemId = $(this).attr("rev");
-                        var quantity = $("#"+itemId+"-quantity").val();
+                        var quantity = parseFloat($("#"+itemId+"-quantity").val());
                         if(quantity != 0){
                             quantity -= 5;
                             $("#"+itemId+"-quantity").val(quantity);
@@ -207,7 +207,7 @@
                             '<tr>' +
                                 '<td><input name="customItems[' + customItemIndex + '].name" type="text" maxlength="225"/></td>' +
                                 '<td>' +
-                                    '<input name="customItems[' + customItemIndex + '].singlePrice" value="0.0" type="text" maxlength="225" id="c' + customItemIndex + '-salon-price"/>' +
+                                    '<input name="customItems[' + customItemIndex + '].singlePrice" value="0.0" type="text" maxlength="225" class="custom-price" id="c' + customItemIndex + '-salon-price"/>' +
                                 '</td>' +
                                 '<td>' +
                                     '<input name="customItems[' + customItemIndex + '].quantity" type="text" value="0" maxlength="225" rev="c' + customItemIndex + '" class="quantity"/>' +

@@ -14,7 +14,7 @@
             </div>
 
             <div class="pure-control-group">
-                <label for="salonPrice">Цена</label>
+                <label for="salonPrice">Цена за гр./мл.</label>
                 <form:input path="price" id="salonPrice" type="text" placeholder="Цена(12.99)" maxlength="225"/>
             </div>
 
