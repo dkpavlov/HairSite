@@ -39,6 +39,7 @@
     <table class="pure-table pure-table-bordered">
         <thead>
             <tr>
+                <th>Номер</th>
                 <th>Дата</th>
                 <th>Служител</th>
                 <th>Обща сума</th>
@@ -49,6 +50,7 @@
         <tbody>
             <c:forEach items="${page.content}" var="receipt">
                 <tr>
+                    <td>#${receipt.id}</td>
                     <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${receipt.createdAt}"/></td>
                     <td>${receipt.seller.username}</td>
                     <td>${receipt.totalAmount}</td>
@@ -60,16 +62,21 @@
     </table>
     <br/><br/>
 
-    <%-- TODO fix paging--%>
-    <%--<div class="paginator">
-        <a href="/?page=9" class="paginator-previous">Previous</a>
-        <a href="/?page=8" class="paginator-page paginator-page-first">8</a>
-        <a href="/?page=9" class="paginator-page">9</a>
-        <a href="/?page=10" class="paginator-current">10</a>
-        <a href="/?page=11" class="paginator-page">11</a>
-        <a href="/?page=12" class="paginator-page paginator-page-last">12</a>
-        <a href="/?page=11" class="paginator-next">Next</a>
-    </div>--%>
+    <div class="paginator">
+        <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+        <c:if test="${not page.first}">
+            <a href="${url}&page=0" class="paginator-previous"><<</a>
+            <a href="${url}&page=${page.number - 1}" class="paginator-page paginator-page-first"><</a>
+        </c:if>
+        <a href="/?page=10" class="paginator-current" onclick="return false;">${page.number}</a>
+        <c:if test="${not page.last}">
+            <a href="${url}&page=${page.number + 1}" class="paginator-page paginator-page-last">></a>
+            <a href="${url}&page=${page.totalPages - 1}" class="paginator-next">>></a>
+        </c:if>
+
+        <br/>
+        Страница ${page.number} от ${page.totalPages - 1}
+    </div>
 
     <script>
         $(function() {

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,7 +40,7 @@ public class AdminReportController {
     private String getReportPage(@RequestParam(value = "userId", required = false) Long userId,
                                  @RequestParam(value = "fromDate", required = false) String fromDate,
                                  @RequestParam(value = "toDate", required = false) String toDate,
-                                 @PageableDefault(size = 150) Pageable pageable, ModelMap model){
+                                 @PageableDefault(size = 50) Pageable pageable, ModelMap model, HttpServletRequest request){
         Date from = null;
         Date to = null;
         try {
@@ -53,6 +54,7 @@ public class AdminReportController {
         }
         model.put("page", receiptRepository.selectForReport(userId, from, to, pageable));
         model.put("userList", userRepository.findByRole("EMPLOYEE"));
+        model.put("url", (request.getRequestURL()+"?"+request.getQueryString()).replaceAll("&page=\\d*", ""));
         return "admin/report/list";
     }
 

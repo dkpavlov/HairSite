@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,8 +46,10 @@ public class EmployeeReceiptController {
     UserRepository userRepository;
 
     @RequestMapping(value = "/employee/receipts", method = RequestMethod.GET)
-    public String getEmployeeReceiptsPage(@PageableDefault(size = 150) Pageable pageable, ModelMap model){
+    public String getEmployeeReceiptsPage(@PageableDefault(size = 50) Pageable pageable,
+                                          ModelMap model, HttpServletRequest request){
         model.put("page", receiptRepository.findBySellerUsernameOrderByCreatedAtDesc(getCurrentUserUsername(), pageable));
+        model.put("url", (request.getRequestURL()+"?"+request.getQueryString()).replaceAll("&page=\\d*", ""));
         return "employee/receipt/list";
     }
 

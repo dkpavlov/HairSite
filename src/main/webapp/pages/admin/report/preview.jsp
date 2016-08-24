@@ -2,7 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="header">
-    <h1>Receipts</h1>
+    <h1>Сметка #${receipt.id}</h1>
     <h2>Преглед на receipt</h2>
 </div>
 <br/>

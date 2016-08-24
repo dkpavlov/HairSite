@@ -1,8 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <div class="header">
-    <h1>Receipts</h1>
-    <h2>Потвърди receipt</h2>
+    <h1>Сметка #${receipt.id}</h1>
+    <h2>Потвърди сметка</h2>
 </div>
 <br/>
 <div class="content">
