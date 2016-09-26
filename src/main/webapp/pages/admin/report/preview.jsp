@@ -54,9 +54,18 @@
     <div class="pure-control-group total">
         <label for="employee">Служител</label>
         <label id="employee">${receipt.seller.username}</label>
-     </div>
-     <br/>
-     <div class="pure-control-group total">
+    </div>
+    <div class="pure-control-group">
+        <label for="payment-method">Метод на плащане</label>
+        <c:if test="${receipt.paymentMethod == 'CASH'}">
+            <label id="payment-method">Брой</label>
+        </c:if>
+        <c:if test="${receipt.paymentMethod == 'CARD'}">
+            <label id="payment-method">Карта</label>
+        </c:if>
+    </div>
+    <br/>
+    <div class="pure-control-group total">
         <label for="created-аt">Дата</label>
         <label id="created-аt"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${receipt.createdAt}"/></label>
     </div>

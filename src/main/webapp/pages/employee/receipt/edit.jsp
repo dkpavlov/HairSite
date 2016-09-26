@@ -115,7 +115,12 @@
                 </c:forEach>
                 </tbody>
             </table>
-
+            <br/><br/>
+            <div class="pure-control-group">
+                <form:radiobutton path="paymentMethod" value="CASH"/>Брой
+                <br/>
+                <form:radiobutton path="paymentMethod" value="CARD"/>Карта
+            </div>
 
 
             <br/><br/>

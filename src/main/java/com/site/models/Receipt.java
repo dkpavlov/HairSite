@@ -16,6 +16,10 @@ public class Receipt extends BaseEntity {
         COMMITTED, CONFIRMED;
     }
 
+    public enum  PaymentMethod {
+        CARD, CASH;
+    }
+
     @ManyToOne
     private User seller;
 
@@ -42,6 +46,9 @@ public class Receipt extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private ReceiptStatus receiptStatus = ReceiptStatus.COMMITTED;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod = PaymentMethod.CASH;
 
     public User getSeller() {
         return seller;
@@ -113,5 +120,13 @@ public class Receipt extends BaseEntity {
 
     public void setProducts(List<ProductItem> products) {
         this.products = products;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

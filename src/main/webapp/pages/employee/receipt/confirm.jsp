@@ -78,7 +78,16 @@
                 </tbody>
             </table>
 
-
+            <br/>
+            <div class="pure-control-group">
+                <label for="payment-method">Метод на плащане</label>
+                <c:if test="${receipt.paymentMethod == 'CASH'}">
+                    <label id="payment-method">Брой</label>
+                </c:if>
+                <c:if test="${receipt.paymentMethod == 'CARD'}">
+                    <label id="payment-method">Карта</label>
+                </c:if>
+            </div>
             <br/><br/>
             <div class="pure-control-group">
                 <label for="full-price">Общо</label>

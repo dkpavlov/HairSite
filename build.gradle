@@ -32,6 +32,7 @@ dependencies {
     compile 'opensymphony:sitemesh:2.4.2'
     compile 'org.aspectj:aspectjweaver:1.8.5'
     compile 'commons-dbcp:commons-dbcp:1.4'
+    compile 'org.apache.poi:poi:3.14'
 
     compile 'log4j:log4j:1.2.17'
 

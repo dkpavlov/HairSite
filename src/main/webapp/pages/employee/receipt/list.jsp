@@ -33,19 +33,16 @@
     <br/><br/>
 
     <div class="paginator">
-        <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-        <c:if test="${not page.first}">
+        <c:if test="${not empty page}">
+            <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
             <a href="${url}&page=0" class="paginator-previous"><<</a>
             <a href="${url}&page=${page.number - 1}" class="paginator-page paginator-page-first"><</a>
-        </c:if>
-        <a href="/?page=10" class="paginator-current" onclick="return false;">${page.number}</a>
-        <c:if test="${not page.last}">
+            <a href="/?page=10" class="paginator-current" onclick="return false;">${page.number}</a>
             <a href="${url}&page=${page.number + 1}" class="paginator-page paginator-page-last">></a>
             <a href="${url}&page=${page.totalPages - 1}" class="paginator-next">>></a>
+            <br/>
+            Страница ${page.number} от ${page.totalPages - 1}
         </c:if>
-
-        <br/>
-        Страница ${page.number} от ${page.totalPages - 1}
     </div>
 
 </div>
