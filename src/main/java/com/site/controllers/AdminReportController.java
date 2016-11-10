@@ -85,7 +85,7 @@ public class AdminReportController {
 
     @RequestMapping(value = "/admin/receipt/{id}", method = RequestMethod.GET)
     private String previewReceipt(@PathVariable("id") Long id, ModelMap model){
-        model.put("receipt", receiptRepository.findOne(id));
+        model.put("receipt", receiptRepository.findById(id));
         return "admin/report/preview";
     }
 

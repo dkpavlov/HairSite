@@ -24,7 +24,7 @@
             <tr>
                 <td>${serviceProduct.name}</td>
                 <td>${serviceProduct.salonPrice}</td>
-                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/serviceItems/${serviceProduct.id}/edit">Редактирай</a></td>
+                <td><a class="pure-button" href="${pageContext.request.contextPath}/admin/serviceProducts/${serviceProduct.id}/edit">Редактирай</a></td>
                 <td><button class="pure-button delete" var="${serviceProduct.id}">Изтрий</button></td>
             </tr>
         </c:forEach>

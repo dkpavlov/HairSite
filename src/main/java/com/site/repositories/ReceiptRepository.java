@@ -16,6 +16,7 @@ import java.util.List;
 public interface ReceiptRepository extends PagingAndSortingRepository<Receipt, Long> {
     public Page<Receipt> findBySellerUsernameOrderByCreatedAtDesc(String username, Pageable pageable);
     public Receipt findByIdAndSellerUsername(Long id, String username);
+    public Receipt findById(Long id);
 
     @Query("select r from Receipt r where ((:uId is null) or (r.seller.id = :uId)) and " +
             "((:fromDate is null) or (r.createdAt >= :fromDate)) and " +

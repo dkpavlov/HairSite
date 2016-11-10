@@ -70,34 +70,33 @@ public class EmployeeReceiptController {
         HashMap<Long, Double> userPrices = getUserPrices(currentUser);
         HashMap<Long, Double> salonPrices = getSalonPrices();
         HashMap<Long, Double> salonPriceProducts = getSalonPricesProducts();
+
         List<ReceiptItem> itemsToRemove = new ArrayList<>();
         List<CustomReceiptItem> customItemsToRemove = new ArrayList<>();
         List<ProductItem> serviceProductToRemove = new ArrayList<>();
         Double userPart = 0.0;
         Double totalPrice = 0.0;
-        if(receipt != null && receipt.getItems() != null){
-            for(ReceiptItem item: receipt.getItems()){
-                System.out.println("Item: " + item.getItem().getId());
-                if(item.getQuantity().equals(0)){
-                    itemsToRemove.add(item);
-                } else {
-                    if(item.getMaterial() != null && (item.getMaterial().getId() == null || item.getMaterial().getId().equals(0L))){
-                        item.setMaterial(null);
+
+        if(receipt != null){
+
+            //Work with items
+            if(receipt.getItems() != null && receipt.getItems().size() > 0){
+                for(ReceiptItem item: receipt.getItems()){
+                    System.out.println("Item: " + item.getItem().getId());
+                    if(item.getQuantity().equals(0)){
+                        itemsToRemove.add(item);
+                    } else {
+                        if(item.getMaterial() != null && (item.getMaterial().getId() == null || item.getMaterial().getId().equals(0L))){
+                            item.setMaterial(null);
+                        }
+                        userPart += item.getQuantity() * userPrices.get(item.getItem().getId());
+                        totalPrice += item.getQuantity() * salonPrices.get(item.getItem().getId());
                     }
-                    userPart += item.getQuantity() * userPrices.get(item.getItem().getId());
-                    totalPrice += item.getQuantity() * salonPrices.get(item.getItem().getId());
                 }
-            }
-            for(ReceiptItem i: itemsToRemove){
-                System.out.println("Removed: " + i.getItem().getId());
+                receipt.getItems().removeAll(itemsToRemove);
             }
 
-            receipt.getItems().removeAll(itemsToRemove);
-
-            for(ReceiptItem i: receipt.getItems()){
-                System.out.println("NotRemoved: " + i.getItem().getId());
-            }
-
+            //Work with customItems
             if(receipt.getCustomItems() != null){
                 for(CustomReceiptItem cItem: receipt.getCustomItems()){
                     if(cItem.getQuantity().equals(0)){
@@ -110,12 +109,17 @@ public class EmployeeReceiptController {
                 receipt.getCustomItems().removeAll(customItemsToRemove);
             }
 
+            //Work with customItems
             if(receipt.getProducts() != null){
                 for(ProductItem product: receipt.getProducts()){
                     if(product.getQuantity().equals(0)){
                         serviceProductToRemove.add(product);
                     } else {
-                        totalPrice += product.getQuantity() * salonPriceProducts.get(product.getItem().getId());
+                        Double salonPrice = salonPriceProducts.get(product.getItem().getId());
+                        if(salonPrice == null){
+                            salonPrice = 0d;
+                        }
+                        totalPrice += product.getQuantity() * salonPrice;
                     }
                 }
                 receipt.getProducts().removeAll(serviceProductToRemove);

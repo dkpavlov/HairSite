@@ -50,6 +50,9 @@ public class AdminServiceProductController {
     public String postEditNews(@ModelAttribute("serviceProduct") ServiceProduct serviceProduct,
                                @PathVariable("id") Long id){
         serviceProduct.setId(id);
+        if(serviceProduct.getSalonPrice() == null){
+            serviceProduct.setSalonPrice(0d);
+        }
         serviceProductRepository.save(serviceProduct);
         return "redirect:/admin/serviceProducts";
     }

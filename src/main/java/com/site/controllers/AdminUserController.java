@@ -51,7 +51,8 @@ public class AdminUserController {
             return "admin/user/edit";
         }
         /*List<UserServiceItemPriceForm> prices = user.getPrices();
-        List<UserServiceItemPrice> priceDB = new ArrayList<>();*/
+        */
+
         try{
             user.setPassword(HomeController.sha256(user.getPassword1()));
         } catch (NoSuchAlgorithmException e) {
