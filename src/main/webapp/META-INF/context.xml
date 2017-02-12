@@ -1,6 +1,6 @@
 <Context>
-    <!--<Resource name="jdbc/site" auth="Container" type="javax.sql.DataSource"
+    <Resource name="jdbc/site" auth="Container" type="javax.sql.DataSource"
               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
               username="cole" password="01SOOudiPeuZTWph5s6w" driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://127.0.0.1:3306/cole?useUnicode=yes&amp;characterEncoding=UTF-8"/>-->
+              url="jdbc:mysql://127.0.0.1:3306/cole?useUnicode=yes&amp;characterEncoding=UTF-8"/>
 </Context>

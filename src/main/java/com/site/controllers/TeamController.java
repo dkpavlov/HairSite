@@ -33,7 +33,7 @@ public class TeamController {
     SalonRepository salonRepository;
 
     @RequestMapping(value = "/team", method = RequestMethod.GET)
-    public String index(@PageableDefault Pageable pageable, ModelMap model){
+    public String index(@PageableDefault(size = 100) Pageable pageable, ModelMap model){
         model.put("page", employeeRepository.findByStatus(Status.ACTIVE, pageable));
         return "public/team";
     }
